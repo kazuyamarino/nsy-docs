@@ -12,8 +12,38 @@ Returns your site full path `public` directory, as specified in your config file
 ```
 echo public_path();
 
-// for Example
+// for example
 usr/share/../html/nsy/public/
+```
+
+### Images directory uri
+Return img directory location on the `public` directory
+
+```
+echo img_url();
+
+// for Example
+// http://example.com/public/img
+```
+
+### Javascript directory uri
+Return js directory location on the `public` directory
+
+```
+echo js_url();
+
+// for Example
+// http://example.com/public/js
+```
+
+### CSS directory uri
+Return css directory location on the `public` directory
+
+```
+echo css_url();
+
+// for Example
+// http://example.com/public/css
 ```
 
 ### Get Version
