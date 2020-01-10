@@ -269,90 +269,6 @@ disallow_http();
 remove_get_parameters('url');
 ```
 
-<hr>
-
-## The Controllers
-
-### Passing variable to view
-If you want to passing variable to view, you can use example below :
-
-```
-$arr = [
-	'my_name' => $this->m_welcome->welcome(),
-	'mvc_page' => $this->m_hello->mvc_page(),
-	'date' => Carbon::now()
-];
-
-$this->load_template('header', $arr);
-```
-
-The above example will generate variable `$my_name`, `$date` and `$mvc_page` in view.
-
-### Load MVC or HMVC view file
-#### Load MVC view file :
-
-```
-$this->load_view(null, 'filename');
-```
-
-#### Load HMVC view file :
-
-```
-$this->load_view('module-name', 'filename');
-```
-
-The PHP superglobals `post()` and `get()` are used to collect form-data.
-
-```
-post('hello');
-
-// Same as $_POST['hello'];
-```
-
-```
-get('hello');
-
-// Same as $_GET['hello'];
-```
-
-### Sequence variable
-Create a sequence of the named placeholders, e.g. `:id0`, `:id1`, `:id2`. So the code would be:
-
-```
-$this->bind('placeholders')->vars('variable')->sequence()
-
-// $ids = [2,3,4];
-// $this->bind(":id")->vars($ids)->sequence()
-//
-// Will return `print_r()` result
-//
-// Array
-// (
-//    [0] => :id0,:id1,:id2
-//    [1] => Array
-//        (
-//            [:id0] => 2
-//            [:id1] => 3
-//            [:id2] => 4
-//        )
-// )
-```
-
-### Instantiate Model class in the controller
-Instantiate the Model class in the controller is useful to make it easier for us to give variables to it.
-So there is no need to rewrite the instantiate class in another method.
-
-Just have to write it in the contruct method, like this:
-
-```
-public function __construct() {
-	// Instantiate Model Crud
-	$this->m_crud = new m_crud;
-}
-```
-
-then `$this->m_crud` is the variable.
-
 ### Get URI Segment
 To help in retrieving data in URIs
 
@@ -747,6 +663,90 @@ aurora('txt', 'nsy_aurora', 'pipe', $header, $data, 'single');
 'Col1'|'Col2'|'Col3'
 'Vikry Yuansah'|'vikry'|'1'
 ```
+
+<hr>
+
+## The Controllers
+
+### Passing variable to view
+If you want to passing variable to view, you can use example below :
+
+```
+$arr = [
+	'my_name' => $this->m_welcome->welcome(),
+	'mvc_page' => $this->m_hello->mvc_page(),
+	'date' => Carbon::now()
+];
+
+$this->load_template('header', $arr);
+```
+
+The above example will generate variable `$my_name`, `$date` and `$mvc_page` in view.
+
+### Load MVC or HMVC view file
+#### Load MVC view file :
+
+```
+$this->load_view(null, 'filename');
+```
+
+#### Load HMVC view file :
+
+```
+$this->load_view('module-name', 'filename');
+```
+
+The PHP superglobals `post()` and `get()` are used to collect form-data.
+
+```
+post('hello');
+
+// Same as $_POST['hello'];
+```
+
+```
+get('hello');
+
+// Same as $_GET['hello'];
+```
+
+### Sequence variable
+Create a sequence of the named placeholders, e.g. `:id0`, `:id1`, `:id2`. So the code would be:
+
+```
+$this->bind('placeholders')->vars('variable')->sequence()
+
+// $ids = [2,3,4];
+// $this->bind(":id")->vars($ids)->sequence()
+//
+// Will return `print_r()` result
+//
+// Array
+// (
+//    [0] => :id0,:id1,:id2
+//    [1] => Array
+//        (
+//            [:id0] => 2
+//            [:id1] => 3
+//            [:id2] => 4
+//        )
+// )
+```
+
+### Instantiate Model class in the controller
+Instantiate the Model class in the controller is useful to make it easier for us to give variables to it.
+So there is no need to rewrite the instantiate class in another method.
+
+Just have to write it in the contruct method, like this:
+
+```
+public function __construct() {
+	// Instantiate Model Crud
+	$this->m_crud = new m_crud;
+}
+```
+
+then `$this->m_crud` is the variable.
 
 <hr>
 
