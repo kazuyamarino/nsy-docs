@@ -4,7 +4,7 @@ NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 Site example :
 <a href="https://nsy.kazuyamarino.com/" target="_blank">https://nsy.kazuyamarino.com/</a>
 
-### Composer
+## Composer
 Composer helps you declare, manage, and install dependencies of PHP projects.
 
 See [https://getcomposer.org/](https://getcomposer.org/) for more information and documentation.
