@@ -66,7 +66,7 @@ Here it is [Vylma CRUD Example](https://vylma.kazuyamarino.com/)
 And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
 
 
-## NSY Feature :
+## NSY Features :
 * Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#primary--secondary-database-connections)
 * Aurora File Export, [Aurora Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#aurora-file-export)
 * NSY Routing System, [Routes Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)

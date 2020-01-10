@@ -1,4 +1,4 @@
-# NSY SYSTEM GUIDE
+# NSY SYSTEM GUIDE PART 1
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
 Site example :
