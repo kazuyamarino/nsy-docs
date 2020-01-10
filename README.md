@@ -67,15 +67,15 @@ And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
 
 
 ## NSY Feature :
-* Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE.md#primary--secondary-database-connections)
-* Aurora File Export, [Aurora Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE.md#aurora-file-export)
+* Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#primary--secondary-database-connections)
+* Aurora File Export, [Aurora Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#aurora-file-export)
 * NSY Routing System, [Routes Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
 * [MVC or HMVC](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
 * NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#introducting-to-nsy-assets-manager)
 * [PSR-4 Autoloading](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#psr-4-autoloading)
 * Composer, [Composer on NSY](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
 * .env (Environment Variables) Config, [Framework Config](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#framework-configuration)
-* Anti XSS & CSRF Token, [Security helper](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE.md#security-helper)
+* Anti XSS & CSRF Token, [Security helper](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#security-helper)
 * NSY CLI (Command Line), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line)
 * Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/)
 * FTP Client, See [php-ftp-client Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-ftp-client-library) **NEW!**
