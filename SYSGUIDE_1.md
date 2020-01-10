@@ -1147,7 +1147,7 @@ $this->stringify_fetches_true();
 
 <br/>
 
-**Go to [SYSGUIDE Part 2](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE_2.md)**
+**Go to [SYSGUIDE Part 2](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md)**
 
 <hr>
 

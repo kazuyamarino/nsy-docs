@@ -344,7 +344,7 @@ Use the `@block` directive to define blocks inside a template. Other template fi
 NSY supports a flexible FTP and SSL-FTP client for PHP. This library provides helpers easy to use to manage the remote files. [nicolab/php-ftp-client](https://github.com/Nicolab/php-ftp-client).
 
 You only need to instantiate the class in the construct method `__contruct`.
-[See Instantiate Model class in the controller](https://github.com/kazuyamarino/nsy/blob/master/docs/SYSGUIDE.md#instantiate-model-class-in-the-controller).
+[See Instantiate Model class in the controller](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE.md#instantiate-model-class-in-the-controller).
 
 #### Login to FTP
 
