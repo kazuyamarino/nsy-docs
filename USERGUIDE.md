@@ -9,15 +9,13 @@ Composer helps you declare, manage, and install dependencies of PHP projects.
 
 See [https://getcomposer.org/](https://getcomposer.org/) for more information and documentation.
 
-Installation / Usage
---------------------
+### Installation / Usage
 
 Download and install Composer by following the [official instructions](https://getcomposer.org/download/).
 
 For usage, see [the documentation](https://getcomposer.org/doc/).
 
-Packages
---------
+### Packages
 
 Find packages on [Packagist](https://packagist.org).
 
