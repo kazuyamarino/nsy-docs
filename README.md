@@ -67,31 +67,28 @@ And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
 
 
 ## NSY Features :
-* Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#primary--secondary-database-connections)
-* Aurora File Export, [Aurora Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#aurora-file-export)
-* NSY Routing System, [Routes Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
+* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
+* NSY Routing System, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
 * [MVC or HMVC](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
 * NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#introducting-to-nsy-assets-manager)
 * [PSR-4 Autoloading](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#psr-4-autoloading)
-* Composer, [Composer on NSY](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
-* .env (Environment Variables) Config, [Framework Config](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#framework-configuration)
-* Anti XSS & CSRF Token, [Security helper](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#security-helper)
 * NSY CLI (Command Line), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line)
-* Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/)
-* FTP Client, See [php-ftp-client Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-ftp-client-library) **NEW!**
-* Cookie Library, [Cookie Library Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#cookie-library) **NEW!**
-* Add several Codeigniter Helpers **NEW!**
-* Razr Template Engine, [Razr Engine Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine) **NEW!**
-* Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations) **NEW!**
-
+* Anti XSS & CSRF Token, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#security-helper)
+* Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#primary--secondary-database-connections)
+* Aurora File Export, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#aurora-file-export)
+* FTP Client, See [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#nsy-ftp-client-library)
+* ImageResize Library, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#imageresize-library)
+* Carbon DateTime, [See Documentation](https://carbon.nesbot.com/docs/)
+* NSY Database Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations)
+* Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
 
 ## User Guide.
 See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
 
 
 ## System Guide.
-Part 1 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).<br/>
-Part 2 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md).
+* Part 1 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).<br/>
+* Part 2 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md).
 
 
 ## License
