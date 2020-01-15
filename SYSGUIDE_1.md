@@ -1809,7 +1809,7 @@ File::get_filenames($source_dir, $include_path = false, $_recursion = false);
 | Attribute | Description | Type | Required | Default
 | --- | --- | --- | --- | --- |
 | $source_dir | Path where get file paths. | string |  | |
-| $include_path | whether to include the path as part of the filename. | string |  | |
+| $include_path | whether to include the path as part of the filename. | boolean |  | |
 | $_recursion | internal variable to determine recursion status. | boolean |  | |
 
 **# Return** (array)
@@ -1824,7 +1824,7 @@ File::get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false
 | Attribute | Description | Type | Required | Default
 | --- | --- | --- | --- | --- |
 | $source_dir | Path where get file paths. | string |  | |
-| $top_level_only | whether to include the path as part of the filename. | string |  | |
+| $top_level_only | whether to include the path as part of the filename. | boolean |  | |
 | $_recursion | Look only at the top level directory specified? | boolean |  | |
 
 **# Return** (array)
@@ -1863,7 +1863,7 @@ File::get_mime_by_extension($filename);
 File::get_mimes();
 ```
 
-**# Return** (string)
+**# Return** (array)
 
 ### - Force Download:
 
