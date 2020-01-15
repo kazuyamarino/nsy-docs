@@ -1903,7 +1903,7 @@ Available methods in this library:
 ### - Parameter return as array:
 
 ```php
-Validate::asArray($data, $default);
+Validate::as_array($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1916,7 +1916,7 @@ Validate::asArray($data, $default);
 ### - Parameter return as object:
 
 ```php
-Validate::asObject($data, $default);
+Validate::as_object($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1929,7 +1929,7 @@ Validate::asObject($data, $default);
 ### - Parameter return as JSON:
 
 ```php
-Validate::asJson($data, $default);
+Validate::as_json($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1942,7 +1942,7 @@ Validate::asJson($data, $default);
 ### - Parameter return as string:
 
 ```php
-Validate::asString($data, $default);
+Validate::as_string($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1955,7 +1955,7 @@ Validate::asString($data, $default);
 ### - Parameter return as integer:
 
 ```php
-Validate::asInteger($data, $default);
+Validate::as_integer($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1968,7 +1968,7 @@ Validate::asInteger($data, $default);
 ### - Parameter return as float:
 
 ```php
-Validate::asFloat($data, $default);
+Validate::as_float($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1981,7 +1981,7 @@ Validate::asFloat($data, $default);
 ### - Parameter return as boolean:
 
 ```php
-Validate::asBoolean($data, $default);
+Validate::as_boolean($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1994,7 +1994,7 @@ Validate::asBoolean($data, $default);
 ### - Parameter return as IP:
 
 ```php
-Validate::asIp($data, $default);
+Validate::as_ip($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -2007,7 +2007,7 @@ Validate::asIp($data, $default);
 ### - Parameter return as URL:
 
 ```php
-Validate::asUrl($data, $default);
+Validate::as_url($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -2020,7 +2020,7 @@ Validate::asUrl($data, $default);
 ### - Parameter return as URL:
 
 ```php
-Validate::asEmail($data, $default);
+Validate::as_email($data, $default);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -2029,24 +2029,6 @@ Validate::asEmail($data, $default);
 | $default | Default value in error case. | mixed | No | ´null´ |
 
 **# Return** (mixed|null) → value, null or customized return value
-
-## Quick Start
-
-To use this library with **Composer**:
-
-```php
-require __DIR__ . '/vendor/autoload.php';
-
-use Josantonius\Validate\Validate;
-```
-
-Or if you installed it **manually**, use it:
-
-```php
-require_once __DIR__ . '/Validate.php';
-
-use Josantonius\Validate\Validate;
-```
 
 ## Usage
 
@@ -2057,13 +2039,13 @@ Example of use for this library:
 #### - When an array is passed:
 
 ```php
-var_dump(Validate::asArray(['foo', 'bar'])); // ['foo', 'bar']
+var_dump(Validate::as_array(['foo', 'bar'])); // ['foo', 'bar']
 ```
 
 #### - When an JSON array is passed:
 
 ```php
-var_dump(Validate::asArray('["foo", "bar"]')); // ['foo', 'bar']
+var_dump(Validate::as_array('["foo", "bar"]')); // ['foo', 'bar']
 ```
 
 #### - When an object is passed:
@@ -2073,21 +2055,21 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-var_dump(Validate::asArray($data)); // ['foo' => 'bar']
+var_dump(Validate::as_array($data)); // ['foo' => 'bar']
 ```
 
 #### - When an JSON object is passed:
 
 ```php
-var_dump(Validate::asArray('{"foo": "bar"}')); // ['foo' => 'bar']
+var_dump(Validate::as_array('{"foo": "bar"}')); // ['foo' => 'bar']
 ```
 
 #### - Parameter return default value when there's no a correct array:
 
 ```php
-var_dump(Validate::asArray(false)); // null
+var_dump(Validate::as_array(false)); // null
 
-var_dump(Validate::asArray(false, ['foo', 'bar'])); // ['foo', 'bar']
+var_dump(Validate::as_array(false, ['foo', 'bar'])); // ['foo', 'bar']
 ```
 
 ### - OBJECT:
@@ -2099,7 +2081,7 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-$object = Validate::asObject($data);
+$object = Validate::as_object($data);
 
 echo $object->foo; // 'bar'
 ```
@@ -2107,7 +2089,7 @@ echo $object->foo; // 'bar'
 #### - When an JSON object is passed:
 
 ```php
-$object = Validate::asObject('{"foo": "bar"}');
+$object = Validate::as_object('{"foo": "bar"}');
 
 echo $object->foo; // 'bar'
 ```
@@ -2115,7 +2097,7 @@ echo $object->foo; // 'bar'
 #### - When an array is passed:
 
 ```php
-$object = Validate::asObject(['foo' => 'bar']));
+$object = Validate::as_object(['foo' => 'bar']));
 
 echo $object->foo; // 'bar'
 ```
@@ -2123,9 +2105,9 @@ echo $object->foo; // 'bar'
 #### - Parameter return default value when there's no a correct object:
 
 ```php
-var_dump(Validate::asObject(false)); // null
+var_dump(Validate::as_object(false)); // null
 
-$object = Validate::asObject(false, ['foo' => 'bar']);
+$object = Validate::as_object(false, ['foo' => 'bar']);
 
 echo $object->foo; // 'bar'
 ```
@@ -2135,13 +2117,13 @@ echo $object->foo; // 'bar'
 #### - When an JSON object is passed:
 
 ```php
-echo Validate::asJson('{"foo": "bar"}'); // '{"foo": "bar"}'
+echo Validate::as_json('{"foo": "bar"}'); // '{"foo": "bar"}'
 ```
 
 #### - When an array is passed:
 
 ```php
-echo Validate::asJson(['foo' => 'bar']); // '{"foo":"bar"}'
+echo Validate::as_json(['foo' => 'bar']); // '{"foo":"bar"}'
 ```
 
 #### - When an object is passed:
@@ -2151,15 +2133,15 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-echo Validate::asJson($data); // '{"foo":"bar"}'
+echo Validate::as_json($data); // '{"foo":"bar"}'
 ```
 
 #### - Parameter return default value when there's no a correct JSON:
 
 ```php
-var_dump(Validate::asJson(false)); // null
+var_dump(Validate::as_json(false)); // null
 
-echo Validate::asJson(false, '["foo", "bar"]'); // '["foo", "bar"]'
+echo Validate::as_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 ```
 
 ### - STRING:
@@ -2167,21 +2149,21 @@ echo Validate::asJson(false, '["foo", "bar"]'); // '["foo", "bar"]'
 #### - When an string is passed:
 
 ```php
-echo Validate::asString('foo'); // 'foo'
+echo Validate::as_string('foo'); // 'foo'
 ```
 
 #### - When an integer is passed:
 
 ```php
-echo Validate::asString(221104); // '221104'
+echo Validate::as_string(221104); // '221104'
 ```
 
 #### - Parameter return default value when there's no a correct string:
 
 ```php
-var_dump(Validate::asString(false)); // null
+var_dump(Validate::as_string(false)); // null
 
-echo Validate::asString(false, 'foo'); // 'foo'
+echo Validate::as_string(false, 'foo'); // 'foo'
 ```
 
 ### - INTEGER:
@@ -2189,21 +2171,21 @@ echo Validate::asString(false, 'foo'); // 'foo'
 #### - When an integer is passed:
 
 ```php
-echo Validate::asInteger(8); // 8
+echo Validate::as_integer(8); // 8
 ```
 
 #### - When an string is passed:
 
 ```php
-echo Validate::asInteger('8'); // 8
+echo Validate::as_integer('8'); // 8
 ```
 
 #### - Parameter return default value when there's no a correct integer:
 
 ```php
-var_dump(Validate::asInteger(false)); // null
+var_dump(Validate::as_integer(false)); // null
 
-echo Validate::asInteger(false, 8); // 8
+echo Validate::as_integer(false, 8); // 8
 ```
 
 ### - FLOAT:
@@ -2211,21 +2193,21 @@ echo Validate::asInteger(false, 8); // 8
 #### - When an float is passed:
 
 ```php
-echo Validate::asFloat(8.8); // 8.8
+echo Validate::as_float(8.8); // 8.8
 ```
 
 #### - When an string is passed:
 
 ```php
-echo Validate::asFloat('8.8'); // 8.8
+echo Validate::as_float('8.8'); // 8.8
 ```
 
 #### - Parameter return default value when there's no a correct float:
 
 ```php
-var_dump(Validate::asFloat(false)); // null
+var_dump(Validate::as_float(false)); // null
 
-echo Validate::asFloat(false, 8.8); // 8.8
+echo Validate::as_float(false, 8.8); // 8.8
 ```
 
 ### - BOOLEAN:
@@ -2233,57 +2215,57 @@ echo Validate::asFloat(false, 8.8); // 8.8
 #### - When an boolean true is passed:
 
 ```php
-var_dump(Validate::asBoolean(true)); // true
+var_dump(Validate::as_boolean(true)); // true
 ```
 
 #### - When an string true is passed:
 
 ```php
-var_dump(Validate::asBoolean('true')); // true
+var_dump(Validate::as_boolean('true')); // true
 ```
 
 #### - When an integer one is passed:
 
 ```php
-var_dump(Validate::asBoolean(1)); // true
+var_dump(Validate::as_boolean(1)); // true
 ```
 
 #### - When an string one is passed:
 
 ```php
-var_dump(Validate::asBoolean('1')); // true
+var_dump(Validate::as_boolean('1')); // true
 ```
 
 #### - When an boolean false is passed:
 
 ```php
-var_dump(Validate::asBoolean(false)); // false
+var_dump(Validate::as_boolean(false)); // false
 ```
 
 #### - When an string false is passed:
 
 ```php
-var_dump(Validate::asBoolean('false')); // false
+var_dump(Validate::as_boolean('false')); // false
 ```
 
 #### - When an integer zero is passed:
 
 ```php
-var_dump(Validate::asBoolean(0)); // false
+var_dump(Validate::as_boolean(0)); // false
 ```
 
 #### - When an string zero is passed:
 
 ```php
-var_dump(Validate::asBoolean('0')); // false
+var_dump(Validate::as_boolean('0')); // false
 ```
 
 #### - Parameter return default value when there's no a correct boolean:
 
 ```php
-var_dump(Validate::asBoolean(null)); // null
+var_dump(Validate::as_boolean(null)); // null
 
-echo Validate::asBoolean(null, true); // true
+echo Validate::as_boolean(null, true); // true
 ```
 
 ### - IP:
@@ -2291,15 +2273,15 @@ echo Validate::asBoolean(null, true); // true
 #### - When an IP is passed:
 
 ```php
-echo Validate::asIp('255.255.255.0'); // '255.255.255.0'
+echo Validate::as_ip('255.255.255.0'); // '255.255.255.0'
 ```
 
 #### - Parameter return default value when there's no a correct IP:
 
 ```php
-var_dump(Validate::asIp(null)); // null
+var_dump(Validate::as_ip(null)); // null
 
-echo Validate::asIp(null, '255.255.255.0'); // '255.255.255.0'
+echo Validate::as_ip(null, '255.255.255.0'); // '255.255.255.0'
 ```
 
 ### - URL:
@@ -2307,15 +2289,15 @@ echo Validate::asIp(null, '255.255.255.0'); // '255.255.255.0'
 #### - When an URL is passed:
 
 ```php
-echo Validate::asUrl('https://josantonius.com'); // 'https://josantonius.com'
+echo Validate::as_url('https://josantonius.com'); // 'https://josantonius.com'
 ```
 
 #### - Parameter return default value when there's no a correct URL:
 
 ```php
-var_dump(Validate::asUrl(null)); // null
+var_dump(Validate::as_url(null)); // null
 
-echo Validate::asUrl(null, 'https://josantonius.com'); // 'https://josantonius.com'
+echo Validate::as_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
 ```
 
 ### - Email:
@@ -2323,15 +2305,15 @@ echo Validate::asUrl(null, 'https://josantonius.com'); // 'https://josantonius.c
 #### - When an email is passed:
 
 ```php
-echo Validate::asEmail('hello@josantonius.com'); // 'hello@josantonius.com'
+echo Validate::as_email('hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
 #### - Parameter return default value when there's no a correct email:
 
 ```php
-var_dump(Validate::asEmail(null)); // null
+var_dump(Validate::as_email(null)); // null
 
-echo Validate::asEmail(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
+echo Validate::as_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
 <hr>
