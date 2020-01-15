@@ -1784,6 +1784,102 @@ File::get_files_from_dir($path);
 
 **# Return** (boolean)
 
+### - Writes data to the file specified in the path:
+
+```php
+<?php
+File::write_file($path, $data, $mode = 'wb');
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $path | Path where get file paths. | string |  | |
+| $data | Data to write. | string |  | |
+| $mode | fopen() mode (default: 'wb'). | string |  | |
+
+**# Return** (boolean)
+
+### - Get Filenames:
+
+```php
+<?php
+File::get_filenames($source_dir, $include_path = false, $_recursion = false);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $source_dir | Path where get file paths. | string |  | |
+| $include_path | whether to include the path as part of the filename. | string |  | |
+| $_recursion | internal variable to determine recursion status. | boolean |  | |
+
+**# Return** (array)
+
+### - Get Directory File Information:
+
+```php
+<?php
+File::get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $source_dir | Path where get file paths. | string |  | |
+| $top_level_only | whether to include the path as part of the filename. | string |  | |
+| $_recursion | Look only at the top level directory specified? | boolean |  | |
+
+**# Return** (array)
+
+### - Get File Info:
+
+```php
+<?php
+File::get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $file | path to file. | string |  | |
+| $returned_values | array or comma separated string of information returned. | mixed |  | |
+
+**# Return** (array)
+
+### - Get Mime by Extension:
+
+```php
+<?php
+File::get_mime_by_extension($filename);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $filename | filename. | string |  | |
+
+**# Return** (string)
+
+### - Returns the MIME types array from config/Mimes.php:
+
+```php
+<?php
+File::get_mimes();
+```
+
+**# Return** (string)
+
+### - Force Download:
+
+```php
+<?php
+File::force_download($filename = '', $data = '', $set_mime = false);
+```
+
+| Attribute | Description | Type | Required | Default
+| --- | --- | --- | --- | --- |
+| $filename | filename. | string |  | |
+| $data | the data to be downloaded. | mixed |  | |
+| $set_mime |  whether to try and send the actual file MIME type. | boolean |  | |
+
+**# Return** (void)
+
 ## Usage
 
 Example of use for this library:
@@ -1842,6 +1938,55 @@ File::copy_dir_recursively(public_path('/test/'), public_path('/copy/'));
 ```php
 <?php
 get_class(File::get_files_from_dir(__DIR__));
+```
+
+### - Writes data to the file specified in the path.
+
+```php
+<?php
+File::write_file($path, $data, $mode = 'wb');
+```
+
+### - Get Filenames
+
+```php
+<?php
+File::get_filenames($source_dir, $include_path = false, $_recursion = false);
+```
+
+### - Get Directory File Information
+
+```php
+<?php
+File::get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
+```
+
+### - Get File Info
+
+```php
+<?php
+File::get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
+```
+
+### - Get Mime by Extension
+
+```php
+<?php
+File::get_mime_by_extension($filename);
+```
+
+### - Returns the MIME types array from config/Mimes.php
+
+```php
+<?php
+File::get_mimes();
+```
+
+### - Generates headers that force a download to happen
+
+```php
+<?php
+File::force_download($filename = '', $data = '', $set_mime = false);
 ```
 
 ---
