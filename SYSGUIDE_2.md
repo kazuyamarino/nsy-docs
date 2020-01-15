@@ -6,6 +6,13 @@ Site example :
 
 ## The Controllers
 
+### Get variables from HTTP Request method.
+```
+$array = get_parsed_body();
+
+print_r($array);
+```
+
 ### Passing variable to view
 If you want to passing variable to view, you can use example below :
 
