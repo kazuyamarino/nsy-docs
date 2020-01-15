@@ -1284,20 +1284,18 @@ Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/docs/)
 
 ---
 
-# String Library
-
-Use this namespace in the controller :
-
-```
-use System\Libraries\Str;
-```
+# String Method
 
 ## Available Methods
 
 ### - Check if the string starts with a certain value:
 
 ```php
-Str::starts_with($search, $string);
+str_starts_with($search, $string);
+```
+
+```php
+str_starts_with("Hello", "Hello world");
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1310,7 +1308,11 @@ Str::starts_with($search, $string);
 ### - Check if the string ends with a certain value:
 
 ```php
-Str::ends_with($search, $string);
+str_ends_with($search, $string);
+```
+
+```php
+str_ends_with("world", "Hello World");
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1319,32 +1321,10 @@ Str::ends_with($search, $string);
 | $string | The string where search. | string | Yes | |
 
 **# Return** (boolean)
-
-## Usage
-
-Example of use for this library:
-
-### - Check if the string starts with a certain value:
-
-```php
-Str::starts_with("Hello", "Hello world");
-```
-
-### - Check if the string ends with a certain value:
-
-```php
-Str::ends_with("world", "Hello World");
-```
 
 ---
 
-# LanguageCode Library
-
-Use this namespace in the controller :
-
-```
-use System\Libraries\LanguageCode;
-```
+# LanguageCode Method
 
 ## Available Methods
 
@@ -1353,7 +1333,11 @@ Available methods in this library:
 ### - Get all language codes as array:
 
 ```php
-LanguageCode::get();
+parse_language();
+```
+
+```php
+print_r( parse_language() );
 ```
 
 **# Return** (array) → language codes and language names
@@ -1361,7 +1345,11 @@ LanguageCode::get();
 ### - Get language name from language code:
 
 ```php
-LanguageCode::get_language_from_code($languageCode);
+get_language_name($languageCode);
+```
+
+```php
+get_language_name('id');
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1373,7 +1361,11 @@ LanguageCode::get_language_from_code($languageCode);
 ### - Get language code from language name:
 
 ```php
-LanguageCode::get_code_from_language($languageName);
+get_language_code($languageName);
+```
+
+```php
+get_language_code('Indonesian');
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1382,22 +1374,9 @@ LanguageCode::get_code_from_language($languageName);
 
 **# Return** (tring|false) → language code
 
-## Usage
-
-Example of use for this library:
-```php
-LanguageCode::get();
-```
-
 ---
 
-# LoadTime Library
-
-Use this namespace in the controller :
-
-```
-use System\Libraries\LoadTime;
-```
+# LoadTime Method
 
 ## Available Methods
 
@@ -1406,7 +1385,7 @@ Available methods in this library:
 ### - Set initial time:
 
 ```php
-LoadTime::start();
+load_time();
 ```
 
 **# Return** (float) → microtime
@@ -1414,7 +1393,7 @@ LoadTime::start();
 ### - Set end time:
 
 ```php
-LoadTime::end();
+end_time();
 ```
 
 **# Return** (float) → seconds
@@ -1422,7 +1401,7 @@ LoadTime::end();
 ### - Check if the timer has been started:
 
 ```php
-LoadTime::is_active();
+is_active_time();
 ```
 
 **# Return** (boolean)
@@ -1433,26 +1412,20 @@ Example of use for this library:
 
 ```php
 <?php
-LoadTime::start();
+load_time();
 
 for ($i=0; $i < 100000; $i++) {
     // print_r($i . ' ');
 }
 
-print_r('Script executed in: ' . LoadTime::end() . ' seconds.');
+print_r('Script executed in: ' . end_time() . ' seconds.');
 
 /* Script executed in: 0.0012 seconds. */
 ```
 
 ---
 
-# Json Library
-
-Use this namespace in the controller :
-
-```
-use System\Libraries\Json;
-```
+# Json Method
 
 ## Available Methods
 
@@ -1461,7 +1434,7 @@ Available methods in this library:
 ### - Creating JSON file from array:
 
 ```php
-Json::array_to_file($array, $file);
+json_array_to_file($array, $file);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1474,7 +1447,7 @@ Json::array_to_file($array, $file);
 ### - Save to array the JSON file content:
 
 ```php
-Json::file_to_array($file);
+json_file_to_array($file);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1486,7 +1459,7 @@ Json::file_to_array($file);
 ### - Check for errors:
 
 ```php
-JsonLastError::check();
+json_last_error();
 ```
 
 **# Return** (array|null) → Null if there are no errors or array with state  code and error message.
@@ -1494,7 +1467,7 @@ JsonLastError::check();
 ### - Get collection of JSON errors:
 
 ```php
-JsonLastError::get_collection();
+json_collection_error();
 ```
 
 **# Return** (array) → Collection of JSON errors.
@@ -1515,7 +1488,7 @@ $array = [
 
 $pathfile = public_path('file.json');
 
-Json::array_to_file($array, $pathfile);
+json_array_to_file($array, $pathfile);
 
 ```
 
@@ -1524,14 +1497,14 @@ Json::array_to_file($array, $pathfile);
 ```php
 $pathfile = public_path('file.json');
 
-$array = Json::file_to_array($pathfile);
+$array = json_file_to_array($pathfile);
 
 ```
 
 ### - Check for errors:
 
 ```php
-$lastError = JsonLastError::check();
+$lastError = json_last_error();
 
 if (!is_null($lastError)) {
     var_dump($lastError);
@@ -1541,7 +1514,7 @@ if (!is_null($lastError)) {
 ### - Get collection of JSON errors:
 
 ```php
-$jsonLastErrorCollection = JsonLastError::get_collection();
+$jsonLastErrorCollection = json_collection_error();
 ```
 
 ---
@@ -1886,13 +1859,7 @@ get_class(File::get_files_from_dir(__DIR__));
 
 ---
 
-# IP Library
-
-Use this namespace in the controller :
-
-```
-use System\Libraries\Ip;
-```
+# IP Method
 
 ## Available Methods
 
@@ -1901,7 +1868,7 @@ Available methods in this library:
 ### - Get user's IP:
 
 ```php
-Ip::get();
+get_ip();
 ```
 
 **# Return** (string|false) → user IP or false
@@ -1909,7 +1876,7 @@ Ip::get();
 ### - Validate IP:
 
 ```php
-Ip::validate($ip);
+validate_ip($ip);
 ```
 
 | Attribute | Description | Type | Required | Default
@@ -1925,15 +1892,15 @@ Example of use for this library:
 ### - Get user's IP:
 
 ```php
-Ip::get();
+get_ip();
 ```
 
 ### - Validate IP:
 
 ```php
-$ip = Ip::get();
+$ip = get_ip();
 
-Ip::validate($ip);
+validate_ip($ip);
 ```
 
 <hr>
