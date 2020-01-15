@@ -181,10 +181,10 @@ array_flatten($items);
 If you want to display data values ​​in json form, you can do this method :
 
 ```
-fetch_json(data);
+fetch_json($data, $http_response_code);
 
 // $id = [1,2,3,4,5];
-// echo fetch_json(["data" => $id]);
+// echo fetch_json(["data" => $id], 200);
 //
 // Will return :
 // {
@@ -1937,7 +1937,7 @@ File::copy_dir_recursively(public_path('/test/'), public_path('/copy/'));
 
 ```php
 <?php
-get_class(File::get_files_from_dir(__DIR__));
+File::get_files_from_dir(__DIR__);
 ```
 
 ### - Writes data to the file specified in the path.

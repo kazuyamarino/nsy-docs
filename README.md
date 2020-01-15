@@ -47,6 +47,8 @@ Enter directory name >
 blog
 ```
 
+##### 4. NSY is Ready to create project!
+
 ---
 
 **Note :**
