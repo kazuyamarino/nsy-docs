@@ -76,9 +76,7 @@ In system.js there is a `base_url` configuration for javascript *(see line 1 to 
 ### Helpers
 The `system/helpers` folder is useful for creating custom methods that match what you want and need.
 
-There is a helper files that are by default available in NSY, namely `Helpers_CI`. `Helpers_CI` are a set of `Codeigniter` built-in helper (there are only a few) methods that can run on NSY.
-
-If you want to make your own helper, then just make the desired method in the php file then save it in system/helpers. And don't forget to autoload it on `composer.json` in the parameters `files`.
+If you want to make your own helper, then just make the desired method in the php file then save it in system/helpers. And don't forget to autoload it on `composer.json` in the `files` parameters.
 
 ```
 "autoload": {
@@ -86,7 +84,6 @@ If you want to make your own helper, then just make the desired method in the ph
 		"System\\": "system/"
 	},
 	"files": [
-		"system/helpers/Helpers_CI.php"
 		"system/helpers/Custom_Method.php" // your custom helpers file
 	]
 }
