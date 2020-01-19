@@ -254,6 +254,7 @@ Route::get('/view/@id:num/@user:alpha', function($id, $user) {
 Route::is_ajax();
 Route::is_https();
 Route::redirect($location, $code = 301);
+```
 
 #### Route group with (base path)
 
