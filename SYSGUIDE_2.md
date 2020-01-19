@@ -41,18 +41,142 @@ $this->load_view(null, 'filename');
 $this->load_view('module-name', 'filename');
 ```
 
-The PHP superglobals `post()` and `get()` are used to collect form-data.
+#### The PHP superglobals `post` and `get` are used to collect form-data.
 
 ```
-post('hello');
+$this->post('hello');
 
 // Same as $_POST['hello'];
 ```
 
 ```
-get('hello');
+$this->get('hello');
 
 // Same as $_GET['hello'];
+```
+
+#### Check if it's a PUT request :
+
+```
+$this->is_request_put();
+
+// output : true or false
+```
+
+#### Check if it's a DELETE request :
+
+```
+$this->is_request_delete();
+
+// output : true or false
+```
+
+#### Check if it's a GET request :
+
+```
+$this->is_request_get();
+
+// output : true or false
+```
+
+#### Check if it's a POST request :
+
+```
+$this->is_request_post();
+
+// output : true or false
+```
+
+#### Get request content type :
+
+```
+$this->get_content_type();
+
+// output example : application/x-www-form-urlencoded
+```
+
+#### Parse array data from request params :
+
+```
+$array = $this->get_parsed_array();
+```
+
+#### Parse object data from request params :
+
+```
+$array = $this->get_parsed_object();
+```
+
+#### Get data from request params and parse to json :
+
+```
+$this->get_parsed_json();
+
+$this->get_parsed_json($params);
+$this->get_parsed_json('keywords');
+```
+
+#### Get data from request params and parse to string :
+
+```
+$this->get_parsed_string();
+
+$this->get_parsed_string($params);
+$this->get_parsed_string('keywords');
+```
+
+#### Get data from request params and parse to integer :
+
+```
+$this->get_parsed_integer();
+
+$this->get_parsed_integer($params);
+$this->get_parsed_integer('keywords');
+```
+
+#### Get data from request params and parse to float :
+
+```
+$this->get_parsed_float();
+
+$this->get_parsed_float($params);
+$this->get_parsed_float('keywords');
+```
+
+#### Get data from request params and parse to boolean :
+
+```
+$this->get_parsed_boolean();
+
+$this->get_parsed_boolean($params);
+$this->get_parsed_boolean('keywords');
+```
+
+#### Get data from request params and parse to ip :
+
+```
+$this->get_parsed_ip();
+
+$this->get_parsed_ip($params);
+$this->get_parsed_ip('keywords');
+```
+
+#### Get data from request params and parse to url :
+
+```
+$this->get_parsed_url();
+
+$this->get_parsed_url($params);
+$this->get_parsed_url('keywords');
+```
+
+#### Get data from request params and parse to email :
+
+```
+$this->get_parsed_email();
+
+$this->get_parsed_email($params);
+$this->get_parsed_email('keywords');
 ```
 
 ### Sequence variable

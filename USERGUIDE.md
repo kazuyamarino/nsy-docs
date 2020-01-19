@@ -100,7 +100,7 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
     │   └── Web.php
 ```
 
->Macaw is a simple, open source PHP router. It's super small (~150 LOC), fast, and has some great >annotated source code. This class allows you to just throw it into your project and start using it >immediately.
+>Route66 was written to add some features to the minimalist Macaw router without bloating it. This class allows you to just throw it into your project and start using it immediately.
 
 #### Examples :
 
@@ -108,18 +108,32 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
 Route::get('/', function() {
   echo 'Hello world!';
 });
-
-Route::dispatch();
 ```
 
-Route also supports lambda URIs, such as:
+Route also supports regex parameters, such as:
+
+Uri params :
+```
+':all'		 => '.*',
+':any'		 => '[^/]+',
+':slug'		 => '[a-z0-9-]+',
+':uslug'	 => '[\w-]+',			// slug + underscores
+':num'		 => '[0-9]+',
+':alpha'	 => '[A-Za-z]+',
+':alnum'	 => '[0-9A-Za-z]+',
+':date'    => '[0-9]{4}-[0-9]{2}-[0-9]{2}'
+```
 
 ```PHP
 Route::get('/(:any)', function($slug) {
   echo 'The slug is: ' . $slug;
 });
 
-Route::dispatch();
+// multiple methods
+Route::match('post|put', '/comment', function() {});
+
+// equivalent to Route::match('get|post|put|patch|delete|head|options',..)
+Route::any('/', function() {};)
 ```
 
 You can also make requests for HTTP methods in NSY_Router, so you could also do:
@@ -144,21 +158,18 @@ It's possible to pass the namespace path to a controller instead of the closure:
 
 For this demo lets say I have a folder called controllers with a demo.php
 
-index.php:
-
-```php
-Route::get('/', 'Controllers\demo@index');
-Route::get('page', 'Controllers\demo@page');
-Route::get('view/(:num)', 'Controllers\demo@view');
-```
-
 demo.php:
 
 ```php
 <?php
-namespace controllers;
+namespace System\Controllers;
 
 class Demo {
+
+    public function __contruct()
+    {
+
+    }
 
     public function index()
     {
@@ -178,11 +189,94 @@ class Demo {
 }
 ```
 
-Lastly, if there is no route defined for a certain location, you can make NSY_Router run a custom callback, like:
+Web.php:
 
-```PHP
-Route::error(function() {
-  echo '404 :: Not Found';
+```php
+Route::get('/', function() {
+	Route::goto('Demo@index');
+});
+
+Route::get('/page', function() {
+	Route::goto('Demo@page');
+});
+
+Route::get('/view/@id:num', function($id) {
+	Route::goto('Demo@view', $id);
+});
+```
+
+#### Example passing to a controller inside hmvc module :
+
+For this demo lets say I have a module folder called `homepage` and folder controllers inside with a login.php name.
+
+login.php:
+
+```php
+<?php
+namespace System\Modules\Homepage\Controllers;
+
+class Login {
+
+    public function index()
+    {
+        echo 'login dashboard';
+    }
+
+    public function view($params)
+    {
+        echo $params['id'];
+        echo "<br>";
+        echo $params['user'];
+    }
+
+}
+```
+
+Web.php:
+
+```php
+Route::get('/homepage', function() {
+	Route::goto('Homepage\Login@index');
+});
+
+Route::get('/view/@id:num/@user:alpha', function($id, $user) {
+  $params = [
+    'id' => $id,
+    'user' => $user
+  ];
+	Route::goto('Homepage\Login@view', $params);
+});
+```
+
+#### Util methods
+
+```php
+Route::is_ajax();
+Route::is_https();
+Route::redirect($location, $code = 301);
+
+#### Route group with (base path)
+
+```php
+Route::group('/admin', function() {
+  // map to /admin/input
+	Route::get('/input', function() {
+		echo 'input user';
+	});
+
+  // map to /admin/delete
+	Route::get('/delete', function() {
+		echo 'delete user';
+	});
+});
+```
+
+#### Lastly, if there is no route defined for a certain location, you can make NSY_Router run a custom callback, like:
+
+```php
+Route::nomatch(function($meth, $uri) {
+	header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+	exit('404 Not Found.');
 });
 ```
 
