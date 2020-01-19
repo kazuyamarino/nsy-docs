@@ -217,7 +217,7 @@ public function __construct() {
 
 then `$this->m_crud` is the variable.
 
-<hr>
+---
 
 
 ## The Models
@@ -842,7 +842,7 @@ Use the `@block` directive to define blocks inside a template. Other template fi
 <p>Parent content outside of the block.</p>
 ```
 
-<hr>
+---
 
 # NSY Migrations
 
@@ -1114,7 +1114,7 @@ $this->connect()->alter_cols('example', function() {
 });
 ```
 
-<hr>
+---
 
 ## License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)

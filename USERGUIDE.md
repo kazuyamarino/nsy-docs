@@ -46,7 +46,7 @@ Should be like this. That it is!
 
 * Now, you can generate autoload class in the `models` folder & `controllers` folder for the `homepage` with `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` on the command line terminal.
 
-<hr>
+---
 
 ### Framework Configuration
 The NSY_Framework Configuration is very simple. There are 3 config file in `system/config` directory :
@@ -71,7 +71,7 @@ In system.js there is a `base_url` configuration for javascript *(see line 1 to 
 
 (*) For Example see Shyffon repository [https://github.com/kazuyamarino/shyffon](Here!)
 
-<hr>
+---
 
 ### Helpers
 The `system/helpers` folder is useful for creating custom methods that match what you want and need.
@@ -89,7 +89,7 @@ If you want to make your own helper, then just make the desired method in the ph
 }
 ```
 
-<hr>
+---
 
 ### Routes
 NSY Routing system using classes from [Macaw route by Noah Buscher](https://github.com/noahbuscher/macaw), and it's located in the `system/routes` directory.
@@ -283,13 +283,13 @@ Route::nomatch(function($meth, $uri) {
 
 If you don't specify an error callback, NSY_Router will just echo `404`.
 
-<hr>
+---
 
 ## MVC & HMVC
 * The Model View Controller (MVC) design pattern specifies that an application consist of a data model, presentation information, and control information. The pattern requires that each of these be separated into different objects.
 * The Hierarchical Model View Controller (HMVC) is an evolution of the MVC pattern used for most web applications today. It came about as an answer to the scalability problems apparent within applications which used MVC.
 
-<hr>
+---
 
 ## Introducting to NSY Assets Manager
 The easiest & best assets manager in history
@@ -336,13 +336,13 @@ Pull::header_assets();
 Pull::footer_assets();
 ```
 
-<hr>
+---
 
 ## PSR-4 Autoloading
 * NSY applies the concept of PSR-4 Autoloading. NSY has the `composer.json` file that can be dumped with [composer](https://getcomposer.org/download/) command `composer dump-autoload -o` when creating a folder structure that contains new class files.
 * Complete information about PSR-4 can be read on the official [PHP-FIG](https://www.php-fig.org/psr/psr-4/) website.
 
-<hr>
+---
 
 ## NSY CLI (Command Line)
 NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with:
@@ -509,7 +509,7 @@ nsy dump:autoload
 nsy --install
 ```
 
-<hr>
+---
 
 ## License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
