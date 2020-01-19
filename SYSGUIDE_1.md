@@ -1245,47 +1245,6 @@ print_r('Script executed in: ' . end_time() . ' seconds.');
 
 # Json Method
 
-### - Creating JSON file from array:
-
-```php
-json_array_to_file($array, $file);
-```
-
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $array | Array to be converted to JSON. | array | Yes | |
-| $file | Path to the file. | string | Yes | |
-
-**# Return** (boolean)
-
-### - Save to array the JSON file content:
-
-```php
-json_file_to_array($file);
-```
-
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $file | Path or external url to JSON file. | string | Yes | |
-
-**# Return** (array|false)
-
-### - Check for errors:
-
-```php
-json_last_error();
-```
-
-**# Return** (array|null) → Null if there are no errors or array with state  code and error message.
-
-### - Get collection of JSON errors:
-
-```php
-json_collection_error();
-```
-
-**# Return** (array) → Collection of JSON errors.
-
 ## Usage
 
 Example of use for this library:
@@ -1604,26 +1563,6 @@ File::force_download($filename = '', $data = '', $set_mime = false);
 ---
 
 # IP Method
-
-### - Get user's IP:
-
-```php
-get_ip();
-```
-
-**# Return** (string|false) → user IP or false
-
-### - Validate IP:
-
-```php
-validate_ip($ip);
-```
-
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $ip | IP address to be validated. | string | Yes | |
-
-**# Return** (boolean)
 
 ## Usage
 
