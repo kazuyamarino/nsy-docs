@@ -840,8 +840,7 @@ Use this namespace in the controller :
 use System\Libraries\ImageResize;
 ```
 
-Resize
-------
+### Resize
 
 To scale an image, in this case to half it's size (scaling is percentage based):
 
@@ -902,8 +901,7 @@ $image->save('image2.jpg');
 
 This will cause your image to skew if you do not use the same width/height ratio as the source image.
 
-Crop
-----
+### Crop
 
 To to crop an image:
 
@@ -965,8 +963,7 @@ $image->freecrop(200, 200, $x =  20, $y = 20);
 $image->save('image2.jpg');
 ```
 
-Loading and saving images from string
--------------------------------------
+### Loading and saving images from string
 
 To load an image from a string:
 
@@ -992,15 +989,13 @@ $image->resize(10, 10);
 echo (string)$image;
 ```
 
-Displaying
-----------
+### Displaying
 
 As seen above, you can call `$image->save('image.jpg');`
 
 To render the image directly into the browser, you can call `$image->output()`;
 
-Image Types
------------
+### Image Types
 
 When saving to disk or outputting into the browser, the script assumes the same output type as input.
 
@@ -1050,8 +1045,7 @@ $result = $image->get_image_as_string(IMAGETYPE_PNG, 4);
 
 We're passing `null` for the image type in the example above to skip over it and provide the quality. In this case, the image type is assumed to be the same as the input.
 
-Interlacing
------------
+### Interlacing
 
 By default, [image interlacing](http://php.net/manual/en/function.imageinterlace.php) is turned on. It can be disabled by setting `$interlace` to `0`:
 
@@ -1062,8 +1056,7 @@ $image->interlace = 0;
 $image->save('image2.jpg');
 ```
 
-Chaining
---------
+### Chaining
 
 When performing operations, the original image is retained, so that you can chain operations without excessive destruction.
 
@@ -1083,8 +1076,7 @@ $image
 ;
 ```
 
-Exceptions
---------
+### Exceptions
 
 ImageResize throws ImageResizeException for it's own for errors. You can catch that or catch the general \Exception which it's extending.
 
@@ -1124,11 +1116,6 @@ str_starts_with($search, $string);
 str_starts_with("Hello", "Hello world");
 ```
 
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $search | The string to search. | string | Yes | |
-| $string | The string where search. | string | Yes | |
-
 **# Return** (boolean)
 
 ### - Check if the string ends with a certain value:
@@ -1140,11 +1127,6 @@ str_ends_with($search, $string);
 ```php
 str_ends_with("world", "Hello World");
 ```
-
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $search | The string to search. | string | Yes | |
-| $string | The string where search. | string | Yes | |
 
 **# Return** (boolean)
 
@@ -1173,10 +1155,6 @@ get_language_name($languageCode);
 ```php
 get_language_name('id');
 ```
-
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $languageCode | Language code, e.g. 'es'. | string | Yes | |
 
 **# Return** (tring|false) → country name
 
