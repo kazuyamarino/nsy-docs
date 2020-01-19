@@ -163,7 +163,7 @@ redirect_back();
 
 The above example would return redirect to previous page.
 
-<hr>
+---
 
 ### Array Flatten
 PHP array_flatten() function. Convert a multi-dimensional array into a single-dimensional array :
@@ -198,7 +198,7 @@ fetch_json($data, $http_response_code);
 // }
 ```
 
-<hr>
+---
 
 ### Getting config value
 If you want to take values ​​in the config file on the `system/config`, this is the way :
@@ -224,7 +224,7 @@ config_site('value_name');
 // config_site('sitetitle');
 ```
 
-<hr>
+---
 
 ### Security helper
 * For filtering input value :
@@ -1856,11 +1856,9 @@ var_dump(Validate::as_email(null)); // null
 echo Validate::as_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
-<hr>
-
 **Go to [SYSGUIDE Part 2](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md)**
 
-<hr>
+---
 
 ## License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
