@@ -1999,6 +1999,13 @@ alternator()
 Allows to extract a piece of text surrounding a word or phrase.
 
 ```
+excerpt(string $text, string $phrase = null, int $radius = 100, string $ellipsis = '...')
+```
+
+#### Prep URL - Simply adds the http:// part if no scheme is included.
+Formerly used URI, but that does not play nicely with URIs missing the scheme.
+
+```
 prep_url(string $str = '')
 ```
 
@@ -2027,13 +2034,6 @@ Takes a numeric value representing a file's permissions and returns a three char
 ```
 octal_permissions($perms)
 ```
-
-```
-excerpt($text, $phrase = null, $radius = 100, $ellipsis = '...')
-```
-
-#### Prep URL - Simply adds the http:// part if no scheme is included.
-Formerly used URI, but that does not play nicely with URIs missing the scheme.
 
 **Go to [SYSGUIDE Part 2](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md)**
 
