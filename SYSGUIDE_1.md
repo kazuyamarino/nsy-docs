@@ -1168,11 +1168,7 @@ get_language_code($languageName);
 get_language_code('Indonesian');
 ```
 
-| Attribute | Description | Type | Required | Default
-| --- | --- | --- | --- | --- |
-| $languageName | Language name, e.g. 'Spanish'. | string | Yes | |
-
-**# Return** (tring|false) → language code
+**# Return** (string|false) → language code
 
 ---
 
@@ -1564,12 +1560,6 @@ validate_ip($ip);
 
 # Validate Library
 
-Use this namespace in the controller :
-
-```
-use System\Libraries\Validate;
-```
-
 ## Usage
 
 Example of use for this library:
@@ -1579,13 +1569,13 @@ Example of use for this library:
 #### - When an array is passed:
 
 ```php
-var_dump(Validate::as_array(['foo', 'bar'])); // ['foo', 'bar']
+var_dump(validate_array(['foo', 'bar'])); // ['foo', 'bar']
 ```
 
 #### - When an JSON array is passed:
 
 ```php
-var_dump(Validate::as_array('["foo", "bar"]')); // ['foo', 'bar']
+var_dump(validate_array('["foo", "bar"]')); // ['foo', 'bar']
 ```
 
 #### - When an object is passed:
@@ -1595,21 +1585,21 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-var_dump(Validate::as_array($data)); // ['foo' => 'bar']
+var_dump(validate_array($data)); // ['foo' => 'bar']
 ```
 
 #### - When an JSON object is passed:
 
 ```php
-var_dump(Validate::as_array('{"foo": "bar"}')); // ['foo' => 'bar']
+var_dump(validate_array('{"foo": "bar"}')); // ['foo' => 'bar']
 ```
 
 #### - Parameter return default value when there's no a correct array:
 
 ```php
-var_dump(Validate::as_array(false)); // null
+var_dump(validate_array(false)); // null
 
-var_dump(Validate::as_array(false, ['foo', 'bar'])); // ['foo', 'bar']
+var_dump(validate_array(false, ['foo', 'bar'])); // ['foo', 'bar']
 ```
 
 ### - OBJECT:
@@ -1621,7 +1611,7 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-$object = Validate::as_object($data);
+$object = validate_object($data);
 
 echo $object->foo; // 'bar'
 ```
@@ -1629,7 +1619,7 @@ echo $object->foo; // 'bar'
 #### - When an JSON object is passed:
 
 ```php
-$object = Validate::as_object('{"foo": "bar"}');
+$object = validate_object('{"foo": "bar"}');
 
 echo $object->foo; // 'bar'
 ```
@@ -1637,7 +1627,7 @@ echo $object->foo; // 'bar'
 #### - When an array is passed:
 
 ```php
-$object = Validate::as_object(['foo' => 'bar']));
+$object = validate_object(['foo' => 'bar']));
 
 echo $object->foo; // 'bar'
 ```
@@ -1645,9 +1635,9 @@ echo $object->foo; // 'bar'
 #### - Parameter return default value when there's no a correct object:
 
 ```php
-var_dump(Validate::as_object(false)); // null
+var_dump(validate_object(false)); // null
 
-$object = Validate::as_object(false, ['foo' => 'bar']);
+$object = validate_object(false, ['foo' => 'bar']);
 
 echo $object->foo; // 'bar'
 ```
@@ -1657,13 +1647,13 @@ echo $object->foo; // 'bar'
 #### - When an JSON object is passed:
 
 ```php
-echo Validate::as_json('{"foo": "bar"}'); // '{"foo": "bar"}'
+echo validate_json('{"foo": "bar"}'); // '{"foo": "bar"}'
 ```
 
 #### - When an array is passed:
 
 ```php
-echo Validate::as_json(['foo' => 'bar']); // '{"foo":"bar"}'
+echo validate_json(['foo' => 'bar']); // '{"foo":"bar"}'
 ```
 
 #### - When an object is passed:
@@ -1673,15 +1663,15 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-echo Validate::as_json($data); // '{"foo":"bar"}'
+echo validate_json($data); // '{"foo":"bar"}'
 ```
 
 #### - Parameter return default value when there's no a correct JSON:
 
 ```php
-var_dump(Validate::as_json(false)); // null
+var_dump(validate_json(false)); // null
 
-echo Validate::as_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
+echo validate_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 ```
 
 ### - STRING:
@@ -1689,21 +1679,21 @@ echo Validate::as_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 #### - When an string is passed:
 
 ```php
-echo Validate::as_string('foo'); // 'foo'
+echo validate_string('foo'); // 'foo'
 ```
 
 #### - When an integer is passed:
 
 ```php
-echo Validate::as_string(221104); // '221104'
+echo validate_string(221104); // '221104'
 ```
 
 #### - Parameter return default value when there's no a correct string:
 
 ```php
-var_dump(Validate::as_string(false)); // null
+var_dump(validate_string(false)); // null
 
-echo Validate::as_string(false, 'foo'); // 'foo'
+echo validate_string(false, 'foo'); // 'foo'
 ```
 
 ### - INTEGER:
@@ -1711,21 +1701,21 @@ echo Validate::as_string(false, 'foo'); // 'foo'
 #### - When an integer is passed:
 
 ```php
-echo Validate::as_integer(8); // 8
+echo validate_integer(8); // 8
 ```
 
 #### - When an string is passed:
 
 ```php
-echo Validate::as_integer('8'); // 8
+echo validate_integer('8'); // 8
 ```
 
 #### - Parameter return default value when there's no a correct integer:
 
 ```php
-var_dump(Validate::as_integer(false)); // null
+var_dump(validate_integer(false)); // null
 
-echo Validate::as_integer(false, 8); // 8
+echo validate_integer(false, 8); // 8
 ```
 
 ### - FLOAT:
@@ -1733,21 +1723,21 @@ echo Validate::as_integer(false, 8); // 8
 #### - When an float is passed:
 
 ```php
-echo Validate::as_float(8.8); // 8.8
+echo validate_float(8.8); // 8.8
 ```
 
 #### - When an string is passed:
 
 ```php
-echo Validate::as_float('8.8'); // 8.8
+echo validate_float('8.8'); // 8.8
 ```
 
 #### - Parameter return default value when there's no a correct float:
 
 ```php
-var_dump(Validate::as_float(false)); // null
+var_dump(validate_float(false)); // null
 
-echo Validate::as_float(false, 8.8); // 8.8
+echo validate_float(false, 8.8); // 8.8
 ```
 
 ### - BOOLEAN:
@@ -1755,57 +1745,57 @@ echo Validate::as_float(false, 8.8); // 8.8
 #### - When an boolean true is passed:
 
 ```php
-var_dump(Validate::as_boolean(true)); // true
+var_dump(validate_boolean(true)); // true
 ```
 
 #### - When an string true is passed:
 
 ```php
-var_dump(Validate::as_boolean('true')); // true
+var_dump(validate_boolean('true')); // true
 ```
 
 #### - When an integer one is passed:
 
 ```php
-var_dump(Validate::as_boolean(1)); // true
+var_dump(validate_boolean(1)); // true
 ```
 
 #### - When an string one is passed:
 
 ```php
-var_dump(Validate::as_boolean('1')); // true
+var_dump(validate_boolean('1')); // true
 ```
 
 #### - When an boolean false is passed:
 
 ```php
-var_dump(Validate::as_boolean(false)); // false
+var_dump(validate_boolean(false)); // false
 ```
 
 #### - When an string false is passed:
 
 ```php
-var_dump(Validate::as_boolean('false')); // false
+var_dump(validate_boolean('false')); // false
 ```
 
 #### - When an integer zero is passed:
 
 ```php
-var_dump(Validate::as_boolean(0)); // false
+var_dump(validate_boolean(0)); // false
 ```
 
 #### - When an string zero is passed:
 
 ```php
-var_dump(Validate::as_boolean('0')); // false
+var_dump(validate_boolean('0')); // false
 ```
 
 #### - Parameter return default value when there's no a correct boolean:
 
 ```php
-var_dump(Validate::as_boolean(null)); // null
+var_dump(validate_boolean(null)); // null
 
-echo Validate::as_boolean(null, true); // true
+echo validate_boolean(null, true); // true
 ```
 
 ### - IP:
@@ -1813,15 +1803,15 @@ echo Validate::as_boolean(null, true); // true
 #### - When an IP is passed:
 
 ```php
-echo Validate::as_ip('255.255.255.0'); // '255.255.255.0'
+echo validate_ip('255.255.255.0'); // '255.255.255.0'
 ```
 
 #### - Parameter return default value when there's no a correct IP:
 
 ```php
-var_dump(Validate::as_ip(null)); // null
+var_dump(validate_ip(null)); // null
 
-echo Validate::as_ip(null, '255.255.255.0'); // '255.255.255.0'
+echo validate_ip(null, '255.255.255.0'); // '255.255.255.0'
 ```
 
 ### - URL:
@@ -1829,15 +1819,15 @@ echo Validate::as_ip(null, '255.255.255.0'); // '255.255.255.0'
 #### - When an URL is passed:
 
 ```php
-echo Validate::as_url('https://josantonius.com'); // 'https://josantonius.com'
+echo validate_url('https://josantonius.com'); // 'https://josantonius.com'
 ```
 
 #### - Parameter return default value when there's no a correct URL:
 
 ```php
-var_dump(Validate::as_url(null)); // null
+var_dump(validate_url(null)); // null
 
-echo Validate::as_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
+echo validate_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
 ```
 
 ### - Email:
@@ -1845,16 +1835,205 @@ echo Validate::as_url(null, 'https://josantonius.com'); // 'https://josantonius.
 #### - When an email is passed:
 
 ```php
-echo Validate::as_email('hello@josantonius.com'); // 'hello@josantonius.com'
+echo validate_email('hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
 #### - Parameter return default value when there's no a correct email:
 
 ```php
-var_dump(Validate::as_email(null)); // null
+var_dump(validate_email(null)); // null
 
-echo Validate::as_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
+echo validate_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
 ```
+
+# CI helpers
+A several CI helpers of NSY PHP Framework from Codeigniter.
+
+#### Set Realpath
+
+```
+set_realpath($path, $check_existance = false)
+```
+
+#### Random Element - Takes an array as input and returns a random element
+
+```
+random_element($array)
+```
+
+#### directory_map
+Reads the specified directory and builds an array representation of it. Sub-folders contained with the directory will be mapped as well.
+
+```
+directory_map($source_dir, $directory_depth = 0, $hidden = false)
+```
+
+#### Convert PHP tags to entities
+
+```
+encode_php_tags(string $str)
+```
+
+#### Word Limiter
+Limits a string to X number of words.
+
+```
+word_limiter(string $str, int $limit = 100, string $end_char = '&#8230;')
+```
+
+#### Character Limiter
+Limits the string based on the character count.  Preserves complete words
+so the character count may not be exactly as specified.
+
+```
+character_limiter(string $str, int $n = 500, string $end_char = '&#8230;')
+```
+
+#### High ASCII to Entities
+Converts high ASCII text and MS Word special characters to character entities.
+
+```
+ascii_to_entities(string $str)
+```
+
+#### Entities to ASCII
+Converts character entities back to ASCII.
+
+```
+entities_to_ascii(string $str, bool $all = true)
+```
+
+#### Word Censoring Function
+Supply a string and an array of disallowed words and any matched words will be converted to #### or to the replacement word you've submitted.
+
+```
+word_censor(string $str, array $censored, string $replacement = '')
+```
+
+#### Code Highlighter
+Colorizes code strings.
+
+```
+highlight_code(string $str)
+```
+
+#### Phrase Highlighter
+Highlights a phrase within a text string.
+
+```
+highlight_phrase(string $str, string $phrase, string $tag_open = '<mark>', string $tag_close = '</mark>')
+```
+
+#### Word Wrap
+Wraps text at the specified character. Maintains the integrity of words.
+Anything placed between {unwrap}{/unwrap} will not be word wrapped, nor will URLs.
+
+```
+word_wrap(string $str, int $charlim = 76)
+```
+
+#### Ellipsize String
+This function will strip tags from a string, split it at its max_length and ellipsize.
+
+```
+ellipsize(string $str, int $max_length, $position = 1, string $ellipsis = '&hellip;')
+```
+
+#### Strip Slashes
+Removes slashes contained in a string or in an array.
+
+```
+strip_slashes($str)
+```
+
+#### Strip Quotes
+Removes single and double quotes from a string.
+
+```
+strip_quotes(string $str)
+```
+
+#### Quotes to Entities
+Converts single and double quotes to entities.
+
+```
+quotes_to_entities(string $str)
+```
+
+#### Reduce Double Slashes
+Converts double slashes in a string to a single slash, except those found in http://
+
+```
+reduce_double_slashes(string $str)
+```
+
+#### Reduce Multiples
+Reduces multiple instances of a particular character.
+
+```
+reduce_multiples(string $str, string $character = ',', bool $trim = false)
+```
+
+#### Create a Random String
+Useful for generating passwords or hashes.
+
+```
+random_string(string $type = 'alnum', int $len = 8)
+```
+
+#### Increment String
+Add `_1` to a string or increment the ending number to allow `_2`,` _3`, etc
+
+```
+increment_string(string $str, string $separator = '_', int $first = 1)
+```
+
+#### Alternator
+Allows strings to be alternated. See docs...
+
+```
+alternator()
+```
+
+#### Excerpt
+Allows to extract a piece of text surrounding a word or phrase.
+
+```
+prep_url(string $str = '')
+```
+
+#### Create URL Title
+Takes a "title" string as input and creates a human-friendly URL string with a "separator" string as the word separator.
+
+```
+url_title(string $str, string $separator = '-', bool $lowercase = false)
+```
+
+#### Convert Reserved XML characters to Entities
+
+```
+xml_convert($str, $protect_all = false)
+```
+
+#### Symbolic Permissions
+
+```
+symbolic_permissions($perms)
+```
+
+#### Octal Permissions
+Takes a numeric value representing a file's permissions and returns a three character string representing the file's octal permissions.
+
+```
+octal_permissions($perms)
+```
+
+```
+excerpt($text, $phrase = null, $radius = 100, $ellipsis = '...')
+```
+
+#### Prep URL - Simply adds the http:// part if no scheme is included.
+Formerly used URI, but that does not play nicely with URIs missing the scheme.
 
 **Go to [SYSGUIDE Part 2](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md)**
 
