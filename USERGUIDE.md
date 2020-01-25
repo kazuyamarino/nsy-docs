@@ -509,6 +509,18 @@ nsy dump:autoload
 nsy --install
 ```
 
+* Make before middleware class :
+
+```
+nsy make:before-middleware <class-name>
+```
+
+* Make after middleware class :
+
+```
+nsy make:after-middleware <class-name>
+```
+
 ---
 
 ## License
