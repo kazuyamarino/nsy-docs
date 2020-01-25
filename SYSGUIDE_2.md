@@ -1164,7 +1164,7 @@ public function peel($object, \Closure $next)
 
 	if ( $condition == 1 ) {
 		/*
-		Respon if condition true,
+		Response if condition true,
 		Result from before middleware here.
 		 */
 		$object = 'Before Core';
