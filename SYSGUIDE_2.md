@@ -1132,12 +1132,12 @@ The `Web.php` route file.
 Route::get('/', function() {
 	$middleware = [
 		new BeforeLayer(),
-    new AfterLayer()
-  ];
+		new AfterLayer()
+	];
 
 	Route::middleware()->layer($middleware)->peel(null, function(){
 		Route::goto('Welcome@index');
-	});
+		});
 });
 ```
 
@@ -1146,11 +1146,11 @@ Route::get('/', function() {
 ```
 public function peel($object, \Closure $next)
 {
-  $response = $next($object);
+	$response = $next($object);
 
 	/*
 	Result from after middleware here.
-	 */
+	*/
 	$object = 'After Core';
 }
 ```
@@ -1166,18 +1166,18 @@ public function peel($object, \Closure $next)
 		/*
 		Response if condition true,
 		Result from before middleware here.
-		 */
+		*/
 		$object = 'Before Core';
 
 		$response = $next($object);
-	} else {
-		/*
-		Response if condition false.
-		 */
-		$object = 'Middleware : Access controller canceled';
+		} else {
+			/*
+			Response if condition false.
+			*/
+			$object = 'Middleware : Access controller canceled';
 
-		exit();
-	}
+			exit();
+		}
 }
 ```
 
