@@ -7,7 +7,8 @@ Site example :
 [https://nsy.kazuyamarino.com/](https://nsy.kazuyamarino.com/)
 
 ## Codename
-Tifa is a musical instrument typical of Eastern Indonesia, especially Maluku and Papua. This instrument looks like a drum and is made of wood with a hole in the middle. *Wikipedia - https://id.wikipedia.org/wiki/Tifa*
+Serunai, or also called Puput Serunai, is the name of a wind instrument known in Indonesia as a traditional musical instrument of the Minang community. The unique part of the Serunai is the expanding tip, which functions to increase the sound volume.
+*Wikipedia - https://id.wikipedia.org/wiki/Serunai*
 
 ## How to dating with NSY?
 ### Download from Github
@@ -83,6 +84,7 @@ And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
 * Carbon DateTime, [See Documentation](https://carbon.nesbot.com/docs/)
 * NSY Database Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations)
 * Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
+* Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares)
 
 ## User Guide.
 See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
