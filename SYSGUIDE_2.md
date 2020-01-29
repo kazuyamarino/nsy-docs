@@ -183,10 +183,10 @@ get_parsed_email('keywords');
 Create a sequence of the named placeholders, e.g. `:id0`, `:id1`, `:id2`. So the code would be:
 
 ```
-$this->bind('placeholders')->vars('variable')->sequence()
+sequence('placeholders', 'variable')
 
 // $ids = [2,3,4];
-// $this->bind(":id")->vars($ids)->sequence()
+// sequence(":id", $ids)
 //
 // Will return `print_r()` result
 //
