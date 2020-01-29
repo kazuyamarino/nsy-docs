@@ -1152,9 +1152,7 @@ Route::get('/', function() {
 		new AfterLayer()
 	];
 
-	Route::middleware()->layer($middleware)->peel(null, function(){
-		Route::goto('Welcome@index');
-		});
+	Route::middleware($middleware)->for('Welcome@index');
 });
 ```
 
