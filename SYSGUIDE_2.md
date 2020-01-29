@@ -44,13 +44,13 @@ $this->load_view('module-name', 'filename');
 #### The PHP superglobals `post` and `get` are used to collect form-data.
 
 ```
-$this->post('hello');
+post('hello');
 
 // Same as $_POST['hello'];
 ```
 
 ```
-$this->get('hello');
+get('hello');
 
 // Same as $_GET['hello'];
 ```
@@ -58,7 +58,7 @@ $this->get('hello');
 #### Check if it's a PUT request :
 
 ```
-$this->is_request_put();
+is_request_put();
 
 // output : true or false
 ```
@@ -66,7 +66,7 @@ $this->is_request_put();
 #### Check if it's a DELETE request :
 
 ```
-$this->is_request_delete();
+is_request_delete();
 
 // output : true or false
 ```
@@ -74,7 +74,7 @@ $this->is_request_delete();
 #### Check if it's a GET request :
 
 ```
-$this->is_request_get();
+is_request_get();
 
 // output : true or false
 ```
@@ -82,7 +82,7 @@ $this->is_request_get();
 #### Check if it's a POST request :
 
 ```
-$this->is_request_post();
+is_request_post();
 
 // output : true or false
 ```
@@ -90,7 +90,7 @@ $this->is_request_post();
 #### Get request content type :
 
 ```
-$this->get_content_type();
+get_content_type();
 
 // output example : application/x-www-form-urlencoded
 ```
@@ -98,85 +98,85 @@ $this->get_content_type();
 #### Parse array data from request params :
 
 ```
-$array = $this->get_parsed_array();
+$array = get_parsed_array();
 ```
 
 #### Parse object data from request params :
 
 ```
-$array = $this->get_parsed_object();
+$array = get_parsed_object();
 ```
 
 #### Get data from request params and parse to json :
 
 ```
-$this->get_parsed_json();
+get_parsed_json();
 
-$this->get_parsed_json($params);
-$this->get_parsed_json('keywords');
+get_parsed_json($params);
+get_parsed_json('keywords');
 ```
 
 #### Get data from request params and parse to string :
 
 ```
-$this->get_parsed_string();
+get_parsed_string();
 
-$this->get_parsed_string($params);
-$this->get_parsed_string('keywords');
+get_parsed_string($params);
+get_parsed_string('keywords');
 ```
 
 #### Get data from request params and parse to integer :
 
 ```
-$this->get_parsed_integer();
+get_parsed_integer();
 
-$this->get_parsed_integer($params);
-$this->get_parsed_integer('keywords');
+get_parsed_integer($params);
+get_parsed_integer('keywords');
 ```
 
 #### Get data from request params and parse to float :
 
 ```
-$this->get_parsed_float();
+get_parsed_float();
 
-$this->get_parsed_float($params);
-$this->get_parsed_float('keywords');
+get_parsed_float($params);
+get_parsed_float('keywords');
 ```
 
 #### Get data from request params and parse to boolean :
 
 ```
-$this->get_parsed_boolean();
+get_parsed_boolean();
 
-$this->get_parsed_boolean($params);
-$this->get_parsed_boolean('keywords');
+get_parsed_boolean($params);
+get_parsed_boolean('keywords');
 ```
 
 #### Get data from request params and parse to ip :
 
 ```
-$this->get_parsed_ip();
+get_parsed_ip();
 
-$this->get_parsed_ip($params);
-$this->get_parsed_ip('keywords');
+get_parsed_ip($params);
+get_parsed_ip('keywords');
 ```
 
 #### Get data from request params and parse to url :
 
 ```
-$this->get_parsed_url();
+get_parsed_url();
 
-$this->get_parsed_url($params);
-$this->get_parsed_url('keywords');
+get_parsed_url($params);
+get_parsed_url('keywords');
 ```
 
 #### Get data from request params and parse to email :
 
 ```
-$this->get_parsed_email();
+get_parsed_email();
 
-$this->get_parsed_email($params);
-$this->get_parsed_email('keywords');
+get_parsed_email($params);
+get_parsed_email('keywords');
 ```
 
 ### Sequence variable
@@ -202,20 +202,35 @@ $this->bind('placeholders')->vars('variable')->sequence()
 // )
 ```
 
-### Instantiate Model class in the controller
+### Instantiate Model class in the controller and call the method.
 Instantiate the Model class in the controller is useful to make it easier for us to give variables to it.
 So there is no need to rewrite the instantiate class in another method.
 
-Just have to write it in the contruct method, like this:
+Just have to write it in the method, like this:
+
+The format of `$this->model()` method :
 
 ```
-public function __construct() {
-	// Instantiate Model Crud
-	$this->m_crud = new m_crud;
+$this->model(namespace_or_model, method_from_model);
+```
+
+Example for instantiate model `Hello.php` :
+
+```
+public function some_method() {
+	// Instantiate Model Hello.php
+	$this->model('Hello', 'mvc_page');
 }
 ```
 
-then `$this->m_crud` is the variable.
+Example for instantiate model `Welcome.php` inside `Homepage` module :
+
+```
+public function some_method() {
+	// Instantiate Model Welcome.php
+	$this->model('Homepage\Welcome', 'hmvc_page');
+}
+```
 
 ---
 
