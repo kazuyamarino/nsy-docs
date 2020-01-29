@@ -18,8 +18,8 @@ If you want to passing variable to view, you can use example below :
 
 ```
 $arr = [
-	'my_name' => $this->m_welcome->welcome(),
-	'mvc_page' => $this->m_hello->mvc_page(),
+	'my_name' => 'Welcome',
+	'mvc_page' => 'Hello',
 	'date' => Carbon::now()
 ];
 
@@ -208,7 +208,7 @@ So there is no need to rewrite the instantiate class in another method.
 
 Just have to write it in the method, like this:
 
-The format of `$this->model()` method :
+The format of `Load::model()` method :
 
 ```
 Load::model(namespace_or_model, method_from_model);
@@ -275,14 +275,14 @@ For example, in the model you want to run an sql query on the first database con
 
 ```
 $q = 'SELECT * FROM blabla';
-$this->connect()->query($q);
+DB::connect()->query($q);
 ```
 
 Then, if you want to run an sql query on the second database connection :
 
 ```
 $q = 'SELECT * FROM blabla';
-$this->connect_sec()->query($q);
+DB::connect_sec()->query($q);
 ```
 
 ### Getting data out of statement in dozens different formats. fetch_all()
@@ -300,7 +300,7 @@ By default, this function will return just simple enumerated array consists of a
 
 ```
 $q = 'SELECT id, name, username FROM users';
-$d = $this->connect()->query($q)->style(FETCH_ASSOC)->fetch_all();
+$d = DB::connect()->query($q)->style(FETCH_ASSOC)->fetch_all();
 
 print_r($d);
 
@@ -321,7 +321,7 @@ It is often very handy to get plain one-dimensional array right out of the query
 
 ```
 $q = 'SELECT name FROM users';
-$d = $this->connect()->query($q)->style(FETCH_COLUMN)->fetch_all();
+$d = DB::connect()->query($q)->style(FETCH_COLUMN)->fetch_all();
 
 print_r($d);
 
@@ -337,7 +337,7 @@ Also extremely useful format, when we need to get the same column, but indexed n
 
 ```
 $q = 'SELECT name FROM users';
-$d = $this->connect()->query($q)->style(FETCH_KEY_PAIR)->fetch_all();
+$d = DB::connect()->query($q)->style(FETCH_KEY_PAIR)->fetch_all();
 
 print_r($d);
 
@@ -356,7 +356,7 @@ It fetches a single row from database, and moves the internal pointer in the res
 
 ```
 $q = 'SELECT id, name FROM users';
-$d = $this->connect()->query($q)->style(FETCH_NUM)->fetch();
+$d = DB::connect()->query($q)->style(FETCH_NUM)->fetch();
 
 print_r($d);
 
@@ -378,7 +378,7 @@ BindValue with PARAM_INT (Defines variable type as integer/number) :
 $id = [ ':id' => [3, PAR_INT] ];
 
 $q = "SELECT id, name, user_name FROM tbl_users WHERE id = :id";
-$d = $this->connect()->query($q)->vars($id)->bind(BINDVAL)->fetch();
+$d = DB::connect()->query($q)->vars($id)->bind(BINDVAL)->fetch();
 
 print_r($d);
 
@@ -400,7 +400,7 @@ BindParam with PARAM_STR (Defines the variable type as a text string) :
 $string = [ ':name' => ['%yuan%', PAR_STR] ];
 
 $q = "SELECT id, name, user_name FROM tbl_users WHERE name LIKE :name";
-$d = $this->connect()->query($q)->vars($string)->bind(BINDPAR)->fetch();
+$d = DB::connect()->query($q)->vars($string)->bind(BINDPAR)->fetch();
 
 print_r($d);
 
@@ -428,7 +428,7 @@ A neat helper function that returns value of the single field of returned row. V
 $id = [ ':id' => 2 ];
 
 $q = "SELECT name FROM tbl_users WHERE id = :id";
-$d = $this->connect()->query($q)->vars($id)->fetch_column();
+$d = DB::connect()->query($q)->vars($id)->fetch_column();
 
 return $d;
 
@@ -439,7 +439,7 @@ Nayla Syifa
 ```
 // getting number of rows in the table utilizing method chaining
 $q = "SELECT count(*) FROM tbl_users";
-$d = $this->connect()->query($q)->fetch_column();
+$d = DB::connect()->query($q)->fetch_column();
 
 return $d;
 
@@ -452,7 +452,7 @@ NSY uses PDO. PDO offers a function for returning the number of rows found by th
 
 ```
 $q = "SELECT * FROM tbl_users";
-$d = $this->connect()->query($q)->row_count();
+$d = DB::connect()->query($q)->row_count();
 
 return $d->result;
 
@@ -466,7 +466,7 @@ However, if you want to get the number of affected rows, here is an example:
 $id = [ ':id' => 2 ];
 
 $q = "DELETE FROM tbl_users WHERE id = :id";
-$deleted_data = $this->connect()->vars($id)->query($q)->row_count();
+$deleted_data = DB::connect()->vars($id)->query($q)->row_count();
 
 return deleted_data->result;
 
@@ -482,7 +482,7 @@ return deleted_data->result;
 $id = [ ':id' => 2 ];
 
 $q = "UPDATE tbl_users SET name = :name WHERE id = :id";
-$this->connect()->query($q)->vars($id)->exec();
+DB::connect()->query($q)->vars($id)->exec();
 
 // Update field name from tbl_users where id is 2
 ```
@@ -497,7 +497,7 @@ foreach ( $id as $key => $ids ) {
     ':user_name' => 'nsy_for_kids'
   ];
   $q = "UPDATE tbl_users SET user_name = :user_name WHERE id = :id";
-  $this->connect()->query($q)->vars($params)->exec();
+  DB::connect()->query($q)->vars($params)->exec();
 }
 
 // Update field user_name to 'nsy_for_kids' from tbl_users where id is 11025 & 11026
@@ -509,7 +509,7 @@ foreach ( $id as $key => $ids ) {
 $id = [ ':id' => 2 ];
 
 $q = "DELETE FROM tbl_users WHERE id = :id";
-$this->connect()->query($q)->vars($id)->exec();
+DB::connect()->query($q)->vars($id)->exec();
 
 // Delete data from tbl_users where id is 2
 ```
@@ -523,7 +523,7 @@ foreach ( $id as $key => $ids ) {
     ':id' => $ids
   ];
   $q = "DELETE FROM tbl_users WHERE id = :id";
-  $this->connect()->query($q)->vars($params)->exec();
+  DB::connect()->query($q)->vars($params)->exec();
 }
 
 // Delete data from tbl_users where id is 11025 & 11026
@@ -535,7 +535,7 @@ foreach ( $id as $key => $ids ) {
 $param = [ ':user_name' => 'Harmoni' ];
 
 $q = "INSERT INTO tbl_users (user_name) VALUES (:user_name)";
-$this->connect()->query($q)->vars($param)->exec();
+DB::connect()->query($q)->vars($param)->exec();
 
 // Insert data to field user_name from tbl_users where user_name is 'Harmoni'
 ```
@@ -557,7 +557,7 @@ $arr = [
     ]
 ];
 $q = "INSERT INTO tbl_users (id, name, user_name)";
-$this->connect()->query($q)->vars($arr)->multi_insert();
+DB::connect()->query($q)->vars($arr)->multi_insert();
 ```
 
 ### NSY Transaction
@@ -568,19 +568,19 @@ NSY provides simple methods for beginning, committing, and rollbacking back tran
 #### Begin transaction :
 
 ```
-$this->begin_trans();
+DB::begin_trans();
 ```
 
 #### Commit transaction :
 
 ```
-$this->end_trans();
+DB::end_trans();
 ```
 
 #### Rollback transaction :
 
 ```
-$this->null_trans();
+DB::null_trans();
 ```
 
 #### First example of transaction in `multi_insert()`.
@@ -599,7 +599,7 @@ $arr = [
     ]
 ];
 $q = "INSERT INTO tbl_users (id, name, user_name)";
-$this->connect()->begin_trans()->query($q)->vars($arr)->multi_insert()->end_trans();
+DB::connect()->begin_trans()->query($q)->vars($arr)->multi_insert()->end_trans();
 ```
 
 #### Second example of transaction in `multi_insert()`.
@@ -618,7 +618,7 @@ $arr = [
     ]
 ];
 $q = "INSERT INTO tbl_users (id, name, user_name)";
-$conn = $this->connect();
+$conn = DB::connect();
 $conn->begin_trans();
 $conn->query($q);
 $conn->vars($arr);
@@ -626,7 +626,7 @@ $conn->multi_insert();
 $conn->end_trans();
 ```
 
-`begin_trans()` must be located in each code after we define the connection `$this->connect()`.
+`begin_trans()` must be located in each code after we define the connection `DB::connect()`.
 
 And before using a transaction, you must turn on the transaction mode in `config/app.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `null_trans()`).
 
@@ -634,7 +634,7 @@ And before using a transaction, you must turn on the transaction mode in `config
 For more information about this, go to the following URL [Emulation mode](https://phpdelusions.net/pdo#emulation).
 
 ```
-$this->emulate_prepares_false();
+DB::emulate_prepares_false();
 ```
 
 ### Mysqlnd and buffered queries. Huge datasets.
@@ -643,20 +643,20 @@ For more information about this, go to the following URL [Mysqlnd and buffered q
 #### set MYSQL_ATTR_USE_BUFFERED_QUERY to FALSE
 
 ```
-$this->use_buffer_query_false();
+DB::use_buffer_query_false();
 ```
 
 #### set MYSQL_ATTR_USE_BUFFERED_QUERY to TRUE
 
 ```
-$this->use_buffer_query_true();
+DB::use_buffer_query_true();
 ```
 
 ### Return type, set ATTR_STRINGIFY_FETCHES to TRUE
 For more information about this, go to the following URL [Return type](https://phpdelusions.net/pdo#returntypes).
 
 ```
-$this->stringify_fetches_true();
+DB::stringify_fetches_true();
 ```
 
 ---
