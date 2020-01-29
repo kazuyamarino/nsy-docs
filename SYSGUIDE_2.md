@@ -23,7 +23,7 @@ $arr = [
 	'date' => Carbon::now()
 ];
 
-$this->load_template('header', $arr);
+Load::template('header', $arr);
 ```
 
 The above example will generate variable `$my_name`, `$date` and `$mvc_page` in view.
@@ -32,13 +32,13 @@ The above example will generate variable `$my_name`, `$date` and `$mvc_page` in 
 #### Load MVC view file :
 
 ```
-$this->load_view(null, 'filename');
+Load::view(null, 'filename');
 ```
 
 #### Load HMVC view file :
 
 ```
-$this->load_view('module-name', 'filename');
+Load::view('module-name', 'filename');
 ```
 
 #### The PHP superglobals `post` and `get` are used to collect form-data.
@@ -211,7 +211,7 @@ Just have to write it in the method, like this:
 The format of `$this->model()` method :
 
 ```
-$this->model(namespace_or_model, method_from_model);
+Load::model(namespace_or_model, method_from_model);
 ```
 
 Example for instantiate model `Hello.php` :
@@ -219,7 +219,7 @@ Example for instantiate model `Hello.php` :
 ```
 public function some_method() {
 	// Instantiate Model Hello.php
-	$this->model('Hello', 'mvc_page');
+	Load::model('Hello', 'mvc_page');
 }
 ```
 
@@ -228,7 +228,7 @@ Example for instantiate model `Welcome.php` inside `Homepage` module :
 ```
 public function some_method() {
 	// Instantiate Model Welcome.php
-	$this->model('Homepage\Welcome', 'hmvc_page');
+	Load::model('Homepage\Welcome', 'hmvc_page');
 }
 ```
 
