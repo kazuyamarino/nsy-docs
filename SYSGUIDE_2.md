@@ -94,7 +94,7 @@ Example for instantiate model `Hello.php` :
 ```
 use System\Models\Model_Welcome;
 
-public function some_method() {
+public function __contruct() {
 	// Instantiate Model Hello.php
 	$this->m_hello = new Hello;
 }
