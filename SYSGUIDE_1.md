@@ -6,6 +6,144 @@ Site example :
 
 ## Usefull Method
 
+### The PHP superglobals `post` and `get` are used to collect form-data.
+
+```
+post('hello');
+
+// Same as $_POST['hello'];
+```
+
+```
+get('hello');
+
+// Same as $_GET['hello'];
+```
+
+### Check if it's a PUT request :
+
+```
+is_request_put();
+
+// output : true or false
+```
+
+### Check if it's a DELETE request :
+
+```
+is_request_delete();
+
+// output : true or false
+```
+
+### Check if it's a GET request :
+
+```
+is_request_get();
+
+// output : true or false
+```
+
+### Check if it's a POST request :
+
+```
+is_request_post();
+
+// output : true or false
+```
+
+### Get request content type :
+
+```
+get_content_type();
+
+// output example : application/x-www-form-urlencoded
+```
+
+### Parse array data from request method :
+
+```
+$array = get_parsed_array();
+```
+
+### Parse object data from request method :
+
+```
+$array = get_parsed_object();
+```
+
+### Get data from request method and parse to json :
+
+```
+get_parsed_json();
+
+get_parsed_json($params);
+get_parsed_json('keywords');
+```
+
+### Get data from request method and parse to string :
+
+```
+get_parsed_string();
+
+get_parsed_string($params);
+get_parsed_string('keywords');
+```
+
+### Get data from request method and parse to integer :
+
+```
+get_parsed_integer();
+
+get_parsed_integer($params);
+get_parsed_integer('keywords');
+```
+
+### Get data from request method and parse to float :
+
+```
+get_parsed_float();
+
+get_parsed_float($params);
+get_parsed_float('keywords');
+```
+
+### Get data from request method and parse to boolean :
+
+```
+get_parsed_boolean();
+
+get_parsed_boolean($params);
+get_parsed_boolean('keywords');
+```
+
+### Get data from request method and parse to ip :
+
+```
+get_parsed_ip();
+
+get_parsed_ip($params);
+get_parsed_ip('keywords');
+```
+
+### Get data from request method and parse to url :
+
+```
+get_parsed_url();
+
+get_parsed_url($params);
+get_parsed_url('keywords');
+```
+
+### Get data from request method and parse to email :
+
+```
+get_parsed_email();
+
+get_parsed_email($params);
+get_parsed_email('keywords');
+```
+
 ### Public directory path
 Returns your site full path `public` directory, as specified in your config file.
 

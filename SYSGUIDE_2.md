@@ -6,13 +6,6 @@ Site example :
 
 ## The Controllers
 
-### Get variables from HTTP Request method.
-```
-$array = get_parsed_body();
-
-print_r($array);
-```
-
 ### Passing variable to view
 If you want to passing variable to view, you can use example below :
 
@@ -39,144 +32,6 @@ Load::view(null, 'filename');
 
 ```
 Load::view('module-name', 'filename');
-```
-
-#### The PHP superglobals `post` and `get` are used to collect form-data.
-
-```
-post('hello');
-
-// Same as $_POST['hello'];
-```
-
-```
-get('hello');
-
-// Same as $_GET['hello'];
-```
-
-#### Check if it's a PUT request :
-
-```
-is_request_put();
-
-// output : true or false
-```
-
-#### Check if it's a DELETE request :
-
-```
-is_request_delete();
-
-// output : true or false
-```
-
-#### Check if it's a GET request :
-
-```
-is_request_get();
-
-// output : true or false
-```
-
-#### Check if it's a POST request :
-
-```
-is_request_post();
-
-// output : true or false
-```
-
-#### Get request content type :
-
-```
-get_content_type();
-
-// output example : application/x-www-form-urlencoded
-```
-
-#### Parse array data from request params :
-
-```
-$array = get_parsed_array();
-```
-
-#### Parse object data from request params :
-
-```
-$array = get_parsed_object();
-```
-
-#### Get data from request params and parse to json :
-
-```
-get_parsed_json();
-
-get_parsed_json($params);
-get_parsed_json('keywords');
-```
-
-#### Get data from request params and parse to string :
-
-```
-get_parsed_string();
-
-get_parsed_string($params);
-get_parsed_string('keywords');
-```
-
-#### Get data from request params and parse to integer :
-
-```
-get_parsed_integer();
-
-get_parsed_integer($params);
-get_parsed_integer('keywords');
-```
-
-#### Get data from request params and parse to float :
-
-```
-get_parsed_float();
-
-get_parsed_float($params);
-get_parsed_float('keywords');
-```
-
-#### Get data from request params and parse to boolean :
-
-```
-get_parsed_boolean();
-
-get_parsed_boolean($params);
-get_parsed_boolean('keywords');
-```
-
-#### Get data from request params and parse to ip :
-
-```
-get_parsed_ip();
-
-get_parsed_ip($params);
-get_parsed_ip('keywords');
-```
-
-#### Get data from request params and parse to url :
-
-```
-get_parsed_url();
-
-get_parsed_url($params);
-get_parsed_url('keywords');
-```
-
-#### Get data from request params and parse to email :
-
-```
-get_parsed_email();
-
-get_parsed_email($params);
-get_parsed_email('keywords');
 ```
 
 ### Sequence variable
@@ -211,7 +66,7 @@ Just have to write it in the method, like this:
 The format of `Load::model()` method :
 
 ```
-Load::model(namespace_or_model, method_from_model);
+Load::model(namespace_with_model, method_from_model);
 ```
 
 Example for instantiate model `Hello.php` :
@@ -229,6 +84,37 @@ Example for instantiate model `Welcome.php` inside `Homepage` module :
 public function some_method() {
 	// Instantiate Model Welcome.php
 	Load::model('Homepage\Welcome', 'hmvc_page');
+}
+```
+
+### Instantiate Model class in the controller and call the method (Manual Instantiate).
+
+Example for instantiate model `Hello.php` :
+
+```
+use System\Models\Model_Welcome;
+
+public function some_method() {
+	// Instantiate Model Hello.php
+	$this->m_hello = new Hello;
+}
+
+public function yours() {
+	$this->m_hello->mvc_page();
+}
+```
+
+Example for instantiate model `Welcome.php` inside `Homepage` module :
+```
+use System\Modules\Homepage\Models\Model_Welcome;
+
+public function __contruct() {
+	// Instantiate Model Welcome.php
+	$this->m_welcome = new Welcome;
+}
+
+public function yours() {
+	$this->m_welcome->hmvc_page();
 }
 ```
 
