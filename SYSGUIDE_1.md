@@ -1116,7 +1116,7 @@ You can also return the result as a string:
 ```php
 $image = ImageResize::create_from_string(base64_decode('R0lGODlhAQABAIAAAAQCBP///yH5BAEAAAEALAAAAAABAAEAAAICRAEAOw=='));
 $image->scale(50);
-echo $image->();
+echo $image->get_image_as_string();
 ```
 
 Magic `__toString()` is also supported:
