@@ -129,9 +129,6 @@ Route::get('/(:any)', function($slug) {
   echo 'The slug is: ' . $slug;
 });
 
-// multiple methods
-Route::match('post|put', '/comment', function() {});
-
 // equivalent to Route::match('get|post|put|patch|delete|head|options',..)
 Route::any('/', function() {};)
 ```
@@ -200,7 +197,7 @@ Route::get('/page', function() {
 	Route::goto('Demo@page');
 });
 
-Route::get('/view/@id:num', function($id) {
+Route::get('/view/(:num)', function($id) {
 	Route::goto('Demo@view', $id);
 });
 ```
@@ -239,7 +236,7 @@ Route::get('/homepage', function() {
 	Route::goto('Homepage\Login@index');
 });
 
-Route::get('/view/@id:num/@user:alpha', function($id, $user) {
+Route::get('/view/(:num)/(:alpha)', function($id, $user) {
   $params = [
     'id' => $id,
     'user' => $user
@@ -248,12 +245,11 @@ Route::get('/view/@id:num/@user:alpha', function($id, $user) {
 });
 ```
 
-#### Util methods
+#### Another way to call a controller with minimal code instead of Route::goto().
 
 ```php
-Route::is_ajax();
-Route::is_https();
-Route::redirect($location, $code = 301);
+Route::get('/', 'Welcome@index');
+Route::get('/hmvc', 'Homepage\Hello@index_hmvc');
 ```
 
 #### Route group with (base path)
@@ -275,9 +271,8 @@ Route::group('/admin', function() {
 #### Lastly, if there is no route defined for a certain location, you can make NSY_Router run a custom callback, like:
 
 ```php
-Route::nomatch(function($meth, $uri) {
-	header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
-	exit('404 Not Found.');
+Route::error(function() {
+  echo '404 :: Not Found';
 });
 ```
 
