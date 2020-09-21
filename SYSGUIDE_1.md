@@ -471,18 +471,6 @@ Session::set_prefix('_prefix');
 Session::get_prefix();
 ```
 
-#### - Start session:
-
-```php
-Session::init();
-```
-
-#### - Start session by setting the session duration:
-
-```php
-Session::init(3600);
-```
-
 #### - Add value to a session:
 
 ```php
