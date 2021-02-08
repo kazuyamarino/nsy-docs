@@ -185,7 +185,7 @@ echo css_url();
 ```
 
 ### Get Version
-Get `version` parameter value from config/Site.php.
+Get `version` parameter value from Config/Site.php.
 
 ```
 echo get_version();
@@ -194,7 +194,7 @@ echo get_version();
 ```
 
 ### Get Codename
-Get `codename` parameter value from config/Site.php.
+Get `codename` parameter value from Config/Site.php.
 
 ```
 echo get_codename();
@@ -203,7 +203,7 @@ echo get_codename();
 ```
 
 ### Get Language Code
-Get `locale` parameter value from config/App.php.
+Get `locale` parameter value from Config/App.php.
 
 ```
 echo get_lang_code();
@@ -212,49 +212,49 @@ echo get_lang_code();
 ```
 
 ### Open Graph Prefix
-Get `prefix_attr` parameter value from config/App.php.
+Get `prefix_attr` parameter value from Config/App.php.
 
 ```
 echo get_og_prefix();
 ```
 
 ### Get Site Title
-Get `sitetitle` parameter value from config/Site.php.
+Get `sitetitle` parameter value from Config/Site.php.
 
 ```
 echo get_title();
 ```
 
 ### Get Site Description
-Get `sitedesc` parameter value from config/Site.php.
+Get `sitedesc` parameter value from Config/Site.php.
 
 ```
 echo get_desc();
 ```
 
 ### Get Site Keywords
-Get `sitekeywords` parameter value from config/Site.php.
+Get `sitekeywords` parameter value from Config/Site.php.
 
 ```
 echo get_keywords();
 ```
 
 ### Get Site Author
-Get `siteauthor` parameter value from config/Site.php.
+Get `siteauthor` parameter value from Config/Site.php.
 
 ```
 echo get_author();
 ```
 
 ### Get Session Prefix
-Get `session_prefix` parameter value from config/App.php.
+Get `session_prefix` parameter value from Config/App.php.
 
 ```
 echo get_session_prefix();
 ```
 
 ### Get Site Email
-Get `siteemail` parameter value from config/Site.php.
+Get `siteemail` parameter value from Config/Site.php.
 
 ```
 echo get_site_email();
@@ -339,7 +339,7 @@ fetch_json($data, $http_response_code);
 ---
 
 ### Getting config value
-If you want to take values ​​in the config file on the `system/config`, this is the way :
+If you want to take values ​​in the config file on the `System/Config`, this is the way :
 
 * Get value from `App.php` :
 
@@ -1646,7 +1646,7 @@ File::get_file_info($file, $returned_values = array('name', 'server_path', 'size
 File::get_mime_by_extension($filename);
 ```
 
-### - Returns the MIME types array from config/Mimes.php
+### - Returns the MIME types array from Config/Mimes.php
 
 ```php
 <?php

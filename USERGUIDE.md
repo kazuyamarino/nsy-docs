@@ -49,7 +49,7 @@ Should be like this. That it is!
 ---
 
 ### Framework Configuration
-The NSY_Framework Configuration is very simple. There are 3 config file in `system/config` directory :
+The NSY_Framework Configuration is very simple. There are 3 config file in `System/Config` directory :
 * `App.php` for application setting such as system path of the framework.
 * `Database.php` for database connection setting.
 * `Site.php` for meta site configuration.
@@ -74,17 +74,17 @@ In system.js there is a `base_url` configuration for javascript *(see line 1 to 
 ---
 
 ### Helpers
-The `system/helpers` folder is useful for creating custom methods that match what you want and need.
+The `System/Helpers` folder is useful for creating custom methods that match what you want and need.
 
-If you want to make your own helper, then just make the desired method in the php file then save it in system/helpers. And don't forget to autoload it on `composer.json` in the `files` parameters.
+If you want to make your own helper, then just make the desired method in the php file then save it in System/Helpers. And don't forget to autoload it on `composer.json` in the `files` parameters.
 
 ```
 "autoload": {
 	"psr-4": {
-		"System\\": "system/"
+		"System\\": "System/"
 	},
 	"files": [
-		"system/helpers/Custom_Method.php" // your custom helpers file
+		"System/Helpers/Custom_Method.php" // your custom helpers file
 	]
 }
 ```
@@ -92,10 +92,10 @@ If you want to make your own helper, then just make the desired method in the ph
 ---
 
 ### Routes
-NSY Routing system using classes from [Macaw route by Noah Buscher](https://github.com/noahbuscher/macaw), and it's located in the `system/routes` directory.
+NSY Routing system using classes from [Macaw route by Noah Buscher](https://github.com/noahbuscher/macaw), and it's located in the `System/Routes` directory.
 
 ```
-├── routes
+├── Routes
     │   ├── Api.php
     │   └── Web.php
 ```
@@ -291,8 +291,8 @@ The easiest & best assets manager in history
 made with love by Vikry Yuansah
 
 How to use it? Simply follow this.
-* First, you need to go to `system/libraries/`, there are 1 files, that is `Assets.php`.
-* `NSY_AssetManager.php` is the core, it is located in `system/core` folder. `Assets.php` is the controller which regulates assets, if you want to manage the assets, please go to `Assets.php`.
+* First, you need to go to `System/Libraries/`, there are 1 files, that is `Assets.php`.
+* `NSY_AssetManager.php` is the core, it is located in `System/Core` folder. `Assets.php` is the controller which regulates assets, if you want to manage the assets, please go to `Assets.php`.
 
 Create `<meta>` tag :
 

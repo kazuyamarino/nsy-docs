@@ -514,7 +514,7 @@ $conn->end_trans();
 
 `begin_trans()` must be located in each code after we define the connection `DB::connect()`.
 
-And before using a transaction, you must turn on the transaction mode in `config/app.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `null_trans()`).
+And before using a transaction, you must turn on the transaction mode in `Config/App.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `null_trans()`).
 
 ### Emulation mode, set ATTR_EMULATE_PREPARES to FALSE
 For more information about this, go to the following URL [Emulation mode](https://phpdelusions.net/pdo#emulation).
@@ -763,7 +763,7 @@ migrate <migration-name>
 migrate create_database_and_table_supplier
 ```
 
-And the result will be a file created from the results of the command earlier in the `system/migrations`.
+And the result will be a file created from the results of the command earlier in the `System/Migrations`.
 
 ```
 └── migrations
