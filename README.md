@@ -4,11 +4,15 @@ NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 [![Build Status](https://travis-ci.org/kazuyamarino/nsy.svg?branch=master)](https://travis-ci.org/kazuyamarino/nsy)
 
 Site example :
-[https://nsy.kazuyamarino.com/](https://nsy.kazuyamarino.com/)
+[https://nsyframework.com/](https://nsyframework.com/)
+
+---
 
 ## Codename
 Serunai, or also called Puput Serunai, is the name of a wind instrument known in Indonesia as a traditional musical instrument of the Minang community. The unique part of the Serunai is the expanding tip, which functions to increase the sound volume.
 *Wikipedia - https://id.wikipedia.org/wiki/Serunai*
+
+---
 
 ## How to dating with NSY?
 ### Download from Github
@@ -50,12 +54,9 @@ blog
 
 ##### 4. NSY is Ready to create project!
 
----
-
-**Note :**
+```
 For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 
-```
 // Nginx Readme.txt
 1. Open 'sudo nano /etc/nginx/sites-enabled/default'
 2. Copy the text in the 'default' file and paste it to /etc/nginx/sites-enabled/default
@@ -68,6 +69,7 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 Here it is [Vylma CRUD Example](https://vylma.kazuyamarino.com/)
 And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
 
+---
 
 ## NSY Features :
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
@@ -86,14 +88,18 @@ And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
 * Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
 * Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares)
 
+---
+
 ## User Guide.
 See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
 
+---
 
 ## System Guide.
 * Part 1 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).<br/>
 * Part 2 of [SYSGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md).
 
+---
 
 ## License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)

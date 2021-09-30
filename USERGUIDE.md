@@ -2,7 +2,9 @@
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
 Site example :
-<a href="https://nsy.kazuyamarino.com/">https://nsy.kazuyamarino.com/</a>
+<a href="https://nsyframework.com/">https://nsyframework.com/</a>
+
+---
 
 ## Composer
 Composer helps you declare, manage, and install dependencies of PHP projects.
@@ -10,18 +12,14 @@ Composer helps you declare, manage, and install dependencies of PHP projects.
 See [https://getcomposer.org/](https://getcomposer.org/) for more information and documentation.
 
 ### Installation / Usage
-
 Download and install Composer by following the [official instructions](https://getcomposer.org/download/).
 
 For usage, see [the documentation](https://getcomposer.org/doc/).
 
 ### Packages
-
 Find packages on [Packagist](https://packagist.org).
 
-Composer on NSY framework
--------------------------
-
+### Composer on NSY framework
 The composer on the nsy framework has a function to generate autoload in the HMVC module folder.
 
 NSY applies the concept of PSR-4 Autoloading. NSY has the `composer.json` file that can be dumped with [composer](https://getcomposer.org/download/) command `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` when creating a folder structure that contains new class files.
@@ -48,7 +46,7 @@ Should be like this. That it is!
 
 ---
 
-### Framework Configuration
+## Framework Configuration
 The NSY_Framework Configuration is very simple. There are 3 config file in `System/Config` directory :
 * `App.php` for application setting such as system path of the framework.
 * `Database.php` for database connection setting.
@@ -73,7 +71,7 @@ In system.js there is a `base_url` configuration for javascript *(see line 1 to 
 
 ---
 
-### Helpers
+## Helpers
 The `System/Helpers` folder is useful for creating custom methods that match what you want and need.
 
 If you want to make your own helper, then just make the desired method in the php file then save it in System/Helpers. And don't forget to autoload it on `composer.json` in the `files` parameters.
@@ -91,7 +89,7 @@ If you want to make your own helper, then just make the desired method in the ph
 
 ---
 
-### Routes
+## Routes
 NSY Routing system using classes from [Macaw route by Noah Buscher](https://github.com/noahbuscher/macaw), and it's located in the `System/Routes` directory.
 
 ```
@@ -99,8 +97,6 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
     │   ├── Api.php
     │   └── Web.php
 ```
-
->Route66 was written to add some features to the minimalist Macaw router without bloating it. This class allows you to just throw it into your project and start using it immediately.
 
 #### Examples :
 
@@ -110,9 +106,8 @@ Route::get('/', function() {
 });
 ```
 
-Route also supports regex parameters, such as:
+Route also supports regex parameters (Uri params), such as:
 
-Uri params :
 ```
 ':all'		 => '.*',
 ':any'		 => '[^/]+',
@@ -155,9 +150,9 @@ It's possible to pass the namespace path to a controller instead of the closure:
 
 For this demo lets say I have a folder called controllers with a demo.php
 
-demo.php:
-
 ```php
+demo.php :
+
 <?php
 namespace System\Controllers;
 
@@ -186,9 +181,9 @@ class Demo {
 }
 ```
 
-Web.php:
-
 ```php
+Web.php :
+
 Route::get('/', function() {
 	Route::goto('Demo@index');
 });
@@ -206,9 +201,9 @@ Route::get('/view/(:num)', function($id) {
 
 For this demo lets say I have a module folder called `homepage` and folder controllers inside with a login.php name.
 
-login.php:
-
 ```php
+login.php :
+
 <?php
 namespace System\Modules\Homepage\Controllers;
 
@@ -229,9 +224,9 @@ class Login {
 }
 ```
 
-Web.php:
-
 ```php
+Web.php :
+
 Route::get('/homepage', function() {
 	Route::goto('Homepage\Login@index');
 });
@@ -342,12 +337,8 @@ footer_assets();
 ## NSY CLI (Command Line)
 NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with:
 
----
-
 ### Note
 If you install the NSY Framework through the `composer create-project`, it automatically includes the NSY CLI.
-
----
 
 ### NSY CLI Manual Install
 * Open Linux Terminal or Git Bash Terminal inside your project directory.
