@@ -160,7 +160,6 @@ See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUID
 * File Library, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#file-library)
 * IP Method, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#ip-method)
 * Validate Library, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#validate-library)
-* Validate Library, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#validate-library)
 * CI helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#ci-helpers)
 
 ---
