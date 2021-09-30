@@ -1,8 +1,8 @@
-# NSY SYSTEM GUIDE PART 2
+# NSY SYSTEM GUIDE Vol 2
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
 Site example :
-<a href="https://nsy.kazuyamarino.com/">https://nsy.kazuyamarino.com/</a>
+<a href="https://nsyframework.com/">https://nsyframework.com/</a>
 
 ## The Controllers
 

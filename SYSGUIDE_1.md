@@ -1,8 +1,8 @@
-# NSY SYSTEM GUIDE PART 1
+# NSY SYSTEM GUIDE Vol 1
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
 Site example :
-<a href="https://nsy.kazuyamarino.com/">https://nsy.kazuyamarino.com/</a>
+<a href="https://nsyframework.com/">https://nsyframework.com/</a>
 
 ## Usefull Method
 
@@ -262,7 +262,7 @@ echo get_site_email();
 
 ---
 
-### Base URL
+## Base URL
 Returns your site base URL, as specified in your config file.
 
 ```
@@ -303,7 +303,7 @@ The above example would return redirect to previous page.
 
 ---
 
-### Array Flatten
+## Array Flatten
 PHP array_flatten() function. Convert a multi-dimensional array into a single-dimensional array :
 
 ```
@@ -315,7 +315,9 @@ array_flatten($items);
 // Will return : [1, 2, 3, 4, 5]
 ```
 
-### Fetch to JSON
+---
+
+## Fetch to JSON
 If you want to display data values ​​in json form, you can do this method :
 
 ```
@@ -338,24 +340,24 @@ fetch_json($data, $http_response_code);
 
 ---
 
-### Getting config value
+## Getting Config Value
 If you want to take values ​​in the config file on the `System/Config`, this is the way :
 
-* Get value from `App.php` :
+### Get value from `App.php` :
 
 ```
 config_app('value_name');
 // config_app('app_env');
 ```
 
-* Get value from `Database.php` :
+### Get value from `Database.php` :
 
 ```
 config_db('connection', 'value_name');
 // config_db('mysql', 'DB_HOST');
 ```
 
-* Get value from `Site.php` :
+### Get value from `Site.php` :
 
 ```
 config_site('value_name');
@@ -364,44 +366,44 @@ config_site('value_name');
 
 ---
 
-### Security helper
-* For filtering input value :
+## Security helper
+### For filtering input value :
 
 ```
 secure_input('attr_name')
 ```
 
-* Get CSRF Token on form :
+### Get CSRF Token on form :
 
 ```
 echo form_csrf_token();
 ```
 
-* Get CSRF Token/Only Token :
+### Get CSRF Token/Only Token :
 
 ```
 echo csrf_token();
 ```
 
-* Filtering variable from XSS :
+### Filtering variable from XSS :
 
 ```
 xss_filter('value');
 ```
 
-* Allow http :
+### Allow http :
 
 ```
 allow_http();
 ```
 
-* Disallow http :
+### Disallow http :
 
 ```
 disallow_http();
 ```
 
-* Remove get parameter :
+### Remove get parameter :
 
 ```
 remove_get_parameters('url');
@@ -409,7 +411,7 @@ remove_get_parameters('url');
 
 ---
 
-### Get URI Segment
+## Get URI Segment
 To help in retrieving data in URIs
 
 ```
@@ -428,7 +430,9 @@ echo get_uri_segment(2);
 // Output is hmvc
 ```
 
-### Generate Random Number
+---
+
+## Generate Random Number
 To generate a sequence of random numbers that correspond to the desired number or prefix.
 
 ```
@@ -447,7 +451,7 @@ echo generate_num("VYLMA-", 4, 10);
 
 ---
 
-### PHP SESSION
+## PHP SESSION
 
 Use this namespace in the controller :
 
@@ -459,25 +463,25 @@ use System\Libraries\Session;
 
 Example of use for this library:
 
-#### - Set prefix for sessions:
+#### Set prefix for sessions:
 
 ```php
 Session::set_prefix('_prefix');
 ```
 
-#### - Get sessions prefix:
+#### Get sessions prefix:
 
 ```php
 Session::get_prefix();
 ```
 
-#### - Add value to a session:
+#### Add value to a session:
 
 ```php
 Session::set('name', 'Joseph');
 ```
 
-#### - Add multiple value to sessions:
+#### Add multiple value to sessions:
 
 ```php
 $data = [
@@ -489,55 +493,55 @@ $data = [
 Session::set($data);
 ```
 
-#### - Extract session item, delete session item and finally return the item:
+#### Extract session item, delete session item and finally return the item:
 
 ```php
 Session::pull('age');
 ```
 
-#### - Get item from session:
+#### Get item from session:
 
 ```php
 Session::get('name');
 ```
 
-#### - Get item from session entering two indexes:
+#### Get item from session entering two indexes:
 
 ```php
 Session::get('business', 'name');
 ```
 
-#### - Return the session array:
+#### Return the session array:
 
 ```php
 Session::get();
 ```
 
-#### - Get session id:
+#### Get session id:
 
 ```php
 Session::id();
 ```
 
-#### - Regenerate session_id:
+#### Regenerate session_id:
 
 ```php
 Session::regenerate();
 ```
 
-#### - Destroys one key session:
+#### Destroys one key session:
 
 ```php
 Session::destroy('name');
 ```
 
-#### - Destroys sessions by prefix:
+#### Destroys sessions by prefix:
 
 ```php
 Session::destroy('ses_', true);
 ```
 
-#### - Destroys all sessions:
+#### Destroys all sessions:
 
 ```php
 Session::destroy();
@@ -545,7 +549,7 @@ Session::destroy();
 
 ---
 
-### Cookie Library
+## Cookie Library
 
 Use this namespace in the controller :
 
@@ -559,49 +563,49 @@ PHP library for handling cookies, NSY has supported the use of Cookie library cl
 
 Example of use for this library:
 
-#### - Set cookie:
+#### Set cookie:
 
 ```php
 Cookie::set('cookie_name', 'value', 365);
 ```
 
-#### - Get cookie:
+#### Get cookie:
 
 ```php
 Cookie::get('cookie_name');
 ```
 
-#### - Get all cookies:
+#### Get all cookies:
 
 ```php
 Cookie::get();
 ```
 
-#### - Pull cookie:
+#### Pull cookie:
 
 ```php
 Cookie::pull('cookie_name');
 ```
 
-#### - Destroy one cookie:
+#### Destroy one cookie:
 
 ```php
 Cookie::destroy('cookie_name');
 ```
 
-#### - Destroy all cookies:
+#### Destroy all cookies:
 
 ```php
 Cookie::destroy();
 ```
 
-#### - Set cookie prefix:
+#### Set cookie prefix:
 
 ```php
 Cookie::set_prefix('prefix_');
 ```
 
-#### - Get cookie prefix:
+#### Get cookie prefix:
 
 ```php
 Cookie::get_prefix();
@@ -609,7 +613,7 @@ Cookie::get_prefix();
 
 ---
 
-### Simple Ternary
+## Simple Ternary
 Ternary operator logic is the process of using "`(condition) ? (true return value) : (false return value)`" statements to shorten your if/else structures.
 
 ```
@@ -627,7 +631,7 @@ $var_is_greater_than_two = ternary($var > 2, true, false);
 
 ---
 
-### Specify an empty variable or not
+## Specify an empty variable or not
 In NSY, there is a function to make it easy for users to see whether a value is empty or not in a variable. i.e. only with 2 methods `not_filled()` and `is_filled()`.
 
 `not_filled()`, s to determine a variable that has no value. Example :
@@ -693,7 +697,7 @@ $var10 = no value
 
 ---
 
-### Get User Agent
+## Get User Agent
 This is how to get user agent data with ease.
 
 ```
@@ -719,7 +723,7 @@ Array
 
 ---
 
-### Aurora File Export
+## Aurora File Export
 Aurora is a library created to export data into several file formats supported by aurora such as txt, xls, ods, & etc.
 
 ```
@@ -767,7 +771,7 @@ aurora('txt', 'nsy_aurora', 'pipe', $header, $data, 'single');
 
 ---
 
-# NSY FTP Client Library
+## NSY FTP Client Library
 
 NSY supports a flexible FTP and SSL-FTP client for PHP. This library provides helpers easy to use to manage the remote files. [nicolab/php-ftp-client](https://github.com/Nicolab/php-ftp-client).
 
@@ -851,75 +855,75 @@ $this->ftp->scanDir('path/of/directory');
 $this->ftp->dirSize('path/of/directory');
 ```
 
-### Count method
-* count in the current directory
+### Count method :
+##### count in the current directory
 
 ```
 $total = $this->ftp->count();
 ```
 
-* count in a given directory
+#####  count in a given directory
 
 ```
 $total = $this->ftp->count('/path/of/directory');
 ```
 
-* count only the "files" in the current directory
+#####  count only the "files" in the current directory
 
 ```
 $total_file = $this->ftp->count('.', 'file');
 ```
 
-* count only the "files" in a given directory
+#####  count only the "files" in a given directory
 
 ```
 $total_file = $this->ftp->count('/path/of/directory', 'file');
 ```
 
-* count only the "directories" in a given directory
+#####  count only the "directories" in a given directory
 
 ```
 $total_dir = $this->ftp->count('/path/of/directory', 'directory');
 ```
 
-* count only the "symbolic links" in a given directory
+#####  count only the "symbolic links" in a given directory
 
 ```
 $total_link = $this->ftp->count('/path/of/directory', 'link');
 ```
 
-#### Downloads a file from the FTP server into a string
+##### Downloads a file from the FTP server into a string
 
 ```
 $this->ftp->getContent('path/of/file');
 ```
 
-### Upload method
-* Uploads a file to the server from a string
+### Upload method :
+#####  Uploads a file to the server from a string
 
 ```
 $this->ftp->putFromString('path/of/file', 'string');
 ```
 
-* Uploads a file to the server
+#####  Uploads a file to the server
 
 ```
 $this->ftp->putFromPath('path/of/file');
 ```
 
-* upload with the BINARY mode
+#####  upload with the BINARY mode
 
 ```
 $this->ftp->putAll('source_directory', 'target_directory');
 ```
 
-* Is equal to
+#####  Is equal to
 
 ```
 $this->ftp->putAll('source_directory', 'target_directory', FTP_BINARY);
 ```
 
-* or upload with the ASCII mode
+#####  or upload with the ASCII mode
 
 ```
 $this->ftp->putAll('source_directory', 'target_directory', FTP_ASCII);
@@ -958,7 +962,7 @@ $this->ftp->chmod('0775', 'path/of/file');
 
 ---
 
-# ImageResize Library
+## ImageResize Library
 
 Use this namespace in the controller :
 
@@ -1139,8 +1143,7 @@ $image->resize(800, 600);
 $image->save('image.png', IMAGETYPE_PNG);
 ```
 
-Quality
--------
+### Quality
 
 The properties `$quality_jpg` and `$quality_png` are available for you to configure:
 
@@ -1219,7 +1222,7 @@ try{
 
 ---
 
-# Carbon Library
+## Carbon Library
 
 Use this namespace in the controller :
 
@@ -1230,9 +1233,9 @@ Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/docs/)
 
 ---
 
-# String Method
+## String Method
 
-### - Check if the string starts with a certain value:
+### Check if the string starts with a certain value:
 
 ```php
 str_starts_with($search, $string);
@@ -1244,7 +1247,7 @@ str_starts_with("Hello", "Hello world");
 
 **# Return** (boolean)
 
-### - Check if the string ends with a certain value:
+### Check if the string ends with a certain value:
 
 ```php
 str_ends_with($search, $string);
@@ -1260,7 +1263,7 @@ str_ends_with("world", "Hello World");
 
 # LanguageCode Method
 
-### - Get all language codes as array:
+### Get all language codes as array:
 
 ```php
 parse_language();
@@ -1272,7 +1275,7 @@ print_r( parse_language() );
 
 **# Return** (array) → language codes and language names
 
-### - Get language name from language code:
+### Get language name from language code:
 
 ```php
 get_language_name($languageCode);
@@ -1284,7 +1287,7 @@ get_language_name('id');
 
 **# Return** (tring|false) → country name
 
-### - Get language code from language name:
+### Get language code from language name:
 
 ```php
 get_language_code($languageName);
@@ -1300,7 +1303,7 @@ get_language_code('Indonesian');
 
 # LoadTime Method
 
-### - Set initial time:
+### Set initial time:
 
 ```php
 load_time();
@@ -1308,7 +1311,7 @@ load_time();
 
 **# Return** (float) → microtime
 
-### - Set end time:
+### Set end time:
 
 ```php
 end_time();
@@ -1316,7 +1319,7 @@ end_time();
 
 **# Return** (float) → seconds
 
-### - Check if the timer has been started:
+### Check if the timer has been started:
 
 ```php
 is_active_time();
@@ -1349,7 +1352,7 @@ print_r('Script executed in: ' . end_time() . ' seconds.');
 
 Example of use for this library:
 
-### - Creating JSON file from array:
+### Creating JSON file from array:
 
 ```php
 
@@ -1365,7 +1368,7 @@ json_array_to_file($array, $pathfile);
 
 ```
 
-### - Save to array the JSON file content:
+### Save to array the JSON file content:
 
 ```php
 $pathfile = public_path('file.json');
@@ -1374,7 +1377,7 @@ $array = json_file_to_array($pathfile);
 
 ```
 
-### - Check for errors:
+### Check for errors:
 
 ```php
 $lastError = json_last_error();
@@ -1384,7 +1387,7 @@ if (!is_null($lastError)) {
 }
 ```
 
-### - Get collection of JSON errors:
+### Get collection of JSON errors:
 
 ```php
 $jsonLastErrorCollection = json_collection_error();
@@ -1404,19 +1407,19 @@ use System\Libraries\Curl;
 
 Example of use for this library:
 
-### - Send GET request and obtain response as array:
+### Send GET request and obtain response as array:
 
 ```php
 Curl::request('https://graph.facebook.com/zuck');
 ```
 
-### - Send GET request and obtain response as object:
+### Send GET request and obtain response as object:
 
 ```php
 Curl::request('https://graph.facebook.com/zuck', false, 'object');
 ```
 
-### - Send GET request with params and obtain response as array:
+### Send GET request with params and obtain response as array:
 
 ```php
 $data = [
@@ -1427,7 +1430,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data);
 ```
 
-### - Send GET request with params and obtain response as object:
+### Send GET request with params and obtain response as object:
 
 ```php
 $data = [
@@ -1438,7 +1441,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data, 'object');
 ```
 
-### - Send POST request and obtain response as array:
+### Send POST request and obtain response as array:
 
 ```php
 $data = [
@@ -1455,7 +1458,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data);
 ```
 
-### - Send POST request and obtain response as object:
+### Send POST request and obtain response as object:
 
 ```php
 $data = [
@@ -1472,7 +1475,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data, 'object');
 ```
 
-### - Send PUT request and obtain response as array:
+### Send PUT request and obtain response as array:
 
 ```php
 $data = [
@@ -1489,7 +1492,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data);
 ```
 
-### - Send PUT request and obtain response as object:
+### Send PUT request and obtain response as object:
 
 ```php
 $data = [
@@ -1506,7 +1509,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data, 'object');
 ```
 
-### - Send DELETE request and obtain response as array:
+### Send DELETE request and obtain response as array:
 
 ```php
 $data = [
@@ -1524,7 +1527,7 @@ $data = [
 Curl::request('https://graph.facebook.com/zuck', $data);
 ```
 
-### - Send DELETE request and obtain response as object:
+### Send DELETE request and obtain response as object:
 
 ```php
 $data = [
@@ -1555,105 +1558,105 @@ use System\Libraries\File;
 
 Example of use for this library:
 
-### - Check if a local file exists:
+### Check if a local file exists:
 
 ```php
 <?php
 File::exists('path/to/file.php');
 ```
 
-### - Check if a external file exists:
+### Check if a external file exists:
 
 ```php
 <?php
 File::exists('https://raw.githubusercontent.com/Josantonius/PHP-File/master/composer.json');
 ```
 
-### - Delete a local file:
+### Delete a local file:
 
 ```php
 <?php
 File::delete(public_path('file.txt'));
 ```
 
-### - Create directory:
+### Create directory:
 
 ```php
 <?php
 File::create_dir(public_path('/test/'));
 ```
 
-### - Delete empty directory:
+### Delete empty directory:
 
 ```php
 <?php
 File::delete_empty_dir(public_path('/test/'));
 ```
 
-### - Delete directory recursively:
+### Delete directory recursively:
 
 ```php
 <?php
 File::delete_dir_recursively(public_path('/test/'));
 ```
 
-### - Copy directory recursively:
+### Copy directory recursively:
 
 ```php
 <?php
 File::copy_dir_recursively(public_path('/test/'), public_path('/copy/'));
 ```
 
-### - Get file paths from directory:
+### Get file paths from directory:
 
 ```php
 <?php
 File::get_files_from_dir(__DIR__);
 ```
 
-### - Writes data to the file specified in the path.
+### Writes data to the file specified in the path.
 
 ```php
 <?php
 File::write_file($path, $data, $mode = 'wb');
 ```
 
-### - Get Filenames
+### Get Filenames
 
 ```php
 <?php
 File::get_filenames($source_dir, $include_path = false, $_recursion = false);
 ```
 
-### - Get Directory File Information
+### Get Directory File Information
 
 ```php
 <?php
 File::get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
 ```
 
-### - Get File Info
+### Get File Info
 
 ```php
 <?php
 File::get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
 ```
 
-### - Get Mime by Extension
+### Get Mime by Extension
 
 ```php
 <?php
 File::get_mime_by_extension($filename);
 ```
 
-### - Returns the MIME types array from Config/Mimes.php
+### Returns the MIME types array from Config/Mimes.php
 
 ```php
 <?php
 File::get_mimes();
 ```
 
-### - Generates headers that force a download to happen
+### Generates headers that force a download to happen
 
 ```php
 <?php
@@ -1668,13 +1671,13 @@ File::force_download($filename = '', $data = '', $set_mime = false);
 
 Example of use for this library:
 
-### - Get user's IP:
+### Get user's IP:
 
 ```php
 get_ip();
 ```
 
-### - Validate IP:
+### Validate IP:
 
 ```php
 $ip = get_ip();
@@ -1690,21 +1693,21 @@ validate_ip($ip);
 
 Example of use for this library:
 
-### - ARRAY:
+### ARRAY:
 
-#### - When an array is passed:
+#### When an array is passed:
 
 ```php
 var_dump(validate_array(['foo', 'bar'])); // ['foo', 'bar']
 ```
 
-#### - When an JSON array is passed:
+#### When an JSON array is passed:
 
 ```php
 var_dump(validate_array('["foo", "bar"]')); // ['foo', 'bar']
 ```
 
-#### - When an object is passed:
+#### When an object is passed:
 
 ```php
 $data = new \StdClass;
@@ -1714,13 +1717,13 @@ $data->foo = 'bar';
 var_dump(validate_array($data)); // ['foo' => 'bar']
 ```
 
-#### - When an JSON object is passed:
+#### When an JSON object is passed:
 
 ```php
 var_dump(validate_array('{"foo": "bar"}')); // ['foo' => 'bar']
 ```
 
-#### - Parameter return default value when there's no a correct array:
+#### Parameter return default value when there's no a correct array:
 
 ```php
 var_dump(validate_array(false)); // null
@@ -1728,9 +1731,9 @@ var_dump(validate_array(false)); // null
 var_dump(validate_array(false, ['foo', 'bar'])); // ['foo', 'bar']
 ```
 
-### - OBJECT:
+### OBJECT:
 
-#### - When an object is passed:
+#### When an object is passed:
 
 ```php
 $data = new \StdClass;
@@ -1742,7 +1745,7 @@ $object = validate_object($data);
 echo $object->foo; // 'bar'
 ```
 
-#### - When an JSON object is passed:
+#### When an JSON object is passed:
 
 ```php
 $object = validate_object('{"foo": "bar"}');
@@ -1750,7 +1753,7 @@ $object = validate_object('{"foo": "bar"}');
 echo $object->foo; // 'bar'
 ```
 
-#### - When an array is passed:
+#### When an array is passed:
 
 ```php
 $object = validate_object(['foo' => 'bar']));
@@ -1758,7 +1761,7 @@ $object = validate_object(['foo' => 'bar']));
 echo $object->foo; // 'bar'
 ```
 
-#### - Parameter return default value when there's no a correct object:
+#### Parameter return default value when there's no a correct object:
 
 ```php
 var_dump(validate_object(false)); // null
@@ -1768,21 +1771,21 @@ $object = validate_object(false, ['foo' => 'bar']);
 echo $object->foo; // 'bar'
 ```
 
-### - JSON:
+### JSON:
 
-#### - When an JSON object is passed:
+#### When an JSON object is passed:
 
 ```php
 echo validate_json('{"foo": "bar"}'); // '{"foo": "bar"}'
 ```
 
-#### - When an array is passed:
+#### When an array is passed:
 
 ```php
 echo validate_json(['foo' => 'bar']); // '{"foo":"bar"}'
 ```
 
-#### - When an object is passed:
+#### When an object is passed:
 
 ```php
 $data = new \StdClass;
@@ -1792,7 +1795,7 @@ $data->foo = 'bar';
 echo validate_json($data); // '{"foo":"bar"}'
 ```
 
-#### - Parameter return default value when there's no a correct JSON:
+#### Parameter return default value when there's no a correct JSON:
 
 ```php
 var_dump(validate_json(false)); // null
@@ -1800,21 +1803,21 @@ var_dump(validate_json(false)); // null
 echo validate_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 ```
 
-### - STRING:
+### STRING:
 
-#### - When an string is passed:
+#### When an string is passed:
 
 ```php
 echo validate_string('foo'); // 'foo'
 ```
 
-#### - When an integer is passed:
+#### When an integer is passed:
 
 ```php
 echo validate_string(221104); // '221104'
 ```
 
-#### - Parameter return default value when there's no a correct string:
+#### Parameter return default value when there's no a correct string:
 
 ```php
 var_dump(validate_string(false)); // null
@@ -1822,21 +1825,21 @@ var_dump(validate_string(false)); // null
 echo validate_string(false, 'foo'); // 'foo'
 ```
 
-### - INTEGER:
+### INTEGER:
 
-#### - When an integer is passed:
+#### When an integer is passed:
 
 ```php
 echo validate_integer(8); // 8
 ```
 
-#### - When an string is passed:
+#### When an string is passed:
 
 ```php
 echo validate_integer('8'); // 8
 ```
 
-#### - Parameter return default value when there's no a correct integer:
+#### Parameter return default value when there's no a correct integer:
 
 ```php
 var_dump(validate_integer(false)); // null
@@ -1844,21 +1847,21 @@ var_dump(validate_integer(false)); // null
 echo validate_integer(false, 8); // 8
 ```
 
-### - FLOAT:
+### FLOAT:
 
-#### - When an float is passed:
+#### When an float is passed:
 
 ```php
 echo validate_float(8.8); // 8.8
 ```
 
-#### - When an string is passed:
+#### When an string is passed:
 
 ```php
 echo validate_float('8.8'); // 8.8
 ```
 
-#### - Parameter return default value when there's no a correct float:
+#### Parameter return default value when there's no a correct float:
 
 ```php
 var_dump(validate_float(false)); // null
@@ -1866,57 +1869,57 @@ var_dump(validate_float(false)); // null
 echo validate_float(false, 8.8); // 8.8
 ```
 
-### - BOOLEAN:
+### BOOLEAN:
 
-#### - When an boolean true is passed:
+#### When an boolean true is passed:
 
 ```php
 var_dump(validate_boolean(true)); // true
 ```
 
-#### - When an string true is passed:
+#### When an string true is passed:
 
 ```php
 var_dump(validate_boolean('true')); // true
 ```
 
-#### - When an integer one is passed:
+#### When an integer one is passed:
 
 ```php
 var_dump(validate_boolean(1)); // true
 ```
 
-#### - When an string one is passed:
+#### When an string one is passed:
 
 ```php
 var_dump(validate_boolean('1')); // true
 ```
 
-#### - When an boolean false is passed:
+#### When an boolean false is passed:
 
 ```php
 var_dump(validate_boolean(false)); // false
 ```
 
-#### - When an string false is passed:
+#### When an string false is passed:
 
 ```php
 var_dump(validate_boolean('false')); // false
 ```
 
-#### - When an integer zero is passed:
+#### When an integer zero is passed:
 
 ```php
 var_dump(validate_boolean(0)); // false
 ```
 
-#### - When an string zero is passed:
+#### When an string zero is passed:
 
 ```php
 var_dump(validate_boolean('0')); // false
 ```
 
-#### - Parameter return default value when there's no a correct boolean:
+#### Parameter return default value when there's no a correct boolean:
 
 ```php
 var_dump(validate_boolean(null)); // null
@@ -1924,15 +1927,15 @@ var_dump(validate_boolean(null)); // null
 echo validate_boolean(null, true); // true
 ```
 
-### - IP:
+### IP:
 
-#### - When an IP is passed:
+#### When an IP is passed:
 
 ```php
 echo validate_ip('255.255.255.0'); // '255.255.255.0'
 ```
 
-#### - Parameter return default value when there's no a correct IP:
+#### Parameter return default value when there's no a correct IP:
 
 ```php
 var_dump(validate_ip(null)); // null
@@ -1940,15 +1943,15 @@ var_dump(validate_ip(null)); // null
 echo validate_ip(null, '255.255.255.0'); // '255.255.255.0'
 ```
 
-### - URL:
+### URL:
 
-#### - When an URL is passed:
+#### When an URL is passed:
 
 ```php
 echo validate_url('https://josantonius.com'); // 'https://josantonius.com'
 ```
 
-#### - Parameter return default value when there's no a correct URL:
+#### Parameter return default value when there's no a correct URL:
 
 ```php
 var_dump(validate_url(null)); // null
@@ -1956,21 +1959,23 @@ var_dump(validate_url(null)); // null
 echo validate_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
 ```
 
-### - Email:
+### Email:
 
-#### - When an email is passed:
+#### When an email is passed:
 
 ```php
 echo validate_email('hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
-#### - Parameter return default value when there's no a correct email:
+#### Parameter return default value when there's no a correct email:
 
 ```php
 var_dump(validate_email(null)); // null
 
 echo validate_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
 ```
+
+---
 
 # CI helpers
 A several CI helpers of NSY PHP Framework from Codeigniter.
