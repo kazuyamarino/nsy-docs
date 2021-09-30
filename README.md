@@ -66,8 +66,8 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 ---
 
 ## CRUD Example?
-Here it is [Vylma CRUD Example](https://vylma.kazuyamarino.com/)
-And [Shyffon CRUD Example](https://shyffon.kazuyamarino.com/)
+Here it is [Vylma CRUD Example](https://vylma.nsyframework.com/)
+And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 
 ---
 
