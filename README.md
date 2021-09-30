@@ -105,6 +105,7 @@ See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUID
 ---
 
 ## System Guide :
+See [System Guide.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).
 * Using Controllers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-controllers)
 * Using Models, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-models)
 * NSY Transaction, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-transaction)
