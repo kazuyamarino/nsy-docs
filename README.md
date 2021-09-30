@@ -105,7 +105,7 @@ See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUID
 ---
 
 ## System Guide.
-* [Usefull Method](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#usefull-method).<br/>
+* Usefull Method, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#usefull-method).<br/>
     * The PHP superglobals post and get are used to collect form-data, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#the-php-superglobals-post-and-get-are-used-to-collect-form-data)
     * Check if it's a PUT request, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#check-if-its-a-put-request-)
     * Check if it's a DELETE request, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#check-if-its-a-delete-request-)
