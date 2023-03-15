@@ -1,12 +1,6 @@
 # NSY USER GUIDE
-NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
-Site example :
-<a href="https://nsyframework.com/">https://nsyframework.com/</a>
-
----
-
-## Composer
+## <ins>Composer</ins>
 Composer helps you declare, manage, and install dependencies of PHP projects.
 
 See [https://getcomposer.org/](https://getcomposer.org/) for more information and documentation.
@@ -25,47 +19,47 @@ The composer on the nsy framework has a function to generate autoload in the HMV
 NSY applies the concept of PSR-4 Autoloading. NSY has the `composer.json` file that can be dumped with [composer](https://getcomposer.org/download/) command `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` when creating a folder structure that contains new class files.
 
 For example,
-* There is an example folder in the module folder that was created named `homepage`, along with the namespaces.
+* There is an example folder in the module folder that was created named `Homepage`, along with the namespaces.
 
-* In the `homepage` folder there must be a `models` folder, `views` folder, and `controllers` folder.
+* In the `Homepage` folder there must be a `Models` folder, `Views` folder, and `Controllers` folder.
 
 ```
-modules
-    │   └── homepage
-    │       ├── controllers
+Modules
+    │   └── Homepage
+    │       ├── Controllers
     │       │  
-    │       ├── models
+    │       ├── Models
     │       │  
-    │       └── views
+    │       └── Views
     │           
 ```
 
 Should be like this. That it is!
 
-* Now, you can generate autoload class in the `models` folder & `controllers` folder for the `homepage` with `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` on the command line terminal.
+* Now, you can generate autoload class in the `Models` folder & `Controllers` folder for the `Homepage` with `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` on the command line terminal.
 
 ---
 
 ## Framework Configuration
 The NSY_Framework Configuration is very simple. There are 3 config file in `System/Config` directory :
 * `App.php` for application setting such as system path of the framework.
-* `Database.php` for database connection setting.
+* `Assets.php` for css or js configuration.
 * `Site.php` for meta site configuration.
+* `Mimes.php` this file contains an array of mime types.
 
 ```
-├── config
+├── Config
     │   ├── App.php
-    │   ├── Database.php
+    │   ├── Assets.php
     │   └── Site.php
+    │   └── Mimes.php
 ```
 
-By default NSY support `phpdotenv` library, that can read `env` file *(see `env` file on root directory)*.
-
-* system.js file
+* `system.js` file
 
 >system.js is located in `public/js/config/system.js` folder.
 
-In system.js there is a `base_url` configuration for javascript *(see line 1 to 20)*. This `base_url` is used for the purpose of initializing the function of the <strong>Datatable Ajax URL</strong> in the `public/js/datatables/init.js`*
+In system.js there is a `base_url` configuration for javascript *(see line 13 - 15)*. This `base_url` is used for the purpose of initializing the function of the <strong>Datatable Ajax URL</strong> in the `public/js/datatables/init.js`*
 
 * For Example see Shyffon repository [https://github.com/kazuyamarino/shyffon](Here!)
 
@@ -96,9 +90,10 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
 ├── Routes
     │   ├── Api.php
     │   └── Web.php
+    │   └── Migration.php
 ```
 
-#### Examples :
+### Examples :
 
 ```PHP
 Route::get('/', function() {
@@ -144,7 +139,7 @@ Route::any('/', function() {
 });
 ```
 
-#### Example passing to a controller instead of a closure :
+### Example passing to a controller instead of a closure :
 
 It's possible to pass the namespace path to a controller instead of the closure:
 
@@ -197,14 +192,12 @@ Route::get('/view/(:num)', function($id) {
 });
 ```
 
-#### Example passing to a controller inside hmvc module :
+### Example passing to a controller inside hmvc module :
 
-For this demo lets say I have a module folder called `homepage` and folder controllers inside with a login.php name.
+For this demo lets say I have a module folder called `Homepage` and folder controllers inside with a login.php name.
 
+`login.php` :
 ```php
-login.php :
-
-<?php
 namespace System\Modules\Homepage\Controllers;
 
 class Login {
@@ -224,10 +217,9 @@ class Login {
 }
 ```
 
+`Web.php` :
 ```php
-Web.php :
-
-Route::get('/homepage', function() {
+Route::get('/Homepage', function() {
 	Route::goto('Homepage\Login@index');
 });
 
@@ -240,14 +232,14 @@ Route::get('/view/(:num)/(:alpha)', function($id, $user) {
 });
 ```
 
-#### Another way to call a controller with minimal code instead of Route::goto().
+### Another way to call a controller with minimal code instead of Route::goto():
 
 ```php
 Route::get('/', 'Welcome@index');
 Route::get('/hmvc', 'Homepage\Hello@index_hmvc');
 ```
 
-#### Route group with (base path)
+### Route group with (base path) :
 
 ```php
 Route::group('/admin', function() {
@@ -263,7 +255,7 @@ Route::group('/admin', function() {
 });
 ```
 
-#### Lastly, if there is no route defined for a certain location, you can make NSY_Router run a custom callback, like:
+### Lastly, if there is no route defined for a certain location, you can make NSY_Router run a custom callback, like :
 
 ```php
 Route::error(function() {
@@ -334,30 +326,30 @@ footer_assets();
 
 ---
 
-## NSY CLI (Command Line)
+## NSY CLI (Command Line Interface)
 NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with:
 
-### Note
-If you install the NSY Framework through the `composer create-project`, it automatically includes the NSY CLI.
+### Note :
+```If you install the NSY Framework through the `composer create-project`, it automatically includes the NSY CLI.```
 
 ### NSY CLI Manual Install
 * Open Linux Terminal or Git Bash Terminal inside your project directory.
 * `sudo chmod +x INSTALL.sh` (use this if you want to install on a linux operating system that requires permission, or if you are a Windows user, then skip this command).
 
 ```
-html/nsy$ sudo chmod +x INSTALL.sh
+$ sudo chmod +x INSTALL.sh
 ```
 
 * `bash INSTALL.sh` or `./INSTALL.sh`.
 
 ```
-html/nsy$ bash INSTALL.sh
+$ bash INSTALL.sh
 ```
 
 * Close the `terminal` or `git bash`, & open it again or reset bashrc with the command `source ~/reloader.sh`.
 
 ```
-html/nsy$ source ~/reloader.sh
+$ source ~/reloader.sh
 ```
 
 * If NSY CLI installer successfully, it should display.
@@ -372,7 +364,7 @@ Please reset bashrc with the command 'source ~/reloader.sh'
 * Then if you type command `nsy --hello` it should display.
 
 ```
-html/nsy$ nsy --hello
+$ nsy --hello
 ```
 
 ```

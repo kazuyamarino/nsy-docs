@@ -1,4 +1,5 @@
-# NSY
+# NSY PHP Framework
+## <ins>About</ins>
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
 [![Build Status](https://travis-ci.org/kazuyamarino/nsy.svg?branch=master)](https://travis-ci.org/kazuyamarino/nsy)
@@ -6,16 +7,14 @@ NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 Site example :
 [https://nsyframework.com/](https://nsyframework.com/)
 
----
-
-## Codename
-Serunai, or also called Puput Serunai, is the name of a wind instrument known in Indonesia as a traditional musical instrument of the Minang community. The unique part of the Serunai is the expanding tip, which functions to increase the sound volume.
-*Wikipedia - https://id.wikipedia.org/wiki/Serunai*
+## <ins>Codename</ins>
+The Sasando, also called Sasandu from Sandu or Sanu, is a tube zither, a harp-like traditional music string instrument native to Rote Island of East Nusa Tenggara, Indonesia.
+*Wikipedia - https://en.wikipedia.org/wiki/Sasando*
 
 ---
 
-## How to dating with NSY?
-### Download from Github
+# How to dating with NSY?
+## <ins>Download from Github</ins>
 * Download source from this link [https://github.com/kazuyamarino/nsy/releases](https://github.com/kazuyamarino/nsy/releases).
 * Simply rename the source folder that has been downloaded to `nsy` & copy it to your `html` or `htdocs` or anythings folder.
 * For apache, please go to the `docs/apache` folder and read the `Readme.txt`.
@@ -26,24 +25,24 @@ Serunai, or also called Puput Serunai, is the name of a wind instrument known in
 2. Copy .htaccess inside 'for_root' folder to 'root(nsy)' folder
 ```
 
-* Go to the `docs/env.example` folder and copy the `env.example` to root folder, and rename it to `env`.
+* Go to the `docs/env.example.php` folder and copy the `env.example.php` to root folder, and rename it to `env.php`.
 * And save the date..
 
-### From Composer
+## <ins>From Composer</ins>
 
-### Install NSY by creating a new directory called `blog`
+### 1. Install NSY by creating a new directory called `blog`
 
 ```
 composer create-project --prefer-dist vikry/nsy blog
 ```
 
-##### 2. Restart Bash
+### 2. Restart Bash
 
 ```
 source ~/reloader.sh
 ```
 
-##### 3. NSY Setup
+### 3. NSY Setup
 
 ```
 cd blog && nsy --setup
@@ -52,7 +51,7 @@ Enter directory name >
 blog
 ```
 
-##### 4. NSY is Ready to create project!
+### 4. NSY is Ready to create project!
 
 ```
 For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
@@ -65,13 +64,13 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 
 ---
 
-## CRUD Example?
+# CRUD Example?
 Here it is [Vylma CRUD Example](https://vylma.nsyframework.com/)
 And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 
 ---
 
-## NSY Features :
+# NSY Features :
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
 * NSY Routing System, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
 * MVC or HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
@@ -90,7 +89,7 @@ And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 
 ---
 
-## User Guide :
+# User Guide :
 See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer)
 * Composer on NSY, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
@@ -104,7 +103,7 @@ See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUID
 
 ---
 
-## System Guide :
+# System Guide :
 See [System Guide.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).
 * Using Controllers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-controllers)
 * Using Models, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-models)
@@ -171,5 +170,7 @@ See [System Guide.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGU
 
 ---
 
-## License
+# License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
+
+NSY Framework 2020 - 2023

@@ -1237,12 +1237,18 @@ Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/docs/)
 
 ### Check if the string starts with a certain value:
 
-```php
-str_starts_with($search, $string);
+Use this namespace in the controller :
+
+```
+use System\Libraries\Str;
 ```
 
 ```php
-str_starts_with("Hello", "Hello world");
+Str::starts_with($search, $string);
+```
+
+```php
+Str::starts_with("Hello", "Hello world");
 ```
 
 **# Return** (boolean)
@@ -1250,11 +1256,11 @@ str_starts_with("Hello", "Hello world");
 ### Check if the string ends with a certain value:
 
 ```php
-str_ends_with($search, $string);
+Str::ends_with($search, $string);
 ```
 
 ```php
-str_ends_with("world", "Hello World");
+Str::ends_with("world", "Hello World");
 ```
 
 **# Return** (boolean)
@@ -1332,7 +1338,6 @@ is_active_time();
 Example of use for this library:
 
 ```php
-<?php
 load_time();
 
 for ($i=0; $i < 100000; $i++) {
@@ -1357,9 +1362,9 @@ Example of use for this library:
 ```php
 
 $array = [
-	'name'  => 'Josantonius',
-    'email' => 'info@josantonius.com',
-    'url'   => 'https://github.com/josantonius/PHP-Json'
+  'name'  => 'Josantonius',
+  'email' => 'info@josantonius.com',
+  'url'   => 'https://github.com/josantonius/PHP-Json'
 ];
 
 $pathfile = public_path('file.json');
@@ -1397,151 +1402,160 @@ $jsonLastErrorCollection = json_collection_error();
 
 # Curl Library
 
+PHP Curl Class makes it easy to send HTTP requests and integrate with web APIs.
+
+Complete documentation : [PHP Curl Class](https://github.com/php-curl-class/php-curl-class)
+
 Use this namespace in the controller :
 
 ```
-use System\Libraries\Curl;
+use Curl\Curl;
 ```
 
-## Usage
+### Quick Start and Examples
 
-Example of use for this library:
-
-### Send GET request and obtain response as array:
+More examples are available under [/examples](https://github.com/php-curl-class/php-curl-class/tree/master/examples).
 
 ```php
-Curl::request('https://graph.facebook.com/zuck');
+$curl = new Curl();
+$curl->get('https://www.example.com/');
+
+if ($curl->error) {
+    echo 'Error: ' . $curl->errorCode . ': ' . $curl->errorMessage . "\n";
+} else {
+    echo 'Response:' . "\n";
+    var_dump($curl->response);
+}
 ```
 
-### Send GET request and obtain response as object:
-
 ```php
-Curl::request('https://graph.facebook.com/zuck', false, 'object');
+// https://www.example.com/search?q=keyword
+$curl = new Curl();
+$curl->get('https://www.example.com/search', [
+    'q' => 'keyword',
+]);
 ```
 
-### Send GET request with params and obtain response as array:
-
 ```php
-$data = [
-    'timeout' => 10,
-    'referer' => 'http://site.com',
-];
-
-Curl::request('https://graph.facebook.com/zuck', $data);
+$curl = new Curl();
+$curl->post('https://www.example.com/login/', [
+    'username' => 'myusername',
+    'password' => 'mypassword',
+]);
 ```
 
-### Send GET request with params and obtain response as object:
-
 ```php
-$data = [
-    'timeout' => 10,
-    'referer' => 'http://site.com',
-];
+$curl = new Curl();
+$curl->setBasicAuthentication('username', 'password');
+$curl->setUserAgent('MyUserAgent/0.0.1 (+https://www.example.com/bot.html)');
+$curl->setReferrer('https://www.example.com/url?url=https%3A%2F%2Fwww.example.com%2F');
+$curl->setHeader('X-Requested-With', 'XMLHttpRequest');
+$curl->setCookie('key', 'value');
+$curl->get('https://www.example.com/');
 
-Curl::request('https://graph.facebook.com/zuck', $data, 'object');
+if ($curl->error) {
+    echo 'Error: ' . $curl->errorCode . ': ' . $curl->errorMessage . "\n";
+} else {
+    echo 'Response:' . "\n";
+    var_dump($curl->response);
+}
+
+var_dump($curl->requestHeaders);
+var_dump($curl->responseHeaders);
 ```
 
-### Send POST request and obtain response as array:
-
 ```php
-$data = [
-    'type'    => 'post',
-    'data'    => array('user' => '123456', 'password' => 'xxxxx'),
-    'timeout' => 10,
-    'referer' => 'http://' . $_SERVER['HTTP_HOST'],
-    'headers' => [
-        'Content-Type:application/json',
-        'Authorization:0kdm3hzmb4h3cf',
-    ],
-];
-
-Curl::request('https://graph.facebook.com/zuck', $data);
+$curl = new Curl();
+$curl->setFollowLocation();
+$curl->get('https://shortn.example.com/bHbVsP');
 ```
 
-### Send POST request and obtain response as object:
-
 ```php
-$data = [
-    'type'    => 'post',
-    'data'    => array('user' => '123456', 'password' => 'xxxxx'),
-    'timeout' => 10,
-    'referer' => 'http://' . $_SERVER['HTTP_HOST'],
-    'headers' => [
-        'Content-Type:application/json',
-        'Authorization:0kdm3hzmb4h3cf',
-    ],
-];
-
-Curl::request('https://graph.facebook.com/zuck', $data, 'object');
+$curl = new Curl();
+$curl->put('https://api.example.com/user/', [
+    'first_name' => 'Zach',
+    'last_name' => 'Borboa',
+]);
 ```
 
-### Send PUT request and obtain response as array:
-
 ```php
-$data = [
-    'type'    => 'put',
-    'data'    => array('email' => 'new@email.com'),
-    'timeout' => 30,
-    'referer' => 'http://' . $_SERVER['HTTP_HOST'],
-    'headers' => [
-        'Content-Type:application/json',
-        'Authorization:0kdm3hzmb4h3cf',
-    ],
-];
-
-Curl::request('https://graph.facebook.com/zuck', $data);
+$curl = new Curl();
+$curl->patch('https://api.example.com/profile/', [
+    'image' => '@path/to/file.jpg',
+]);
 ```
 
-### Send PUT request and obtain response as object:
-
 ```php
-$data = [
-    'type'    => 'put',
-    'data'    => array('email' => 'new@email.com'),
-    'timeout' => 30,
-    'referer' => 'http://' . $_SERVER['HTTP_HOST'],
-    'headers' => [
-        'Content-Type:application/json',
-        'Authorization:0kdm3hzmb4h3cf',
-    ],
-];
-
-Curl::request('https://graph.facebook.com/zuck', $data, 'object');
+$curl = new Curl();
+$curl->patch('https://api.example.com/profile/', [
+    'image' => new CURLFile('path/to/file.jpg'),
+]);
 ```
 
-### Send DELETE request and obtain response as array:
-
 ```php
-$data = [
-
-    'type'    => 'delete',
-    'data'    => ['userId' => 10],
-    'timeout' => 30,
-    'referer' => 'http://' . $_SERVER['HTTP_HOST'],
-    'headers' => [
-        'Content-Type:application/json',
-        'Authorization:0kdm3hzmb4h3cf',
-    ],
-];
-
-Curl::request('https://graph.facebook.com/zuck', $data);
+$curl = new Curl();
+$curl->delete('https://api.example.com/user/', [
+    'id' => '1234',
+]);
 ```
 
-### Send DELETE request and obtain response as object:
+```php
+// Enable all supported encoding types and download a file.
+$curl = new Curl();
+$curl->setOpt(CURLOPT_ENCODING , '');
+$curl->download('https://www.example.com/file.bin', '/tmp/myfile.bin');
+```
 
 ```php
-$data = [
-    'type'    => 'delete',
-    'data'    => ['userId' => 10],
-    'timeout' => 30,
-    'referer' => 'http://' . $_SERVER['HTTP_HOST'],
-    'headers' => [
-        'Content-Type:application/json',
-        'Authorization:0kdm3hzmb4h3cf',
-    ],
-];
+// Case-insensitive access to headers.
+$curl = new Curl();
+$curl->download('https://www.example.com/image.png', '/tmp/myimage.png');
+echo $curl->responseHeaders['Content-Type'] . "\n"; // image/png
+echo $curl->responseHeaders['CoNTeNT-TyPE'] . "\n"; // image/png
+```
 
-Curl::request('https://graph.facebook.com/zuck', $data, 'object');
+```php
+// Manual clean up.
+$curl->close();
+```
+
+```php
+// Example access to curl object.
+curl_set_opt($curl->curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1');
+curl_close($curl->curl);
+```
+
+```php
+use Curl\MultiCurl;
+
+// Requests in parallel with callback functions.
+$multi_curl = new MultiCurl();
+
+$multi_curl->success(function($instance) {
+    echo 'call to "' . $instance->url . '" was successful.' . "\n";
+    echo 'response:' . "\n";
+    var_dump($instance->response);
+});
+$multi_curl->error(function($instance) {
+    echo 'call to "' . $instance->url . '" was unsuccessful.' . "\n";
+    echo 'error code: ' . $instance->errorCode . "\n";
+    echo 'error message: ' . $instance->errorMessage . "\n";
+});
+$multi_curl->complete(function($instance) {
+    echo 'call completed' . "\n";
+});
+
+$multi_curl->addGet('https://www.google.com/search', [
+    'q' => 'hello world',
+]);
+$multi_curl->addGet('https://duckduckgo.com/', [
+    'q' => 'hello world',
+]);
+$multi_curl->addGet('https://www.bing.com/search', [
+    'q' => 'hello world',
+]);
+
+$multi_curl->start(); // Blocks until all items in the queue have been processed.
 ```
 
 ---
@@ -1561,105 +1575,90 @@ Example of use for this library:
 ### Check if a local file exists:
 
 ```php
-<?php
 File::exists('path/to/file.php');
 ```
 
 ### Check if a external file exists:
 
 ```php
-<?php
 File::exists('https://raw.githubusercontent.com/Josantonius/PHP-File/master/composer.json');
 ```
 
 ### Delete a local file:
 
 ```php
-<?php
 File::delete(public_path('file.txt'));
 ```
 
 ### Create directory:
 
 ```php
-<?php
 File::create_dir(public_path('/test/'));
 ```
 
 ### Delete empty directory:
 
 ```php
-<?php
 File::delete_empty_dir(public_path('/test/'));
 ```
 
 ### Delete directory recursively:
 
 ```php
-<?php
 File::delete_dir_recursively(public_path('/test/'));
 ```
 
 ### Copy directory recursively:
 
 ```php
-<?php
 File::copy_dir_recursively(public_path('/test/'), public_path('/copy/'));
 ```
 
 ### Get file paths from directory:
 
 ```php
-<?php
 File::get_files_from_dir(__DIR__);
 ```
 
 ### Writes data to the file specified in the path.
 
 ```php
-<?php
 File::write_file($path, $data, $mode = 'wb');
 ```
 
 ### Get Filenames
 
 ```php
-<?php
 File::get_filenames($source_dir, $include_path = false, $_recursion = false);
 ```
 
 ### Get Directory File Information
 
 ```php
-<?php
 File::get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
 ```
 
 ### Get File Info
 
 ```php
-<?php
 File::get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
 ```
 
 ### Get Mime by Extension
 
 ```php
-<?php
 File::get_mime_by_extension($filename);
 ```
 
 ### Returns the MIME types array from Config/Mimes.php
 
 ```php
-<?php
 File::get_mimes();
 ```
 
 ### Generates headers that force a download to happen
 
 ```php
-<?php
 File::force_download($filename = '', $data = '', $set_mime = false);
 ```
 
@@ -1698,13 +1697,13 @@ Example of use for this library:
 #### When an array is passed:
 
 ```php
-var_dump(validate_array(['foo', 'bar'])); // ['foo', 'bar']
+var_dump(Validate::as_array(['foo', 'bar'])); // ['foo', 'bar']
 ```
 
 #### When an JSON array is passed:
 
 ```php
-var_dump(validate_array('["foo", "bar"]')); // ['foo', 'bar']
+var_dump(Validate::as_array('["foo", "bar"]')); // ['foo', 'bar']
 ```
 
 #### When an object is passed:
@@ -1714,21 +1713,21 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-var_dump(validate_array($data)); // ['foo' => 'bar']
+var_dump(Validate::as_array($data)); // ['foo' => 'bar']
 ```
 
 #### When an JSON object is passed:
 
 ```php
-var_dump(validate_array('{"foo": "bar"}')); // ['foo' => 'bar']
+var_dump(Validate::as_array('{"foo": "bar"}')); // ['foo' => 'bar']
 ```
 
 #### Parameter return default value when there's no a correct array:
 
 ```php
-var_dump(validate_array(false)); // null
+var_dump(Validate::as_array(false)); // null
 
-var_dump(validate_array(false, ['foo', 'bar'])); // ['foo', 'bar']
+var_dump(Validate::as_array(false, ['foo', 'bar'])); // ['foo', 'bar']
 ```
 
 ### OBJECT:
@@ -1740,7 +1739,7 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-$object = validate_object($data);
+$object = Validate::as_object($data);
 
 echo $object->foo; // 'bar'
 ```
@@ -1748,7 +1747,7 @@ echo $object->foo; // 'bar'
 #### When an JSON object is passed:
 
 ```php
-$object = validate_object('{"foo": "bar"}');
+$object = Validate::as_object('{"foo": "bar"}');
 
 echo $object->foo; // 'bar'
 ```
@@ -1756,7 +1755,7 @@ echo $object->foo; // 'bar'
 #### When an array is passed:
 
 ```php
-$object = validate_object(['foo' => 'bar']));
+$object = Validate::as_object(['foo' => 'bar']));
 
 echo $object->foo; // 'bar'
 ```
@@ -1764,9 +1763,9 @@ echo $object->foo; // 'bar'
 #### Parameter return default value when there's no a correct object:
 
 ```php
-var_dump(validate_object(false)); // null
+var_dump(Validate::as_object(false)); // null
 
-$object = validate_object(false, ['foo' => 'bar']);
+$object = Validate::as_object(false, ['foo' => 'bar']);
 
 echo $object->foo; // 'bar'
 ```
@@ -1776,13 +1775,13 @@ echo $object->foo; // 'bar'
 #### When an JSON object is passed:
 
 ```php
-echo validate_json('{"foo": "bar"}'); // '{"foo": "bar"}'
+echo Validate::as_json('{"foo": "bar"}'); // '{"foo": "bar"}'
 ```
 
 #### When an array is passed:
 
 ```php
-echo validate_json(['foo' => 'bar']); // '{"foo":"bar"}'
+echo Validate::as_json(['foo' => 'bar']); // '{"foo":"bar"}'
 ```
 
 #### When an object is passed:
@@ -1792,15 +1791,15 @@ $data = new \StdClass;
 
 $data->foo = 'bar';
 
-echo validate_json($data); // '{"foo":"bar"}'
+echo Validate::as_json($data); // '{"foo":"bar"}'
 ```
 
 #### Parameter return default value when there's no a correct JSON:
 
 ```php
-var_dump(validate_json(false)); // null
+var_dump(Validate::as_json(false)); // null
 
-echo validate_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
+echo Validate::as_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 ```
 
 ### STRING:
@@ -1808,21 +1807,21 @@ echo validate_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 #### When an string is passed:
 
 ```php
-echo validate_string('foo'); // 'foo'
+echo Validate::as_string('foo'); // 'foo'
 ```
 
 #### When an integer is passed:
 
 ```php
-echo validate_string(221104); // '221104'
+echo Validate::as_string(221104); // '221104'
 ```
 
 #### Parameter return default value when there's no a correct string:
 
 ```php
-var_dump(validate_string(false)); // null
+var_dump(Validate::as_string(false)); // null
 
-echo validate_string(false, 'foo'); // 'foo'
+echo Validate::as_string(false, 'foo'); // 'foo'
 ```
 
 ### INTEGER:
@@ -1830,21 +1829,21 @@ echo validate_string(false, 'foo'); // 'foo'
 #### When an integer is passed:
 
 ```php
-echo validate_integer(8); // 8
+echo Validate::as_integer(8); // 8
 ```
 
 #### When an string is passed:
 
 ```php
-echo validate_integer('8'); // 8
+echo Validate::as_integer('8'); // 8
 ```
 
 #### Parameter return default value when there's no a correct integer:
 
 ```php
-var_dump(validate_integer(false)); // null
+var_dump(Validate::as_integer(false)); // null
 
-echo validate_integer(false, 8); // 8
+echo Validate::as_integer(false, 8); // 8
 ```
 
 ### FLOAT:
@@ -1852,21 +1851,21 @@ echo validate_integer(false, 8); // 8
 #### When an float is passed:
 
 ```php
-echo validate_float(8.8); // 8.8
+echo Validate::as_float(8.8); // 8.8
 ```
 
 #### When an string is passed:
 
 ```php
-echo validate_float('8.8'); // 8.8
+echo Validate::as_float('8.8'); // 8.8
 ```
 
 #### Parameter return default value when there's no a correct float:
 
 ```php
-var_dump(validate_float(false)); // null
+var_dump(Validate::as_float(false)); // null
 
-echo validate_float(false, 8.8); // 8.8
+echo Validate::as_float(false, 8.8); // 8.8
 ```
 
 ### BOOLEAN:
@@ -1874,57 +1873,57 @@ echo validate_float(false, 8.8); // 8.8
 #### When an boolean true is passed:
 
 ```php
-var_dump(validate_boolean(true)); // true
+var_dump(Validate::as_boolean(true)); // true
 ```
 
 #### When an string true is passed:
 
 ```php
-var_dump(validate_boolean('true')); // true
+var_dump(Validate::as_boolean('true')); // true
 ```
 
 #### When an integer one is passed:
 
 ```php
-var_dump(validate_boolean(1)); // true
+var_dump(Validate::as_boolean(1)); // true
 ```
 
 #### When an string one is passed:
 
 ```php
-var_dump(validate_boolean('1')); // true
+var_dump(Validate::as_boolean('1')); // true
 ```
 
 #### When an boolean false is passed:
 
 ```php
-var_dump(validate_boolean(false)); // false
+var_dump(Validate::as_boolean(false)); // false
 ```
 
 #### When an string false is passed:
 
 ```php
-var_dump(validate_boolean('false')); // false
+var_dump(Validate::as_boolean('false')); // false
 ```
 
 #### When an integer zero is passed:
 
 ```php
-var_dump(validate_boolean(0)); // false
+var_dump(Validate::as_boolean(0)); // false
 ```
 
 #### When an string zero is passed:
 
 ```php
-var_dump(validate_boolean('0')); // false
+var_dump(Validate::as_boolean('0')); // false
 ```
 
 #### Parameter return default value when there's no a correct boolean:
 
 ```php
-var_dump(validate_boolean(null)); // null
+var_dump(Validate::as_boolean(null)); // null
 
-echo validate_boolean(null, true); // true
+echo Validate::as_boolean(null, true); // true
 ```
 
 ### IP:
@@ -1932,15 +1931,15 @@ echo validate_boolean(null, true); // true
 #### When an IP is passed:
 
 ```php
-echo validate_ip('255.255.255.0'); // '255.255.255.0'
+echo Validate::as_ip('255.255.255.0'); // '255.255.255.0'
 ```
 
 #### Parameter return default value when there's no a correct IP:
 
 ```php
-var_dump(validate_ip(null)); // null
+var_dump(Validate::as_ip(null)); // null
 
-echo validate_ip(null, '255.255.255.0'); // '255.255.255.0'
+echo Validate::as_ip(null, '255.255.255.0'); // '255.255.255.0'
 ```
 
 ### URL:
@@ -1948,15 +1947,15 @@ echo validate_ip(null, '255.255.255.0'); // '255.255.255.0'
 #### When an URL is passed:
 
 ```php
-echo validate_url('https://josantonius.com'); // 'https://josantonius.com'
+echo Validate::as_url('https://josantonius.com'); // 'https://josantonius.com'
 ```
 
 #### Parameter return default value when there's no a correct URL:
 
 ```php
-var_dump(validate_url(null)); // null
+var_dump(Validate::as_url(null)); // null
 
-echo validate_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
+echo Validate::as_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
 ```
 
 ### Email:
@@ -1964,15 +1963,15 @@ echo validate_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
 #### When an email is passed:
 
 ```php
-echo validate_email('hello@josantonius.com'); // 'hello@josantonius.com'
+echo Validate::as_email('hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
 #### Parameter return default value when there's no a correct email:
 
 ```php
-var_dump(validate_email(null)); // null
+var_dump(Validate::as_email(null)); // null
 
-echo validate_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
+echo Validate::as_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
 ---
