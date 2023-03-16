@@ -86,7 +86,7 @@ See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUID
 
 ---
 
-# NSY Features :
+<!-- # NSY Features :
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
 * NSY Routing System, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
 * MVC or HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
@@ -101,11 +101,11 @@ See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUID
 * Carbon DateTime, [See Documentation](https://carbon.nesbot.com/docs/)
 * NSY Database Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations)
 * Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
-* Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares)
+* Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares) -->
 
 ---
 
-# System Guide :
+<!-- # System Guide :
 See [System Guide.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).
 * Using Controllers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-controllers)
 * Using Models, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-models)
@@ -168,7 +168,7 @@ See [System Guide.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGU
 * File Library, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#file-library)
 * IP Method, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#ip-method)
 * Validate Library, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#validate-library)
-* CI helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#ci-helpers)
+* CI helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#ci-helpers) -->
 
 ---
 
