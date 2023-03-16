@@ -21,6 +21,7 @@ The Sasando, also called Sasandu from Sandu or Sanu, is a tube zither, a harp-li
 
 ```
 // Apache Readme.txt
+
 1. Copy .htaccess inside 'for_public' folder to 'public' folder
 2. Copy .htaccess inside 'for_root' folder to 'root(nsy)' folder
 ```
@@ -30,19 +31,19 @@ The Sasando, also called Sasandu from Sandu or Sanu, is a tube zither, a harp-li
 
 ## <ins>From Composer</ins>
 
-### 1. Install NSY by creating a new directory called `blog`
+#### 1. Install NSY by creating a new directory called `blog`
 
 ```
 composer create-project --prefer-dist vikry/nsy blog
 ```
 
-### 2. Restart Bash
+#### 2. Restart Bash
 
 ```
 source ~/reloader.sh
 ```
 
-### 3. NSY Setup
+#### 3. NSY Setup
 
 ```
 cd blog && nsy --setup
@@ -51,12 +52,14 @@ Enter directory name >
 blog
 ```
 
-### 4. NSY is Ready to create project!
+#### 4. NSY is Ready to create project!
+
+__Note :__
+```For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.```
 
 ```
-For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
-
 // Nginx Readme.txt
+
 1. Open 'sudo nano /etc/nginx/sites-enabled/default'
 2. Copy the text in the 'default' file and paste it to /etc/nginx/sites-enabled/default
 3. And restart nginx service, 'sudo service nginx restart'
@@ -67,6 +70,20 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 # CRUD Example?
 Here it is [Vylma CRUD Example](https://vylma.nsyframework.com/)
 And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
+
+---
+
+# User Guide :
+See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
+* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer)
+* Composer on NSY, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
+* Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#framework-configuration)
+* Helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#helpers)
+* Routes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
+* MVC & HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
+* Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#introducting-to-nsy-assets-manager)
+* PSR4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#psr-4-autoloading)
+* NSY CLI (Command Line), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line)
 
 ---
 
@@ -86,20 +103,6 @@ And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 * NSY Database Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations)
 * Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
 * Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares)
-
----
-
-# User Guide :
-See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
-* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer)
-* Composer on NSY, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
-* Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#framework-configuration)
-* Helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#helpers)
-* Routes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
-* MVC & HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
-* Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#introducting-to-nsy-assets-manager)
-* PSR4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#psr-4-autoloading)
-* NSY CLI (Command Line), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line)
 
 ---
 
