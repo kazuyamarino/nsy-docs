@@ -73,7 +73,7 @@ And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 
 ---
 
-# OVERVIEW :
+# Overview :
 See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md).
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer)
 * Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#framework-configuration)
@@ -85,6 +85,14 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 * NSY CLI (Command Line Interface), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#nsy-cli-command-line-interface)
 
 ---
+
+# Features :
+* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer-on-nsy-framework)
+* Simple Routes System, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#routes)
+* MVC & HMVC Mode, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#mvc--hmvc)
+* Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#introducting-to-nsy-assets-manager)
+* PSR-4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#psr-4-autoloading)
+* NSY CLI (Command Line Interface), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#nsy-cli-command-line-interface)
 
 <!-- # NSY Features :
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer-on-nsy-framework)
