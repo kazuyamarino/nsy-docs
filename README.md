@@ -76,14 +76,13 @@ And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 # User Guide :
 See [USERGUIDE.md](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md).
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer)
-* Composer on NSY, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#composer-on-nsy-framework)
 * Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#framework-configuration)
 * Helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#helpers)
 * Routes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#routes)
 * MVC & HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#mvc--hmvc)
 * Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#introducting-to-nsy-assets-manager)
 * PSR4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#psr-4-autoloading)
-* NSY CLI (Command Line), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line)
+* NSY CLI (Command Line Interface), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line-interface)
 
 ---
 
