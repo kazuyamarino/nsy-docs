@@ -1,34 +1,36 @@
 # Overview
 
-## <ins>Composer</ins>
+---
+
+## Composer
 
 Composer helps you declare, manage, and install dependencies of PHP projects.
 
 See [https://getcomposer.org/](https://getcomposer.org/) for more information and documentation.
 
-### Installation / Usage
+#### Installation / Usage
 >
 > Download and install Composer by following the [official instructions](https://getcomposer.org/download/).
 >
 > For usage, see [the documentation](https://getcomposer.org/doc/).
 
-### Packages
+#### Packages
 >
 > Find packages on [Packagist](https://packagist.org).
 
-### Composer on NSY framework
+#### Composer on NSY framework
 >
 > The composer on the nsy framework has a function to generate autoload in the HMVC module folder.
 >
 >NSY applies the concept of PSR-4 Autoloading. NSY has the `composer.json` file that can be dumped with [composer](https://getcomposer.org/download/) command `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` when creating a folder structure that contains new class files.
 >
->#### For example
+>#### For example :
 >
 > * There is an example folder in the module folder that was created named `Homepage`, along with the namespaces.
 >
 > * In the `Homepage` folder there must be a `Models` folder, `Views` folder, and `Controllers` folder.
 >
-> Thefolder structure should be like this
+> The folder structure should be like this
 >
 >```
 >Modules
@@ -104,7 +106,7 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
     │   └── Migration.php
 ```
 
-> ### Examples
+> #### Examples :
 >
 > ```PHP
 > Route::get('/', function() {
@@ -150,7 +152,7 @@ Route::any('/', function() {
 });
 ```
 
-### Example passing to a controller instead of a closure
+#### Example passing to a controller instead of a closure
 
 It's possible to pass the namespace path to a controller instead of the closure:
 
@@ -203,7 +205,7 @@ Route::get('/view/(:num)', function($id) {
 });
 ```
 
-### Example passing to a controller inside hmvc module
+#### Example passing to a controller inside hmvc module
 
 For this demo lets say I have a module folder called `Homepage` and folder controllers inside with a login.php name.
 
@@ -245,14 +247,14 @@ Route::get('/view/(:num)/(:alpha)', function($id, $user) {
 });
 ```
 
-### Another way to call a controller with minimal code instead of Route::goto()
+#### Another way to call a controller with minimal code instead of Route::goto()
 
 ```php
 Route::get('/', 'Welcome@index');
 Route::get('/hmvc', 'Homepage\Hello@index_hmvc');
 ```
 
-### Route group with (base path)
+#### Route group with (base path)
 
 ```php
 Route::group('/admin', function() {
@@ -268,7 +270,7 @@ Route::group('/admin', function() {
 });
 ```
 
-### Lastly, if there is no route defined for a certain location, you can make NSY_Router run a custom callback
+#### If there is no route defined for a certain location, you can make NSY_Router run a custom callback
 
 ```php
 Route::error(function() {
@@ -327,7 +329,7 @@ Add::custom('anythings');
 method_name();
 ```
 
-> #### For example
+> #### For example :
 >
 > ```
 > header_assets();
@@ -348,9 +350,11 @@ Complete information about PSR-4 can be read on the official [PHP-FIG](https://w
 
 NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with:
 
->### Note
+>### Note :
 >
->```If you install the NSY Framework through >the `composer create-project`, it >automatically includes the NSY CLI.```
+>```
+>If you install the NSY Framework through >the >`composer create-project`, it >automatically >includes the NSY CLI.
+>```
 
 ### <ins>NSY CLI Manual Install</ins>
 
@@ -431,13 +435,13 @@ nsy show:controller mvc
 nsy show:model mvc
 ```
 
-#### Show Welcome Message
+#### Show welcome message
 
 ```
 nsy --hello
 ```
 
-#### Show Help Message
+#### Show help message
 
 ```
 nsy --help
@@ -497,7 +501,7 @@ nsy make:migration <class-name>
 nsy --setup
 ```
 
-#### Generate optimized composer autoload
+#### Generate optimized Composer autoload
 
 ```
 nsy dump:autoload
@@ -509,13 +513,13 @@ nsy dump:autoload
 nsy --install
 ```
 
-#### Make before middleware class
+#### Make before Middleware Class
 
 ```
 nsy make:before-middleware <class-name>
 ```
 
-#### Make after middleware class
+#### Make after Middleware Class
 
 ```
 nsy make:after-middleware <class-name>

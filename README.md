@@ -17,13 +17,22 @@ The Sasando, also called Sasandu from Sandu or Sanu, is a tube zither, a harp-li
 ## <ins>Download from Github</ins>
 * Download source from this link [https://github.com/kazuyamarino/nsy/releases](https://github.com/kazuyamarino/nsy/releases).
 * Simply rename the source folder that has been downloaded to `nsy` & copy it to your `html` or `htdocs` or anythings folder.
-* For apache, please go to the `docs/apache` folder and read the `Readme.txt`.
 
+```For apache, please go to the `docs/apache` folder and read the `Readme.txt`.```
 ```
-// Apache Readme.txt
+// docs/apache/Readme.txt
 
 1. Copy .htaccess inside 'for_public' folder to 'public' folder
 2. Copy .htaccess inside 'for_root' folder to 'root(nsy)' folder
+```
+
+```For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.```
+```
+// docs/nginx/Readme.txt
+
+1. Open 'sudo nano /etc/nginx/sites-enabled/default'
+2. Copy the text in the 'default' file and paste it to /etc/nginx/sites-enabled/default
+3. And restart nginx service, 'sudo service nginx restart'
 ```
 
 * Go to the `docs/env.example.php` folder and copy the `env.example.php` to root folder, and rename it to `env.php`.
@@ -52,18 +61,7 @@ Enter directory name >
 blog
 ```
 
-#### 4. NSY is Ready to create project!
-
-__Note :__
-```For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.```
-
-```
-// Nginx Readme.txt
-
-1. Open 'sudo nano /etc/nginx/sites-enabled/default'
-2. Copy the text in the 'default' file and paste it to /etc/nginx/sites-enabled/default
-3. And restart nginx service, 'sudo service nginx restart'
-```
+#### 4. NSY is ready to create project!
 
 ---
 
@@ -111,7 +109,6 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 * Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
 * Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares) -->
 
----
 
 <!-- # System Guide :
 See [System Guide.md](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md).
