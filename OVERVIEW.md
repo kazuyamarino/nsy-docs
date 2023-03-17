@@ -9,14 +9,14 @@ Composer helps you declare, manage, and install dependencies of PHP projects.
 See [https://getcomposer.org/](https://getcomposer.org/) for more information and documentation.
 
 #### Installation / Usage
->
-> Download and install Composer by following the [official instructions](https://getcomposer.org/download/).
->
-> For usage, see [the documentation](https://getcomposer.org/doc/).
+
+Download and install Composer by following the [official instructions](https://getcomposer.org/download/).
+
+For usage, see [the documentation](https://getcomposer.org/doc/).
 
 #### Packages
->
-> Find packages on [Packagist](https://packagist.org).
+
+Find packages on [Packagist](https://packagist.org).
 
 #### Composer on NSY framework
 >
@@ -72,7 +72,7 @@ system.js is located in `public/js/config/system.js` folder.
 
 In system.js there is a `base_url` configuration for javascript *(see line 13 - 15)*. This `base_url` is used for the purpose of initializing the function of the <strong>Datatable Ajax URL</strong> in the `public/js/datatables/init.js`*
 
-```For Example see Shyffon repository [https://github.com/kazuyamarino/shyffon](Here!)```
+For Example see Shyffon repository [Here!](https://github.com/kazuyamarino/shyffon/blob/master/public/assets/js/config/system.js)
 
 ---
 
@@ -387,11 +387,6 @@ Please reset bashrc with the command 'source ~/reloader.sh'
 ```
 
 * Then if you type command `nsy --hello` it should display.
-
-```
-nsy --hello
-```
-
 ```
 Welcome to NSY CLI
 NSY CLI installed successfully
