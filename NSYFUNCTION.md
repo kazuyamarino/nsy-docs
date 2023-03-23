@@ -2,7 +2,7 @@
 
 ## Global Function
 
-### The PHP superglobals `post`, `deposer` and `get` are used to collect form-data
+#### The PHP superglobals `post`, `deposer` and `get` are used to collect form-data
 
 ```
 post('hello');
@@ -22,7 +22,7 @@ deposer(array(some_array));
 // Same as $_FILE[ array(some_array) ];
 ```
 
-### Public directory path
+#### Public directory path
 
 Returns your site full path `public` directory, as specified in your config file.
 
@@ -44,7 +44,7 @@ echo img_url();
 // http://example.com/public/img
 ```
 
-### Javascript directory uri
+#### Javascript directory uri
 
 Return js directory location on the `public` directory
 
@@ -55,7 +55,7 @@ echo js_url();
 // http://example.com/public/js
 ```
 
-### CSS directory uri
+#### CSS directory uri
 
 Return css directory location on the `public` directory
 
@@ -66,9 +66,9 @@ echo css_url();
 // http://example.com/public/css
 ```
 
-### Get Version
+#### Get Version
 
-Get `version` parameter value from Config/Site.php.
+Get `version` parameter value from `Config/Site.php`.
 
 ```
 echo get_version();
@@ -76,9 +76,9 @@ echo get_version();
 // 3.0.0
 ```
 
-### Get Codename
+#### Get Codename
 
-Get `codename` parameter value from Config/Site.php.
+Get `codename` parameter value from `Config/Site.php`.
 
 ```
 echo get_codename();
@@ -86,9 +86,9 @@ echo get_codename();
 // Tifa
 ```
 
-### Get Language Code
+#### Get Language Code
 
-Get `locale` parameter value from Config/App.php.
+Get `locale` parameter value from `Config/App.php`.
 
 ```
 echo get_lang_code();
@@ -96,9 +96,9 @@ echo get_lang_code();
 // en
 ```
 
-### Open Graph Prefix
+#### Open Graph Prefix
 
-Get `prefix_attr` parameter value from Config/App.php.
+Get `prefix_attr` parameter value from `Config/App.php`.
 
 ```
 echo get_og_prefix();
@@ -106,47 +106,47 @@ echo get_og_prefix();
 
 ### Get Site Title
 
-Get `sitetitle` parameter value from Config/Site.php.
+Get `sitetitle` parameter value from `Config/Site.php`.
 
 ```
 echo get_title();
 ```
 
-### Get Site Description
+#### Get Site Description
 
-Get `sitedesc` parameter value from Config/Site.php.
+Get `sitedesc` parameter value from `Config/Site.php`.
 
 ```
 echo get_desc();
 ```
 
-### Get Site Keywords
+#### Get Site Keywords
 
-Get `sitekeywords` parameter value from Config/Site.php.
+Get `sitekeywords` parameter value from `Config/Site.php`.
 
 ```
 echo get_keywords();
 ```
 
-### Get Site Author
+#### Get Site Author
 
-Get `siteauthor` parameter value from Config/Site.php.
+Get `siteauthor` parameter value from `Config/Site.php`.
 
 ```
 echo get_author();
 ```
 
-### Get Session Prefix
+#### Get Session Prefix
 
-Get `session_prefix` parameter value from Config/App.php.
+Get `session_prefix` parameter value from `Config/App.php`.
 
 ```
 echo get_session_prefix();
 ```
 
-### Get Site Email
+#### Get Site Email
 
-Get `siteemail` parameter value from Config/Site.php.
+Get `siteemail` parameter value from `Config/Site.php`.
 
 ```
 echo get_site_email();
@@ -157,14 +157,14 @@ echo get_site_email();
 ## Getting Config Value
 If you want to take values ​​in the config file on the `System/Config`, this is the way :
 
-### Get value from `App.php` :
+#### Get value from `App.php`
 
 ```
 config_app('value_name');
 // config_app('app_env');
 ```
 
-### Get value from `Site.php` :
+#### Get value from `Site.php`
 
 ```
 config_site('value_name');
@@ -178,9 +178,9 @@ config_site('value_name');
 In NSY, there is a function to make it easier for users to see whether a value is empty or not in a variable. i.e. with only 2 methods `not_filled()` and `is_filled()`.
 
 `not_filled()`, is to determine a variable that has no value.
-`is_filled()`, is to determine a variable has a value. Example :
+`is_filled()`, is to determine a variable has a value.
 
-#### Example
+#### Example :
 
 ```
 $var = null;
@@ -213,7 +213,7 @@ $var10 = $random;
 
 then, if the variables above are used with the `is_filled` and `not_filled` methods, they will produce variable values ​​like the following :
 
-`not_filled()` :
+#### Result of `not_filled()` :
 
 ```
 $var1 = empty
@@ -228,7 +228,7 @@ $var9 = empty
 $var10 = empty
 ```
 
-`is_filled()` :
+#### Result of `is_filled()` :
 
 ```
 $var1 = empty
@@ -307,7 +307,7 @@ Ternary operator logic is the process of using "`(condition) ? (true return valu
 terner(condition, return true, return false)
 ```
 
-#### Example
+#### Example :
 
 ```
 /* most basic usage */
@@ -327,7 +327,7 @@ Aurora is a library created to export data into several file formats supported b
 aurora(file_extension, filename, separator, header, data, string_delimiter);
 ```
 
-#### Variable explanation :
+#### Variable explanation
 1. `file_extension` is a supported file extension by aurora. `(txt, csv, xls, xlsx, & ods)`.
 2. `filename` is a filename defined by user.
 3. `separator` is a delimiter of each data or table column `(tab, comma, semicolon, space, pipe, & dot)`.
@@ -530,8 +530,8 @@ $Session = new Session();
 $Session->start();
 ```
 
-### Usage
-Go to the documentation page, [HERE](https://github.com/josantonius/php-session)
+#### Usage :
+Go to the PHP Session Library documentation page, [HERE](https://github.com/josantonius/php-session)
 
 ---
 
@@ -542,8 +542,8 @@ Use this namespace in the controller :
 use System\Libraries\Facades\Cookie;
 ```
 
-### Usage
-Go to the documentation page, [HERE](https://github.com/josantonius/php-cookie)
+#### Usage :
+Go to the Cookie Library documentation page, [HERE](https://github.com/josantonius/php-cookie)
 
 ---
 
@@ -751,7 +751,7 @@ Use this namespace in the controller :
 ```
 use System\Vendor\Carbon;
 ```
-Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/docs/)
+Go to the Carbon Library documentation page, [HERE](https://carbon.nesbot.com/docs/)
 
 ---
 
@@ -759,21 +759,21 @@ Carbon DateTime, [Carbon Documentation](https://carbon.nesbot.com/docs/)
 
 Example of use for this library:
 
-### ARRAY:
+### <ins>ARRAY</ins>
 
-#### When an array is passed:
+#### When an array is passed :
 
 ```php
 var_dump(validate_array(['foo', 'bar'])); // ['foo', 'bar']
 ```
 
-#### When an JSON array is passed:
+#### When an JSON array is passed :
 
 ```php
 var_dump(validate_array('["foo", "bar"]')); // ['foo', 'bar']
 ```
 
-#### When an object is passed:
+#### When an object is passed :
 
 ```php
 $data = new \StdClass;
@@ -783,13 +783,13 @@ $data->foo = 'bar';
 var_dump(validate_array($data)); // ['foo' => 'bar']
 ```
 
-#### When an JSON object is passed:
+#### When an JSON object is passed :
 
 ```php
 var_dump(validate_array('{"foo": "bar"}')); // ['foo' => 'bar']
 ```
 
-#### Parameter return default value when there's no a correct array:
+#### Parameter return default value when there's no a correct array :
 
 ```php
 var_dump(validate_array(false)); // null
@@ -797,9 +797,9 @@ var_dump(validate_array(false)); // null
 var_dump(validate_array(false, ['foo', 'bar'])); // ['foo', 'bar']
 ```
 
-### OBJECT:
+### <ins>OBJECT</ins>
 
-#### When an object is passed:
+#### When an object is passed :
 
 ```php
 $data = new \StdClass;
@@ -811,7 +811,7 @@ $object = validate_object($data);
 echo $object->foo; // 'bar'
 ```
 
-#### When an JSON object is passed:
+#### When an JSON object is passed :
 
 ```php
 $object = validate_object('{"foo": "bar"}');
@@ -819,7 +819,7 @@ $object = validate_object('{"foo": "bar"}');
 echo $object->foo; // 'bar'
 ```
 
-#### When an array is passed:
+#### When an array is passed :
 
 ```php
 $object = validate_object(['foo' => 'bar']));
@@ -827,7 +827,7 @@ $object = validate_object(['foo' => 'bar']));
 echo $object->foo; // 'bar'
 ```
 
-#### Parameter return default value when there's no a correct object:
+#### Parameter return default value when there's no a correct object :
 
 ```php
 var_dump(validate_object(false)); // null
@@ -837,21 +837,21 @@ $object = validate_object(false, ['foo' => 'bar']);
 echo $object->foo; // 'bar'
 ```
 
-### JSON:
+### <ins>JSON</ins>
 
-#### When an JSON object is passed:
+#### When an JSON object is passed :
 
 ```php
 echo validate_json('{"foo": "bar"}'); // '{"foo": "bar"}'
 ```
 
-#### When an array is passed:
+#### When an array is passed :
 
 ```php
 echo validate_json(['foo' => 'bar']); // '{"foo":"bar"}'
 ```
 
-#### When an object is passed:
+#### When an object is passed :
 
 ```php
 $data = new \StdClass;
@@ -861,7 +861,7 @@ $data->foo = 'bar';
 echo validate_json($data); // '{"foo":"bar"}'
 ```
 
-#### Parameter return default value when there's no a correct JSON:
+#### Parameter return default value when there's no a correct JSON :
 
 ```php
 var_dump(validate_json(false)); // null
@@ -869,21 +869,21 @@ var_dump(validate_json(false)); // null
 echo validate_json(false, '["foo", "bar"]'); // '["foo", "bar"]'
 ```
 
-### STRING:
+### <ins>STRING</ins>
 
-#### When an string is passed:
+#### When an string is passed :
 
 ```php
 echo validate_string('foo'); // 'foo'
 ```
 
-#### When an integer is passed:
+#### When an integer is passed :
 
 ```php
 echo validate_string(221104); // '221104'
 ```
 
-#### Parameter return default value when there's no a correct string:
+#### Parameter return default value when there's no a correct string :
 
 ```php
 var_dump(validate_string(false)); // null
@@ -891,21 +891,21 @@ var_dump(validate_string(false)); // null
 echo validate_string(false, 'foo'); // 'foo'
 ```
 
-### INTEGER:
+### <ins>INTEGER</ins>
 
-#### When an integer is passed:
+#### When an integer is passed :
 
 ```php
 echo validate_integer(8); // 8
 ```
 
-#### When an string is passed:
+#### When an string is passed :
 
 ```php
 echo validate_integer('8'); // 8
 ```
 
-#### Parameter return default value when there's no a correct integer:
+#### Parameter return default value when there's no a correct integer :
 
 ```php
 var_dump(validate_integer(false)); // null
@@ -913,21 +913,21 @@ var_dump(validate_integer(false)); // null
 echo validate_integer(false, 8); // 8
 ```
 
-### FLOAT:
+### <ins>FLOAT</ins>
 
-#### When an float is passed:
+#### When an float is passed :
 
 ```php
 echo validate_float(8.8); // 8.8
 ```
 
-#### When an string is passed:
+#### When an string is passed :
 
 ```php
 echo validate_float('8.8'); // 8.8
 ```
 
-#### Parameter return default value when there's no a correct float:
+#### Parameter return default value when there's no a correct float :
 
 ```php
 var_dump(validate_float(false)); // null
@@ -935,57 +935,57 @@ var_dump(validate_float(false)); // null
 echo validate_float(false, 8.8); // 8.8
 ```
 
-### BOOLEAN:
+### <ins>BOOLEAN</ins>
 
-#### When an boolean true is passed:
+#### When an boolean true is passed :
 
 ```php
 var_dump(validate_boolean(true)); // true
 ```
 
-#### When an string true is passed:
+#### When an string true is passed :
 
 ```php
 var_dump(validate_boolean('true')); // true
 ```
 
-#### When an integer one is passed:
+#### When an integer one is passed :
 
 ```php
 var_dump(validate_boolean(1)); // true
 ```
 
-#### When an string one is passed:
+#### When an string one is passed :
 
 ```php
 var_dump(validate_boolean('1')); // true
 ```
 
-#### When an boolean false is passed:
+#### When an boolean false is passed :
 
 ```php
 var_dump(validate_boolean(false)); // false
 ```
 
-#### When an string false is passed:
+#### When an string false is passed :
 
 ```php
 var_dump(validate_boolean('false')); // false
 ```
 
-#### When an integer zero is passed:
+#### When an integer zero is passed :
 
 ```php
 var_dump(validate_boolean(0)); // false
 ```
 
-#### When an string zero is passed:
+#### When an string zero is passed :
 
 ```php
 var_dump(validate_boolean('0')); // false
 ```
 
-#### Parameter return default value when there's no a correct boolean:
+#### Parameter return default value when there's no a correct boolean :
 
 ```php
 var_dump(validate_boolean(null)); // null
@@ -993,15 +993,15 @@ var_dump(validate_boolean(null)); // null
 echo validate_boolean(null, true); // true
 ```
 
-### IP:
+### <ins>IP</ins>
 
-#### When an IP is passed:
+#### When an IP is passed :
 
 ```php
 echo validate_ip('255.255.255.0'); // '255.255.255.0'
 ```
 
-#### Parameter return default value when there's no a correct IP:
+#### Parameter return default value when there's no a correct IP :
 
 ```php
 var_dump(validate_ip(null)); // null
@@ -1009,15 +1009,15 @@ var_dump(validate_ip(null)); // null
 echo validate_ip(null, '255.255.255.0'); // '255.255.255.0'
 ```
 
-### URL:
+### <ins>URL</ins>
 
-#### When an URL is passed:
+#### When an URL is passed :
 
 ```php
 echo validate_url('https://josantonius.com'); // 'https://josantonius.com'
 ```
 
-#### Parameter return default value when there's no a correct URL:
+#### Parameter return default value when there's no a correct URL :
 
 ```php
 var_dump(validate_url(null)); // null
@@ -1025,15 +1025,15 @@ var_dump(validate_url(null)); // null
 echo validate_url(null, 'https://josantonius.com'); // 'https://josantonius.com'
 ```
 
-### Email:
+### <ins>Email</ins>
 
-#### When an email is passed:
+#### When an email is passed :
 
 ```php
 echo validate_email('hello@josantonius.com'); // 'hello@josantonius.com'
 ```
 
-#### Parameter return default value when there's no a correct email:
+#### Parameter return default value when there's no a correct email :
 
 ```php
 var_dump(validate_email(null)); // null
@@ -1045,7 +1045,7 @@ echo validate_email(null, 'hello@josantonius.com'); // 'hello@josantonius.com'
 
 ## LanguageCode Method
 
-### Get all language codes as array:
+#### Get all language codes as array :
 
 ```php
 get_all_lang();
@@ -1057,7 +1057,7 @@ print_r( get_all_lang() );
 
 **# Return** (array) → language codes and language names
 
-### Get language name from language code:
+#### Get language name from language code :
 
 ```php
 get_lang_name($languageCode);
@@ -1069,7 +1069,7 @@ get_lang_name('id');
 
 **# Return** (tring|false) → country name
 
-### Get language code from language name:
+#### Get language code from language name :
 
 ```php
 get_lang_code($languageName);
@@ -1085,7 +1085,7 @@ get_lang_code('Indonesian');
 
 ## LoadTime Method
 
-### Set initial time:
+#### Set initial time :
 
 ```php
 loadtime_start();
@@ -1093,7 +1093,7 @@ loadtime_start();
 
 **# Return** (float) → microtime
 
-### Set end time:
+#### Set end time :
 
 ```php
 loadtime_end();
@@ -1101,7 +1101,7 @@ loadtime_end();
 
 **# Return** (float) → seconds
 
-### Check if the timer has been started:
+#### Check if the timer has been started :
 
 ```php
 loadtime_active();
@@ -1109,9 +1109,7 @@ loadtime_active();
 
 **# Return** (boolean)
 
-## Usage
-
-Example of use for this library:
+#### Example of use for this library :
 
 ```php
 loadtime_start();
@@ -1134,8 +1132,8 @@ Use this namespace in the controller :
 use System\Libraries\Json;
 ```
 
-### Usage
-Go to the documentation page, [HERE](https://github.com/josantonius/php-json)
+#### Usage :
+Go to the Json Library documentation page, [HERE](https://github.com/josantonius/php-json)
 
 ---
 
@@ -1146,8 +1144,8 @@ Use this namespace in the controller :
 use System\Vendor\Curl;
 ```
 
-### Usage
-Go to the documentation page, [HERE](https://github.com/php-curl-class/php-curl-class/tree/9.14.2)
+#### Usage :
+Go to the Curl Library documentation page, [HERE](https://github.com/php-curl-class/php-curl-class/tree/9.14.2)
 
 ---
 
@@ -1159,94 +1157,88 @@ Use this namespace in the controller :
 use System\Libraries\File;
 ```
 
-Example of use for this library:
+### <ins>Example of use for this library</ins>
 
-### Check if a local file exists:
+#### Check if a local file exists :
 
 ```php
-File::exists('path/to/file.php');
+check_file('path/to/file.php');
 ```
 
-### Check if a external file exists:
+#### Check if a external file exists :
 
 ```php
-File::exists('https://raw.githubusercontent.com/Josantonius/PHP-File/master/composer.json');
+check_file('https://raw.githubusercontent.com/Josantonius/PHP-File/master/composer.json');
 ```
 
-### Delete a local file:
+#### Delete a local file :
 
 ```php
-File::delete(public_path('file.txt'));
+delete_file(public_path('file.txt'));
 ```
 
-### Create directory:
+#### Create directory :
 
 ```php
-File::create_dir(public_path('/test/'));
+create_dir(public_path('/test/'));
 ```
 
-### Delete empty directory:
+#### Delete empty directory :
 
 ```php
-File::delete_empty_dir(public_path('/test/'));
+delete_dir(public_path('/test/'));
 ```
 
-### Delete directory recursively:
+#### Delete directory recursively :
 
 ```php
-File::delete_dir_recursively(public_path('/test/'));
+delete_dir_recur(public_path('/test/'));
 ```
 
-### Copy directory recursively:
+#### Copy directory recursively :
 
 ```php
-File::copy_dir_recursively(public_path('/test/'), public_path('/copy/'));
+copy_dir_recur(public_path('/test/'), public_path('/copy/'));
 ```
 
-### Get file paths from directory:
+#### Get file paths from directory :
 
 ```php
-File::get_files_from_dir(__DIR__);
+get_files_from_dir(__DIR__);
 ```
 
-### Writes data to the file specified in the path.
+#### Writes data to the file specified in the path :
 
 ```php
-File::write_file($path, $data, $mode = 'wb');
+create_file($path, $data, $mode = 'wb');
 ```
 
-### Get Filenames
+#### Get Filenames :
 
 ```php
-File::get_filenames($source_dir, $include_path = false, $_recursion = false);
+get_filenames($source_dir, $include_path = false, $_recursion = false);
 ```
 
-### Get Directory File Information
+#### Get Directory File Information :
 
 ```php
-File::get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
+get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
 ```
 
-### Get File Info
+#### Get File Info :
 
 ```php
-File::get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
+get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
 ```
 
-### Get Mime by Extension
+#### Get Mime by Extension :
 
 ```php
-File::get_mime_by_extension($filename);
+get_mime_by_extension($filename);
 ```
 
-### Returns the MIME types array from Config/Mimes.php
+#### Returns the MIME types array from Config/Mimes.php :
 
 ```php
-File::get_mimes();
-```
-
-### Generates headers that force a download to happen
-
-```php
-File::force_download($filename = '', $data = '', $set_mime = false);
+get_mimes();
 ```
