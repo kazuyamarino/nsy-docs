@@ -1,6 +1,6 @@
-# NSY Function
+# NSY Helper Function
 
-## Global Function
+## Standard Helper Function
 
 #### The PHP superglobals `post`, `deposer` and `get` are used to collect form-data
 
