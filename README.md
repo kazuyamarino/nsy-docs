@@ -91,15 +91,27 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 * Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#introducting-to-nsy-assets-manager)
 * PSR-4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#psr-4-autoloading)
 * NSY CLI (Command Line Interface), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#nsy-cli-command-line-interface)
+* Security Helper, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md#security-helper)
+* CSRF Token, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md#return-csrf-input-form-with-token-)
+* XSS Clean, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md#xss-clean)
+
+---
+
+# NSY Helper Function :
+* The PHP superglobals post, deposer and get are used to collect form-data, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#the-php-superglobals-post-deposer-and-get-are-used-to-collect-form-data)
+* Public directory path, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#public-directory-path)
+* Images directory uri, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.)md#images-directory-uri
+* Javascript directory uri, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#javascript-directory-uri)
+* CSS directory uri, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#css-directory-uri)
+* Get version parameter value from Config/Site.php, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#get-version)
+* Get locale parameter value from Config/App.php, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#get-language-code)
+* Get prefix_attr parameter value from Config/App.php, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#open-graph-prefix)
+* Get site title parameter value from Config/Site.php., [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#get-site-title)
+
+
+
 
 <!-- # NSY Features :
-* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer-on-nsy-framework)
-* NSY Routing System, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#routes)
-* MVC or HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#mvc--hmvc)
-* NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#introducting-to-nsy-assets-manager)
-* PSR-4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#psr-4-autoloading)
-* NSY CLI (Command Line), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#nsy-cli-command-line)
-* Anti XSS & CSRF Token, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#security-helper)
 * Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#primary--secondary-database-connections)
 * Aurora File Export, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#aurora-file-export)
 * FTP Client, See [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_1.md#nsy-ftp-client-library)

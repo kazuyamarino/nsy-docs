@@ -33,7 +33,7 @@ echo public_path();
 usr/share/../html/nsy/public/
 ```
 
-### Images directory uri
+#### Images directory uri
 
 Return img directory location on the `public` directory
 
@@ -104,7 +104,7 @@ Get `prefix_attr` parameter value from `Config/App.php`.
 echo get_og_prefix();
 ```
 
-### Get Site Title
+#### Get Site Title
 
 Get `sitetitle` parameter value from `Config/Site.php`.
 
