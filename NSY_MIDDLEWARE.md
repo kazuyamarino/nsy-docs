@@ -1,4 +1,4 @@
-## The Middlewares
+# The Middlewares
 NSY has support middleware, which is the process of filtering a process before it is run by the controller by NSY.
 
 NSY uses Onion Library from https://github.com/esbenp/onion. A standalone middleware library without dependencies inspired by middleware in Laravel (Illuminate/Pipeline).
@@ -62,8 +62,3 @@ public function peel($object, \Closure $next)
 		}
 }
 ```
-
----
-
-## License
-The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
