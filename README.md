@@ -2,8 +2,6 @@
 ## <ins>About</ins>
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
-[![Build Status](https://travis-ci.org/kazuyamarino/nsy.svg?branch=master)](https://travis-ci.org/kazuyamarino/nsy)
-
 Site example :
 [https://nsyframework.com/](https://nsyframework.com/)
 
@@ -193,4 +191,4 @@ The Model component corresponds to all the data-related logic that the user work
 # License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
 
-NSY Framework 2020 - 2023
+NSY Framework 2019 - 2023

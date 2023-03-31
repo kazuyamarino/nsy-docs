@@ -525,3 +525,5 @@ nsy make:after-middleware <class-name>
 ## License
 
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
+
+NSY Framework 2019 - 2023
