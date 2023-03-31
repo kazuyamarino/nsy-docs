@@ -62,14 +62,14 @@ For example, in the model you want to run an sql query on the `primary` database
 
 ```
 $q = 'SELECT * FROM blabla';
-DB::connect()->query($q)->vars()->bind()-fetch_all();;
+DB::connect()->query($q)->vars()->bind()->style()->fetch_all();;
 ```
 
 Then, if you want to run an sql query on the `secondary` database connection :
 
 ```
 $q = 'SELECT * FROM blabla';
-DB::connect('secondary')->query($q)->vars()->bind()-fetch_all();;
+DB::connect('secondary')->query($q)->vars()->bind()->style()->fetch_all();;
 ```
 
 ### <ins>Getting data out of statement in dozens different formats. fetch_all()</ins>
@@ -87,11 +87,13 @@ By default, this function will return just simple enumerated array consists of a
 
 ```
 $q = 'SELECT id, name, username FROM users';
-$d = DB::connect()->query($q)->style(FETCH_ASSOC)->fetch_all();
+$d = DB::connect()->query($q)->vars()->style(FETCH_ASSOC)->fetch_all();
 
 print_r($d);
+```
 
-// output
+it will return this,
+```
 Array
 (
     [0] => Array
@@ -108,11 +110,13 @@ It is often very handy to get plain one-dimensional array right out of the query
 
 ```
 $q = 'SELECT name FROM users';
-$d = DB::connect()->query($q)->style(FETCH_COLUMN)->fetch_all();
+$d = DB::connect()->query($q)->vars()->style(FETCH_COLUMN)->fetch_all();
 
 print_r($d);
+```
 
-// output
+it will return this,
+```
 Array
 (
     [0] => Vikry Yuansah
@@ -124,11 +128,13 @@ Also extremely useful format, when we need to get the same column, but indexed n
 
 ```
 $q = 'SELECT name FROM users';
-$d = DB::connect()->query($q)->style(FETCH_KEY_PAIR)->fetch_all();
+$d = DB::connect()->query($q)->vars()->style(FETCH_KEY_PAIR)->fetch_all();
 
 print_r($d);
+```
 
-// output
+it will return this,
+```
 Array
 (
     [1] => Vikry Yuansah
@@ -143,11 +149,13 @@ It fetches a single row from database, and moves the internal pointer in the res
 
 ```
 $q = 'SELECT id, name FROM users';
-$d = DB::connect()->query($q)->style(FETCH_NUM)->fetch();
+$d = DB::connect()->query($q)->vars()->style(FETCH_NUM)->fetch();
 
 print_r($d);
+```
 
-// output
+it will return this,
+```
 Array
 (
     [0] => 1
@@ -168,8 +176,10 @@ $q = "SELECT id, name, user_name FROM tbl_users WHERE id = :id";
 $d = DB::connect()->query($q)->vars($id)->bind(BINDVAL)->fetch();
 
 print_r($d);
+```
 
-// output
+it will return this,
+```
 Array
 (
     [id] => 3
@@ -190,8 +200,10 @@ $q = "SELECT id, name, user_name FROM tbl_users WHERE name LIKE :name";
 $d = DB::connect()->query($q)->vars($string)->bind(BINDPAR)->fetch();
 
 print_r($d);
+```
 
-// output
+it will return this,
+```
 Array
 (
     [id] => 1
@@ -215,22 +227,26 @@ A neat helper function that returns value of the single field of returned row. V
 $id = [ ':id' => 2 ];
 
 $q = "SELECT name FROM tbl_users WHERE id = :id";
-$d = DB::connect()->query($q)->vars($id)->fetch_column();
+$d = DB::connect()->query($q)->vars($id)->bind()->style(FETCH_ASSOC)->fetch_column();
 
 return $d;
+```
 
-// output
+it will return this,
+```
 Nayla Syifa
 ```
 
 ```
 // getting number of rows in the table utilizing method chaining
 $q = "SELECT count(*) FROM tbl_users";
-$d = DB::connect()->query($q)->fetch_column();
+$d = DB::connect()->query($q)->vars()->style(FETCH_ASSOC)->fetch_column();
 
 return $d;
+```
 
-// output
+will return this,
+```
 3 => number of row data
 ```
 
@@ -239,11 +255,13 @@ NSY uses PDO. PDO offers a function for returning the number of rows found by th
 
 ```
 $q = "SELECT * FROM tbl_users";
-$d = DB::connect()->query($q)->row_count();
+$d = DB::connect()->query($q)->vars()->row_count();
 
 return $d->result;
+```
 
-// output
+it will return,
+```
 3 => number of row data
 ```
 
@@ -253,11 +271,13 @@ However, if you want to get the number of affected rows, here is an example:
 $id = [ ':id' => 2 ];
 
 $q = "DELETE FROM tbl_users WHERE id = :id";
-$deleted_data = DB::connect()->vars($id)->query($q)->row_count();
+$deleted_data = DB::connect()->query($q)->vars($id)->bind()->row_count();
 
 return deleted_data->result;
+```
 
-// output
+Result,
+```
 1 => number of row data that was deleted
 ```
 
@@ -269,7 +289,7 @@ return deleted_data->result;
 $id = [ ':id' => 2 ];
 
 $q = "UPDATE tbl_users SET name = :name WHERE id = :id";
-DB::connect()->query($q)->vars($id)->exec();
+DB::connect()->query($q)->vars($id)->bind()->exec();
 
 // Update field name from tbl_users where id is 2
 ```
@@ -284,7 +304,7 @@ foreach ( $id as $key => $ids ) {
     ':user_name' => 'nsy_for_kids'
   ];
   $q = "UPDATE tbl_users SET user_name = :user_name WHERE id = :id";
-  DB::connect()->query($q)->vars($params)->exec();
+  DB::connect()->query($q)->vars($params)->bind()->exec();
 }
 
 // Update field user_name to 'nsy_for_kids' from tbl_users where id is 11025 & 11026
@@ -296,7 +316,7 @@ foreach ( $id as $key => $ids ) {
 $id = [ ':id' => 2 ];
 
 $q = "DELETE FROM tbl_users WHERE id = :id";
-DB::connect()->query($q)->vars($id)->exec();
+DB::connect()->query($q)->vars($id)->bind()->exec();
 
 // Delete data from tbl_users where id is 2
 ```
@@ -310,7 +330,7 @@ foreach ( $id as $key => $ids ) {
     ':id' => $ids
   ];
   $q = "DELETE FROM tbl_users WHERE id = :id";
-  DB::connect()->query($q)->vars($params)->exec();
+  DB::connect()->query($q)->vars($params)->bind()->exec();
 }
 
 // Delete data from tbl_users where id is 11025 & 11026
@@ -322,7 +342,7 @@ foreach ( $id as $key => $ids ) {
 $param = [ ':user_name' => 'Harmoni' ];
 
 $q = "INSERT INTO tbl_users (user_name) VALUES (:user_name)";
-DB::connect()->query($q)->vars($param)->exec();
+DB::connect()->query($q)->vars($param)->bind()->exec();
 
 // Insert data to field user_name from tbl_users where user_name is 'Harmoni'
 ```
@@ -416,32 +436,3 @@ $conn->end_trans();
 `begin_trans()` must be located in each code after we define the connection `DB::connect()`.
 
 And before using a transaction, you must turn on the transaction mode in `Config/App.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `null_trans()`).
-
-### Emulation mode, set ATTR_EMULATE_PREPARES to FALSE
-For more information about this, go to the following URL [Emulation mode](https://phpdelusions.net/pdo#emulation).
-
-```
-DB::emulate_prepares_false();
-```
-
-### Mysqlnd and buffered queries. Huge datasets.
-For more information about this, go to the following URL [Mysqlnd and buffered queries](https://phpdelusions.net/pdo#mysqlnd).
-
-#### set MYSQL_ATTR_USE_BUFFERED_QUERY to FALSE
-
-```
-DB::use_buffer_query_false();
-```
-
-#### set MYSQL_ATTR_USE_BUFFERED_QUERY to TRUE
-
-```
-DB::use_buffer_query_true();
-```
-
-### Return type, set ATTR_STRINGIFY_FETCHES to TRUE
-For more information about this, go to the following URL [Return type](https://phpdelusions.net/pdo#returntypes).
-
-```
-DB::stringify_fetches_true();
-```

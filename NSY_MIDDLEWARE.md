@@ -9,9 +9,9 @@ NSY has 2 middleware modes, namely before and after.
 
 NSY provides middleware support from the Routing side.
 
-For example :
-The `Web.php` route file.
+**For example :**
 
+Contents of the `Web.php` route file
 ```
 Route::get('/', function() {
 	$middleware = [
@@ -23,8 +23,7 @@ Route::get('/', function() {
 });
 ```
 
-`AfterLayer.php`
-
+Contents of the `AfterLayer.php` file.
 ```
 public function peel($object, \Closure $next)
 {
@@ -37,8 +36,7 @@ public function peel($object, \Closure $next)
 }
 ```
 
-`BeforeLayer.php`
-
+Contents of the `BeforeLayer.php` file
 ```
 public function peel($object, \Closure $next)
 {

@@ -157,14 +157,14 @@ echo get_site_email();
 ## Getting Config Value
 If you want to take values ​​in the config file on the `System/Config`, this is the way :
 
-#### Get value from `App.php`
+**Get value from `App.php`**
 
 ```
 config_app('value_name');
 // config_app('app_env');
 ```
 
-#### Get value from `Site.php`
+**Get value from `Site.php`**
 
 ```
 config_site('value_name');
@@ -180,7 +180,7 @@ In NSY, there is a function to make it easier for users to see whether a value i
 `not_filled()`, is to determine a variable that has no value.
 `is_filled()`, is to determine a variable has a value.
 
-#### Example :
+**Example :**
 
 ```
 $var = null;
@@ -192,7 +192,7 @@ $var = 5;
 is_filled($var); // output return true.
 ```
 
-#### Reference of the method
+**Reference of the method :**
 
 For example, we have several variables with their respective values ​​that have been determined.
 
@@ -213,7 +213,7 @@ $var10 = $random;
 
 then, if the variables above are used with the `is_filled` and `not_filled` methods, they will produce variable values ​​like the following :
 
-#### Result of `not_filled()` :
+**Result of `not_filled()` :**
 
 ```
 $var1 = empty
@@ -228,7 +228,7 @@ $var9 = empty
 $var10 = empty
 ```
 
-#### Result of `is_filled()` :
+**Result of `is_filled()` :**
 
 ```
 $var1 = empty
@@ -307,7 +307,7 @@ Ternary operator logic is the process of using "`(condition) ? (true return valu
 terner(condition, return true, return false)
 ```
 
-#### Example :
+**Example :**
 
 ```
 /* most basic usage */
@@ -336,7 +336,7 @@ aurora(file_extension, filename, separator, header, data, string_delimiter);
 6. `string_delimiter` is quote each string `("double" for double quote, & 'single' for singlequote)`.
 
 
-#### Example :
+**Example :**
 ```
 // header data array structure should be like this
 $header = [ 'Col1', 'Col2', 'Col3' ];
@@ -399,7 +399,7 @@ To generate a sequence of random numbers that correspond to the desired number o
 generate_num(prefix, random_number_length, total_number/char_length);
 ```
 
-#### Example :
+**Example :**
 ```
 echo generate_num();
 // Default output NSY-617807
@@ -416,7 +416,7 @@ To help in retrieving data in URIs
 get_uri_segment(segment number)
 ```
 
-#### Example :
+**Example :**
 ```
 http://localhost/nsy/hmvc
 
@@ -441,12 +441,12 @@ get_uri()
 ---
 
 ## Simple string encryption/decryption function
-#### To encrypt string
+**To encrypt string**
 ```
 string_encrypt($action = 'encrypt', $string = '')
 ```
 
-#### To decrypt string
+**To decrypt string**
 ```
 string_encrypt($action = 'decrypt', $string = '')
 ```
@@ -549,7 +549,6 @@ Go to the Cookie Library documentation page, [HERE](https://github.com/josantoni
 
 ## NSY FTP Client Library
 
-### <ins>Usage</ins>
 Use this namespace in the controller :
 ```
 use System\Vendor\Ftp;

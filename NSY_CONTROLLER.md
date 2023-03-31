@@ -16,13 +16,13 @@ Load::template('header', $arr);
 The above example will generate variable `$my_name`, `$date` and `$mvc_page` in the view page.
 
 ### <ins>Load MVC or HMVC view file</ins>
-#### Load MVC view file :
+**Load MVC view file :**
 
 ```
 Load::view(null, 'filename');
 ```
 
-#### Load HMVC view file :
+**Load HMVC view file :**
 
 ```
 Load::view('module-name', 'filename');
@@ -35,7 +35,7 @@ Create a sequence of the named placeholders, e.g. `:id0`, `:id1`, `:id2`. So the
 sequence('placeholders', 'variable')
 ```
 
-#### Example :
+**Example :**
 ```
 $ids = [2,3,4];
 $dt = sequence(":id", $ids)
