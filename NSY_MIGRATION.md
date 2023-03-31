@@ -7,57 +7,48 @@ Migration is usually paired with the NSY schema builder to easily build your app
 How to use migration on NSY, you only need to create the migration class by typing on the Terminal or CMD:
 
 ```
-migrate <migration-name>
+nsy make:migration <migration-name>
 ```
 
-**For example**
+**For example :**
 
 ```
-migrate create_database_and_table_supplier
+nsy make:migration create_database_and_table_supplier
 ```
 
 And the result will be a file created from the results of the command earlier in the `System/Migrations`.
 
 ```
-└── migrations
+└── Migrations
        └── create_database_and_table_supplier.php
 ```
 
-There are 2 methods in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is,
-
+There are 2 methods in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is, `migup=class_name`
 ```
-migup=class_name
-
 Example : http://localhost/nsy/migup=create_database_and_table_supplier
 ```
 
-And for `down()`,
-
+And for `down()`, `migdown=class_name`
 ```
-migdown=class_name
-
 Example : http://localhost/nsy/migdown=drop_table_supplier
 ```
 
 Well, in that method, you can fill it with some help methods that have been defined by NSY to support migration like the method below:
 
 ### Create database
-
 ```
-$this->connect()->create_db('example_db');
+Mig::connect()->create_db('example_db');
 ```
 
 ### Delete database
-
 ```
-$this->connect()->drop_db('example_db');
+Mig::connect()->drop_db('example_db');
 ```
 
 ### Create table with several columns (mysql/mariadb/mssql)
-
 ```
-$this->connect()->create_table('example', function() {
-	return $this->cols([
+Mig::connect()->create_table('example', function() {
+	return Mig::cols([
 		'id' => 'bigint(20) not null',
 		'bundle' => 'bigint(20) not null',
 		'reader_id' => 'varchar(20) null',
@@ -70,10 +61,9 @@ $this->connect()->create_table('example', function() {
 ```
 
 ### Create table with primary key & unique key (mysql/mariadb/mssql)
-
 ```
-$this->connect()->create_table('example', function() {
-	return $this->cols([
+Mig::connect()->create_table('example', function() {
+	return Mig::cols([
 		'id' => 'bigint not null',
 		'bundle' => 'bigint not null',
 		'reader_id' => 'varchar(20) null',
@@ -81,8 +71,8 @@ $this->connect()->create_table('example', function() {
 		'antenna_id' => 'varchar(100) null',
 		'tid' => 'varchar(100) null',
 		'user_memory' => 'varchar(100) null',
-		$this->primary('id'),
-		$this->unique([
+		Mig::primary('id'),
+		Mig::unique([
 			'reader_id', 'trans_time'
 		])
 	]);
@@ -90,10 +80,9 @@ $this->connect()->create_table('example', function() {
 ```
 
 ### Create table with timestamps column e.g. create_date/update_date/additional_date (mysql/mariadb/mssql)
-
 ```
-$this->connect()->create_table('example', function() {
-	return $this->cols([
+Mig::connect()->create_table('example', function() {
+	return Mig::cols([
 		'id' => 'bigint not null',
 		'bundle' => 'bigint not null',
 		'reader_id' => 'varchar(20) null',
@@ -101,49 +90,43 @@ $this->connect()->create_table('example', function() {
 		'antenna_id' => 'varchar(100) null',
 		'tid' => 'varchar(100) null',
 		'user_memory' => 'varchar(100) null',
-		$this->primary('id'),
-		$this->unique([
+		Mig::primary('id'),
+		Mig::unique([
 			'reader_id', 'trans_time'
 		])
-	], $this->timestamps() );
+	], Mig::timestamps() );
 });
 ```
 
 ### Rename table (mysql/mariadb)
-
 ```
-$this->connect()->rename_table('example', 'newExample');
+Mig::connect()->rename_table('example', 'newExample');
 ```
 
 ### Rename table (postgre)
-
 ```
-$this->connect()->alter_rename_table('example', 'newExample');
+Mig::connect()->alter_rename_table('example', 'newExample');
 ```
 
 ### Rename table (mssql)
-
 ```
-$this->connect()->sp_rename_table('example', 'newExample');
+Mig::connect()->sp_rename_table('example', 'newExample');
 ```
 
 ### Delete table if exist (mysql/mariadb)
-
 ```
-$this->connect()->drop_exist_table('example');
+Mig::connect()->drop_exist_table('example');
 ```
 
 ### Delete table
-
 ```
-$this->connect()->drop_table('example');
+Mig::connect()->drop_table('example');
 ```
 
 ### Add columns (mysql/mariadb/postgre)
-
 ```
-$this->connect()->add_cols('example', function() {
-	return $this->cols([
+Mig::connect()->add_cols('example', function() {
+	return Mig::cols([
 		'Column1' => 'varchar(20)',
 		'Column2' => 'varchar(20)',
 		'Column3' => 'varchar(20)'
@@ -152,10 +135,9 @@ $this->connect()->add_cols('example', function() {
 ```
 
 ### Add columns (mssql)
-
 ```
-$this->connect()->add('example', function() {
-	return $this->cols([
+Mig::connect()->add('example', function() {
+	return Mig::cols([
 		'Column1' => 'varchar(20)',
 		'Column2' => 'varchar(20)',
 		'Column3' => 'varchar(20)'
@@ -164,10 +146,9 @@ $this->connect()->add('example', function() {
 ```
 
 ### Delete column (mysql/mariadb/postgre/mssql)
-
 ```
-$this->connect()->drop_cols('example', function() {
-	return $this->cols([
+Mig::connect()->drop_cols('example', function() {
+	return Mig::cols([
 		'Column1',
 		'Column2'
 	]);
@@ -175,10 +156,9 @@ $this->connect()->drop_cols('example', function() {
 ```
 
 ### Rename columns (mysql/mariadb)
-
 ```
-$this->connect()->change_cols('example', function() {
-	return $this->cols([
+Mig::connect()->change_cols('example', function() {
+	return Mig::cols([
 		'Column1' => 'NewColumn1',
 		'Column2' => 'NewColumn2',
 		'Column3' => 'NewColumn3'
@@ -187,10 +167,9 @@ $this->connect()->change_cols('example', function() {
 ```
 
 ### Rename columns (postgre)
-
 ```
-$this->connect()->rename_cols('example', function() {
-	return $this->cols([
+Mig::connect()->rename_cols('example', function() {
+	return Mig::cols([
 		'Column1' => 'NewColumn1',
 		'Column2' => 'NewColumn2',
 		'Column3' => 'NewColumn3'
@@ -199,10 +178,9 @@ $this->connect()->rename_cols('example', function() {
 ```
 
 ### Rename columns (mssql)
-
 ```
-$this->connect()->sp_rename_cols('example', function() {
-	return $this->cols([
+Mig::connect()->sp_rename_cols('example', function() {
+	return Mig::cols([
 		'Column1' => 'NewColumn1',
 		'Column2' => 'NewColumn2',
 		'Column3' => 'NewColumn3'
@@ -211,10 +189,9 @@ $this->connect()->sp_rename_cols('example', function() {
 ```
 
 ### Modify columns datatype (mysql/mariadb)
-
 ```
-$this->connect()->modify_cols('example', function() {
-	return $this->cols([
+Mig::connect()->modify_cols('example', function() {
+	return Mig::cols([
 		'Column1' => 'bigint(12) not null',
 		'Column2' => 'bigint(12) not null',
 		'Column3' => 'bigint(12) not null'
@@ -223,15 +200,14 @@ $this->connect()->modify_cols('example', function() {
 ```
 
 ### Modify columns primary and unique key (mysql/mariadb)
-
 ```
-$this->connect()->modify_cols('example', function() {
-	return $this->cols([
-		$this->primary([
+Mig::connect()->modify_cols('example', function() {
+	return Mig::cols([
+		Mig::primary([
 			'Column1',
 			'Column2'
 		]),
-		$this->unique([
+		Mig::unique([
 			'Column3',
 			'Column4'
 		])
@@ -240,10 +216,9 @@ $this->connect()->modify_cols('example', function() {
 ```
 
 ### Modify columns datatype (mssql/postgre)
-
 ```
-$this->connect()->alter_cols('example', function() {
-	return $this->cols([
+Mig::connect()->alter_cols('example', function() {
+	return Mig::cols([
 		'Column1' => 'char(12) not null',
 		'Column2' => 'varchar(12) not null',
 		'Column3' => 'datetime not null'
@@ -252,18 +227,35 @@ $this->connect()->alter_cols('example', function() {
 ```
 
 ### Modify columns primary and unique key (mssql/postgre)
-
 ```
-$this->connect()->alter_cols('example', function() {
-	return $this->cols([
-		$this->primary([
+Mig::connect()->alter_cols('example', function() {
+	return Mig::cols([
+		Mig::primary([
 			'Column1',
 			'Column2'
 		]),
-		$this->unique([
+		Mig::unique([
 			'Column3',
 			'Column4'
 		])
 	]);
 });
+```
+
+### Create indexes in tables (mysql/mariadb/postgre)
+The statement below is used to create indexes in tables.
+
+Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
+```
+ Mig::connect()->index('table_name', 'index_type', 'table_field_name');
+ ```
+
+ **Example :**
+ ```
+Mig::connect()->index('table_mahasiswa', 'BTREE', 'no_npm');
+```
+
+Index statement is also available for `PostgreSQL`, just a little modification in its functionality to :
+```
+Mig::connect()->index_pg('table_mahasiswa', 'BTREE', 'no_npm');
 ```
