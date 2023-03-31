@@ -144,7 +144,7 @@ Array
 
 and many other modes in fetch_all.
 
-### Getting data out of statement. fetch()
+### <ins>Getting data out of statement. fetch()</ins>
 It fetches a single row from database, and moves the internal pointer in the result set, so consequent calls to this function will return all the resulting rows one by one.
 
 ```
@@ -219,7 +219,7 @@ Unlike `BINDVAL`, the variable is bound as a reference and will only be evaluate
 
 `BINDPAR` to bind PHP variables to the parameter markers: bound variables pass their value as input and receive the output value, if any, of their associated parameter markers
 
-### Getting data out of statement. fetch_column()
+### <ins>Getting data out of statement. fetch_column()</ins>
 A neat helper function that returns value of the single field of returned row. Very handy when we are selecting only one field:
 
 ```
@@ -250,7 +250,7 @@ will return this,
 3 => number of row data
 ```
 
-### Getting row count
+### <ins>Getting row count</ins>
 NSY uses PDO. PDO offers a function for returning the number of rows found by the query, `row_count()`, for example:
 
 ```
@@ -281,7 +281,7 @@ Result,
 1 => number of row data that was deleted
 ```
 
-### Executes a prepared statement. exec()
+### <ins>Executes a prepared statement. exec()</ins>
 
 #### Update data :
 
@@ -347,7 +347,7 @@ DB::connect()->query($q)->vars($param)->bind()->exec();
 // Insert data to field user_name from tbl_users where user_name is 'Harmoni'
 ```
 
-### Multi Insert. multi_insert()
+### <ins>Multi Insert. multi_insert()</ins>
 To input multiple data into the database at once in one command.
 
 ```
@@ -367,7 +367,7 @@ $q = "INSERT INTO tbl_users (id, name, user_name)";
 DB::connect()->query($q)->vars($arr)->multi_insert();
 ```
 
-### NSY Transaction
+### <ins>NSY Transaction</ins>
 Database transactions ensure that a set of data changes will only be made permanent if every statement is successful. Any query or code failure during a transaction can be caught and you then have the option to roll back the attempted changes.
 
 NSY provides simple methods for beginning, committing, and rollbacking back transactions.
@@ -381,13 +381,13 @@ DB::begin_trans();
 #### Commit transaction :
 
 ```
-DB::end_trans();
+DB::commit_trans();
 ```
 
 #### Rollback transaction :
 
 ```
-DB::null_trans();
+DB::rollback_trans();
 ```
 
 #### First example of transaction in `multi_insert()`.
@@ -406,7 +406,7 @@ $arr = [
     ]
 ];
 $q = "INSERT INTO tbl_users (id, name, user_name)";
-DB::connect()->begin_trans()->query($q)->vars($arr)->multi_insert()->end_trans();
+DB::connect()->begin_trans()->query($q)->vars($arr)->multi_insert()->commit_trans();
 ```
 
 #### Second example of transaction in `multi_insert()`.
@@ -430,9 +430,9 @@ $conn->begin_trans();
 $conn->query($q);
 $conn->vars($arr);
 $conn->multi_insert();
-$conn->end_trans();
+$conn->commit_trans();
 ```
 
 `begin_trans()` must be located in each code after we define the connection `DB::connect()`.
 
-And before using a transaction, you must turn on the transaction mode in `Config/App.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `null_trans()`).
+And before using a transaction, you must turn on the transaction mode in `Config/App.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `rollback_trans()`).
