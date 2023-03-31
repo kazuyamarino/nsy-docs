@@ -94,6 +94,9 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 * Security Helper, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md#security-helper)
 * CSRF Token, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md#return-csrf-input-form-with-token-)
 * XSS Clean, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md#xss-clean)
+* [NSY Model] NSY Transaction, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#nsy-transaction)
+* [NSY Model] Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#primary--secondary-database-connections)
+* [NSY Model] To input multiple data into the database at once in one command, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#multi-insert-multi_insert)
 
 ---
 
@@ -146,23 +149,44 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 * CI helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/CI_HELPER_FUNCTION.md)
 * Carbon DateTime, [See Documentation](https://carbon.nesbot.com/docs/)
 
-<!-- # NSY Features :
-* Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#primary--secondary-database-connections)
-* NSY Database Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations)
-* Razr Template Engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
-* Middleware, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares) -->
+---
 
+# NSY Middleware
 
-<!-- 
-* Using Controllers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-controllers)
-* Using Models, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-models)
-* NSY Transaction, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-transaction)
-* Razr - The powerful PHP template engine, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#razr---the-powerful-php-template-engine)
-* NSY Migrations, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#nsy-migrations)
-* The Middlewares, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/SYSGUIDE_2.md#the-middlewares)
+NSY has support middleware, which is the process of filtering a process before it is run by the controller by NSY, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MIDDLEWARE.md)
 
 ---
--->
+# NSY Migration
+
+Migration is like version control for your database, allowing your team to easily modify and share application database schemes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MIGRATION.md)
+
+---
+
+# Razr Template Engine
+
+Razr is a powerful PHP template engine for PHP, whose syntax was inspired by ASP.NET Razor.
+
+NSY has supported Razr in the View component. In addition NSY also still supports PHP code in the View component. Either using Razr or PHP, they can run together in one View component, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_RAZR.md)
+
+---
+
+# NSY Security Function
+
+NSY provides security functions including antiXSS and CSRF, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md)
+
+---
+
+# NSY Controller
+
+Controllers act as an interface between Model and View components to process all the business logic and incoming requests, manipulate data using the Model component and interact with the Views to render the final output, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_CONTROLLER.md)
+
+---
+
+# NSY Model
+
+The Model component corresponds to all the data-related logic that the user works with. This can represent either the data that is being transferred between the View and Controller components or any other business logic-related data, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md)
+
+---
 
 # License
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
