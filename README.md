@@ -97,6 +97,8 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 * [NSY Model] NSY Transaction, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#nsy-transaction)
 * [NSY Model] Primary and Secondary Database Connection, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#primary--secondary-database-connections)
 * [NSY Model] To input multiple data into the database at once in one command, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#multi-insert-multi_insert)
+* Razr is a powerful PHP template engine for PHP, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_RAZR.md)
+* Migration is like version control for your database, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MIGRATION.md)
 
 ---
 
