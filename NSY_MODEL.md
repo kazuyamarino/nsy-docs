@@ -436,3 +436,17 @@ $conn->commit_trans();
 `begin_trans()` must be located in each code after we define the connection `DB::connect()`.
 
 And before using a transaction, you must turn on the transaction mode in `Config/App.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `rollback_trans()`).
+
+### <ins>Sets an attribute on the database handle</ins>
+
+Sets an attribute on the database handle. Some available generic attributes are listed below; some drivers may make use of additional driver specific attributes.
+[See complete documentation](https://www.php.net/manual/en/pdo.setattribute.php).
+```
+pdo_set_attr(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION)
+```
+
+**How to retrieve a statement attribute?**
+[See complete documentation](https://www.php.net/manual/en/pdo.getattribute.php)
+```
+pdo_get_attr(PDO::ATTR_ERRMODE)
+```
