@@ -6,8 +6,8 @@ Site example :
 [https://nsyframework.com/](https://nsyframework.com/)
 
 ## <ins>Codename</ins>
-The Sasando, also called Sasandu from Sandu or Sanu, is a tube zither, a harp-like traditional music string instrument native to Rote Island of East Nusa Tenggara, Indonesia.
-*Wikipedia - https://en.wikipedia.org/wiki/Sasando*
+Lalove is a traditional musical instrument that is blown and comes from Central Sulawesi. The function of this musical instrument is to accompany dances from the Central Sulawesi region or certain customs. The shape is shaped like a long flute musical instrument.
+*Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi - https://ayoguruberbagi.kemdikbud.go.id/artikel/melestarikan-alat-musik-tradisional/#:~:text=Lalove%20termasuk%20alat%20musik%20tradisional,alat%20musik%20Suling%20yang%20panjang.*
 
 ---
 
