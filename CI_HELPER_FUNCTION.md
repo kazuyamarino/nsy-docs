@@ -1,6 +1,6 @@
 # CodeIgniter Helpers
 
-A several CI helpers of NSY PHP Framework from Codeigniter PHP Framework.
+A several helpers of NSY PHP Framework from Codeigniter PHP Framework.
 
 ## Set Realpath
 
@@ -21,7 +21,7 @@ echo set_realpath($non_existent_directory, FALSE);
 
 ## Random Element
 
- Takes an array as input and returns a random element
+ Takes an array as input and returns a random element.
 
 ```php
 $quotes = array(
