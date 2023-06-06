@@ -38,7 +38,7 @@ Load::view(null, 'index');
 Load::view('module-name', 'filename');
 ```
 
-displays the View `index.php` page in the `Login` module, example :
+Displays the View `index.php` page in the `Login` module, example :
 
 ```php
 Load::view('Login', 'index');
