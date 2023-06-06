@@ -1,23 +1,30 @@
 # NSY PHP Framework
-## <ins>About</ins>
+
+## About
+
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
 
 Site example :
 [https://nsyframework.com/](https://nsyframework.com/)
 
-## <ins>Codename</ins>
+## Codename
+
 Lalove is a traditional musical instrument that is blown and comes from Central Sulawesi. The function of this musical instrument is to accompany dances from the Central Sulawesi region or certain customs. The shape is shaped like a long flute musical instrument.
-*Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi - https://ayoguruberbagi.kemdikbud.go.id/artikel/melestarikan-alat-musik-tradisional/#:~:text=Lalove%20termasuk%20alat%20musik%20tradisional,alat%20musik%20Suling%20yang%20panjang.*
+
+*Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi, <https://ayoguruberbagi.kemdikbud.go.id/artikel/melestarikan-alat-musik-tradisional/#:~:text=Lalove%20termasuk%20alat%20musik%20tradisional,alat%20musik%20Suling%20yang%20panjang>*
 
 ---
 
-# How to dating with NSY?
-## <ins>Download from Github</ins>
+## How to dating with NSY?
+
+### Download from Github
+
 * Download source from this link [https://github.com/kazuyamarino/nsy/releases](https://github.com/kazuyamarino/nsy/releases).
 * Simply rename the source folder that has been downloaded to `nsy` & copy it to your `html` or `htdocs` or anythings folder.
 
 ```For apache, please go to the `docs/apache` folder and read the `Readme.txt`.```
-```
+
+```text
 // docs/apache/Readme.txt
 
 1. Copy .htaccess inside 'for_public' folder to 'public' folder
@@ -25,7 +32,8 @@ Lalove is a traditional musical instrument that is blown and comes from Central 
 ```
 
 ```For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.```
-```
+
+```text
 // docs/nginx/Readme.txt
 
 1. Open 'sudo nano /etc/nginx/sites-enabled/default'
@@ -36,41 +44,44 @@ Lalove is a traditional musical instrument that is blown and comes from Central 
 * Go to the `docs/env.example.php` folder and copy the `env.example.php` to root folder, and rename it to `env.php`.
 * And save the date..
 
-## <ins>From Composer</ins>
+## From Composer
 
-#### 1. Install NSY by creating a new directory called `blog`
+### 1. Install NSY by creating a new directory called `blog`
 
-```
+```sh
 composer create-project --prefer-dist vikry/nsy blog
 ```
 
-#### 2. Restart Bash
+### 2. Restart Bash
 
-```
+```sh
 source ~/reloader.sh
 ```
 
-#### 3. NSY Setup
+### 3. NSY Setup
 
-```
+```sh
 cd blog && nsy --setup
 
 Enter directory name >
 blog
 ```
 
-#### 4. NSY is ready to create project!
+### 4. NSY is ready to create project
 
 ---
 
-# CRUD Example?
+## CRUD Example?
+
 Here it is [Vylma CRUD Example](https://vylma.nsyframework.com/)
 And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
 
 ---
 
-# Overview :
+## Overview
+
 See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md).
+
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer)
 * Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#framework-configuration)
 * Helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#helpers)
@@ -82,7 +93,8 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 
 ---
 
-# Features :
+## Features
+
 * Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer-on-nsy-framework)
 * Simple Routes System, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#routes)
 * MVC & HMVC Mode, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#mvc--hmvc)
@@ -100,9 +112,10 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 
 ---
 
-# NSY Helper Function :
+## NSY Helper Function
 
-## Standar Helper Function
+### Standar Helper Function
+
 * The PHP superglobals post, deposer and get are used to collect form-data, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#the-php-superglobals-post-deposer-and-get-are-used-to-collect-form-data)
 * Returns your site full path public directory, as specified in your config file, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#public-directory-path)
 * Return img directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#images-directory-uri)
@@ -144,25 +157,26 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 
 ---
 
-# External Helper Function :
+## External Helper Function
 
 * CI helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/CI_HELPER_FUNCTION.md)
 * Carbon DateTime, [See Documentation](https://carbon.nesbot.com/docs/)
 
 ---
 
-# NSY Middleware
+## NSY Middleware
 
 NSY has support middleware, which is the process of filtering a process before it is run by the controller by NSY, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MIDDLEWARE.md)
 
 ---
-# NSY Migration
+
+## NSY Migration
 
 Migration is like version control for your database, allowing your team to easily modify and share application database schemes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MIGRATION.md)
 
 ---
 
-# Razr Template Engine
+## Razr Template Engine
 
 Razr is a powerful PHP template engine for PHP, whose syntax was inspired by ASP.NET Razor.
 
@@ -170,25 +184,26 @@ NSY has supported Razr in the View component. In addition NSY also still support
 
 ---
 
-# NSY Security Function
+## NSY Security Function
 
 NSY provides security functions including antiXSS and CSRF, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_SECURITY_FUNCTION.md)
 
 ---
 
-# NSY Controller
+## NSY Controller
 
 Controllers act as an interface between Model and View components to process all the business logic and incoming requests, manipulate data using the Model component and interact with the Views to render the final output, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_CONTROLLER.md)
 
 ---
 
-# NSY Model
+## NSY Model
 
 The Model component corresponds to all the data-related logic that the user works with. This can represent either the data that is being transferred between the View and Controller components or any other business logic-related data, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md)
 
 ---
 
-# License
+## License
+
 The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
 
 NSY Framework 2019 - 2023
