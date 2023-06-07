@@ -25,7 +25,7 @@ Find packages on [Packagist](https://packagist.org).
 >NSY applies the concept of PSR-4 Autoloading. NSY has the `composer.json` file that can be dumped with [composer](https://getcomposer.org/download/) command `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` when creating a folder structure that contains new class files.
 >
 
-For example :
+**For example :**
 >
 > * There is an example folder in the module folder that was created named `Homepage`, along with the namespaces.
 >
@@ -107,11 +107,11 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
     │   └── Migration.php
 ```
 
-Examples :
+**Examples :**
 >
 > ```php
 > Route::get('/', function() {
-> echo 'Hello world!';
+>   echo 'Hello world!';
 > });
 > ```
 
@@ -141,11 +141,11 @@ You can also make requests for HTTP methods in NSY_Router, so you could also do:
 
 ```PHP
 Route::get('/', function() {
-  echo 'I'm a GET request!';
+  echo "I'm a GET request!";
 });
 
 Route::post('/', function() {
-  echo 'I'm a POST request!';
+  echo "I'm a POST request!";
 });
 
 Route::any('/', function() {
@@ -160,7 +160,7 @@ It's possible to pass the namespace path to a controller instead of the closure:
 For this demo lets say I have a folder called controllers with a demo.php
 
 ```php
-// demo.php :
+// Demo.php :
 
 <?php
 namespace System\Controllers;
@@ -182,7 +182,7 @@ class Demo {
         echo 'page';
     }
 
-    public function view($id)
+    public function variable($id)
     {
         echo $id;
     }
@@ -194,15 +194,15 @@ class Demo {
 // Web.php :
 
 Route::get('/', function() {
- Route::goto('Demo@index');
+ Route::goto([System\Controllers\Demo::class, 'index']);
 });
 
 Route::get('/page', function() {
- Route::goto('Demo@page');
+ Route::goto([System\Controllers\Demo::class, 'page']);
 });
 
-Route::get('/view/(:num)', function($id) {
- Route::goto('Demo@view', $id);
+Route::get('/variable/(:num)', function($id) {
+ Route::goto([System\Controllers\Demo::class, 'variable'], $id);
 });
 ```
 
@@ -222,7 +222,7 @@ class Login {
         echo 'login dashboard';
     }
 
-    public function view($params)
+    public function variable($params)
     {
         echo $params['id'];
         echo "<br>";
@@ -235,24 +235,23 @@ class Login {
 ```php
 // Web.php :
 
-Route::get('/Homepage', function() {
- Route::goto('Homepage\Login@index');
+Route::get('/homepage', function() {
+ Route::goto([System\Modules\Homepage\Controllers\Login::class, 'index']);
 });
 
-Route::get('/view/(:num)/(:alpha)', function($id, $user) {
+Route::get('/variable/(:num)/(:alpha)', function($id, $user) {
   $params = [
     'id' => $id,
     'user' => $user
   ];
- Route::goto('Homepage\Login@view', $params);
+ Route::goto([System\Modules\Homepage\Controllers\Login::class, 'variable'], $params);
 });
 ```
 
 #### Another way to call a controller with minimal code instead of Route::goto()
 
 ```php
-Route::get('/', 'Welcome@index');
-Route::get('/hmvc', 'Homepage\Hello@index_hmvc');
+Route::get('/homepage', [System\Modules\Homepage\Controllers\Login::class, 'index']);
 ```
 
 #### Route group with (base path)
@@ -260,14 +259,14 @@ Route::get('/hmvc', 'Homepage\Hello@index_hmvc');
 ```php
 Route::group('/admin', function() {
   // map to /admin/input
- Route::get('/input', function() {
-  echo 'input user';
- });
+  Route::get('/input', function() {
+    echo 'input user';
+  });
 
   // map to /admin/delete
- Route::get('/delete', function() {
-  echo 'delete user';
- });
+  Route::get('/delete', function() {
+    echo 'delete user';
+  });
 });
 ```
 
@@ -330,7 +329,7 @@ After that, to use it in View, you only need to call the static method name that
 method_name();
 ```
 
-For example
+**For example :**
 >
 > ```php
 > header_assets();
@@ -351,7 +350,7 @@ Complete information about PSR-4 can be read on the official [PHP-FIG](https://w
 
 NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with:
 
-Note :
+**Note :**
 >
 >```text
 >If you install the NSY Framework through >the >`composer create-project`, it >automatically >includes the NSY CLI.
@@ -450,10 +449,22 @@ nsy --help
 nsy dump:mysql <database-name> <username> <password>
 ```
 
+**Example:**
+
+```sh
+nsy dump:mysql db_production root blabla
+```
+
 #### Dump mysql database (table only)
 
 ```sh
 nsy dump:mysql <database-name> <username> <password> <table-name>
+```
+
+**Example:**
+
+```sh
+nsy dump:mysql db_production root blabla customer_table
 ```
 
 #### Make HMVC Module
@@ -462,10 +473,22 @@ nsy dump:mysql <database-name> <username> <password> <table-name>
 nsy make:module <module-directory-name>
 ```
 
+**Example:**
+
+```sh
+nsy make:module login
+```
+
 #### Make HMVC Controller
 
 ```sh
 nsy make:controller hmvc <module-directory-name> <controller-name>
+```
+
+**Example:**
+
+```sh
+nsy make:controller hmvc login controller_login
 ```
 
 #### Make HMVC Model
@@ -474,10 +497,22 @@ nsy make:controller hmvc <module-directory-name> <controller-name>
 nsy make:model hmvc <module-directory-name> <model-name>
 ```
 
+**Example:**
+
+```sh
+nsy make:model hmvc login model_login
+```
+
 #### Make MVC Controller
 
 ```sh
 nsy make:controller mvc <controller-name>
+```
+
+**Example:**
+
+```sh
+nsy make:controller mvc controller_login
 ```
 
 #### Make MVC Model
@@ -486,10 +521,22 @@ nsy make:controller mvc <controller-name>
 nsy make:model mvc <model-name>
 ```
 
+**Example:**
+
+```sh
+nsy make:model mvc model_login
+```
+
 #### Make Migration Class
 
 ```sh
 nsy make:migration <class-name>
+```
+
+**Example:**
+
+```sh
+nsy make:migration customer_table
 ```
 
 #### First time setting up NSY
@@ -516,10 +563,22 @@ nsy --install
 nsy make:before-middleware <class-name>
 ```
 
+**Example:**
+
+```sh
+nsy make:before-middleware before_checkpoint
+```
+
 #### Make after Middleware Class
 
 ```sh
 nsy make:after-middleware <class-name>
+```
+
+**Example:**
+
+```sh
+nsy make:after-middleware after_checkpoint
 ```
 
 ---

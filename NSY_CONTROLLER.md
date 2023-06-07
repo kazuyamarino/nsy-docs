@@ -1,6 +1,6 @@
 # NSY Controllers
 
-## Passing variable to view
+## Passing Variable From Controller to View
 
 If you want to passing variable from Controller to View, you can use example below :
 
@@ -14,9 +14,15 @@ $arr = [
 Load::template('header', $arr);
 ```
 
-The above example will generate variable `$my_name`, `$date` and `$mvc_page` in the View page.
+The above example will generate variables `$my_name`, `$date` and `$mvc_page` in the View page, you just need to call it in View like this `@($my_name)`.
 
-## Load MVC or HMVC view file
+**Example :**
+
+```html
+<div>@($my_name)</div>
+```
+
+## Load MVC or HMVC View File
 
 To display the View page from the Controller.
 
@@ -61,7 +67,7 @@ $dt = sequence(":id", $ids)
 print_r($dt);
 ```
 
-Will return `print_r()` result :
+**Will return `print_r()` result :**
 
 ```php
 Array

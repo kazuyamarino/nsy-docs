@@ -6,256 +6,294 @@ Migration is usually paired with the NSY schema builder to easily build your app
 
 How to use migration on NSY, you only need to create the migration class by typing on the Terminal or CMD:
 
-```
+```sh
 nsy make:migration <migration-name>
 ```
 
 **For example :**
 
-```
+```sh
 nsy make:migration create_database_and_table_supplier
 ```
 
 And the result will be a file created from the results of the command earlier in the `System/Migrations`.
 
-```
+```text
 └── Migrations
        └── create_database_and_table_supplier.php
 ```
 
 There are 2 methods in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is, `migup=class_name`
-```
+
+```text
 Example : http://localhost/nsy/migup=create_database_and_table_supplier
 ```
 
 And for `down()`, `migdown=class_name`
-```
+
+```text
 Example : http://localhost/nsy/migdown=drop_table_supplier
 ```
 
 Well, in that method, you can fill it with some help methods that have been defined by NSY to support migration like the method below:
 
-### Create database
-```
+## Create database
+
+```php
 Mig::connect()->create_db('example_db');
 ```
 
-### Delete database
-```
+## Delete database
+
+```php
 Mig::connect()->drop_db('example_db');
 ```
 
-### Create table with several columns (mysql/mariadb/mssql)
-```
+## Create table with several columns (mysql/mariadb/mssql)
+
+```php
 Mig::connect()->create_table('example', function() {
-	return Mig::cols([
-		'id' => 'bigint(20) not null',
-		'bundle' => 'bigint(20) not null',
-		'reader_id' => 'varchar(20) null',
-		'trans_time' => 'datetime null',
-		'antenna_id' => 'varchar(100) null',
-		'tid' => 'varchar(100) null',
-		'user_memory' => 'varchar(100) null'
-	]);
+  return Mig::cols([
+    Mig::bigint('bigint_field', 20)->auto_increment(),
+    Mig::bit('bit_field')->null(),
+    Mig::tinyint('tinyint_field')->null(),
+    Mig::smallint('smallint_field')->null(),
+    Mig::mediumint('mediumint_field')->null(),
+    Mig::int('int_field')->not_null(),
+    Mig::integer('integer_field')->not_null(),
+    Mig::decimal('decimal_field')->default(0),
+    Mig::dec('dec_field')->default(0),
+    Mig::numeric('numeric_field')->not_null(),
+    Mig::fixed('fixed_field')->not_null(),
+    Mig::float('float_field')->not_null(),
+    Mig::double('double_field')->default(0),
+    Mig::double_precision('double_precision_field')->not_null(),
+    Mig::real('real_field')->not_null(),
+    Mig::bool('bool_field')->not_null(),
+    Mig::boolean('boolean_field')->not_null()
+  ]);
 });
 ```
 
-### Create table with primary key & unique key (mysql/mariadb/mssql)
-```
+## Create table with primary key & unique key (mysql/mariadb/mssql)
+
+```php
 Mig::connect()->create_table('example', function() {
-	return Mig::cols([
-		'id' => 'bigint not null',
-		'bundle' => 'bigint not null',
-		'reader_id' => 'varchar(20) null',
-		'trans_time' => 'datetime null',
-		'antenna_id' => 'varchar(100) null',
-		'tid' => 'varchar(100) null',
-		'user_memory' => 'varchar(100) null',
-		Mig::primary('id'),
-		Mig::unique([
-			'reader_id', 'trans_time'
-		])
-	]);
+  return Mig::cols([
+    Mig::bigint('bigint_field', 20)->auto_increment(),
+    Mig::bit('bit_field')->null(),
+    Mig::tinyint('tinyint_field')->null(),
+    Mig::smallint('smallint_field')->null(),
+    Mig::mediumint('mediumint_field')->null(),
+    Mig::int('int_field')->not_null(),
+    Mig::integer('integer_field')->not_null(),
+    Mig::decimal('decimal_field')->default(0),
+    Mig::dec('dec_field')->default(0),
+    Mig::numeric('numeric_field')->not_null(),
+    Mig::fixed('fixed_field')->not_null(),
+    Mig::float('float_field')->not_null(),
+    Mig::double('double_field')->default(0),
+    Mig::double_precision('double_precision_field')->not_null(),
+    Mig::real('real_field')->not_null(),
+    Mig::bool('bool_field')->not_null(),
+    Mig::boolean('boolean_field')->not_null(),
+    Mig::primary('bigint_field'),
+    Mig::unique(['integer_field', 'tinyint_field'])
+  ]);
 });
 ```
 
-### Create table with timestamps column e.g. create_date/update_date/additional_date (mysql/mariadb/mssql)
-```
-Mig::connect()->create_table('example', function() {
-	return Mig::cols([
-		'id' => 'bigint not null',
-		'bundle' => 'bigint not null',
-		'reader_id' => 'varchar(20) null',
-		'trans_time' => 'datetime null',
-		'antenna_id' => 'varchar(100) null',
-		'tid' => 'varchar(100) null',
-		'user_memory' => 'varchar(100) null',
-		Mig::primary('id'),
-		Mig::unique([
-			'reader_id', 'trans_time'
-		])
-	], Mig::timestamps() );
-});
-```
+## Rename table (mysql/mariadb)
 
-### Rename table (mysql/mariadb)
-```
+```php
 Mig::connect()->rename_table('example', 'newExample');
 ```
 
-### Rename table (postgre)
-```
+## Rename table (postgre)
+
+```php
 Mig::connect()->alter_rename_table('example', 'newExample');
 ```
 
-### Rename table (mssql)
-```
+## Rename table (mssql)
+
+```php
 Mig::connect()->sp_rename_table('example', 'newExample');
 ```
 
-### Delete table if exist (mysql/mariadb)
-```
+## Delete table if exist (mysql/mariadb)
+
+```php
 Mig::connect()->drop_exist_table('example');
 ```
 
-### Delete table
-```
+## Delete table
+
+```php
 Mig::connect()->drop_table('example');
 ```
 
-### Add columns (mysql/mariadb/postgre)
-```
+## Add columns (mysql/mariadb/postgre)
+
+```php
 Mig::connect()->add_cols('example', function() {
-	return Mig::cols([
-		'Column1' => 'varchar(20)',
-		'Column2' => 'varchar(20)',
-		'Column3' => 'varchar(20)'
-	]);
+ return Mig::cols([
+    Mig::char('char_field')->not_null(),
+    Mig::varchar('varchar_field')->null(),
+    Mig::tinytext('tinytext_field')->null(),
+    Mig::text('text_field')->null(),
+    Mig::mediumtext('mediumtext_field')->null(),
+    Mig::longtext('longtext_field')->not_null(),
+    Mig::binary('binary_field')->not_null(),
+    Mig::varbinary('varbinary_field')->default(0)
+ ]);
 });
 ```
 
-### Add columns (mssql)
-```
+## Add columns (mssql)
+
+```php
 Mig::connect()->add('example', function() {
-	return Mig::cols([
-		'Column1' => 'varchar(20)',
-		'Column2' => 'varchar(20)',
-		'Column3' => 'varchar(20)'
-	]);
+ return Mig::cols([
+    Mig::varchar('varchar_field')->null(),
+    Mig::tinytext('tinytext_field')->null(),
+    Mig::text('text_field')->null(),
+    Mig::mediumtext('mediumtext_field')->null(),
+    Mig::longtext('longtext_field')->not_null(),
+    Mig::binary('binary_field')->not_null(),
+    Mig::varbinary('varbinary_field')->default(0),
+    Mig::date('date_field')->not_null(),
+    Mig::datetime('datetime_field')->null(),
+    Mig::timestamp('timestamp_field', 6)->null(),
+    Mig::time('time_field')->null(),
+    Mig::year('year_field', 4)->default(0)
+ ]);
 });
 ```
 
-### Delete column (mysql/mariadb/postgre/mssql)
-```
+## Delete column (mysql/mariadb/postgre/mssql)
+
+```php
 Mig::connect()->drop_cols('example', function() {
-	return Mig::cols([
-		'Column1',
-		'Column2'
-	]);
+ return Mig::cols([
+  'Column1',
+  'Column2'
+ ]);
 });
 ```
 
-### Rename columns (mysql/mariadb)
-```
+## Rename columns (mysql/mariadb)
+
+```php
 Mig::connect()->change_cols('example', function() {
-	return Mig::cols([
-		'Column1' => 'NewColumn1',
-		'Column2' => 'NewColumn2',
-		'Column3' => 'NewColumn3'
-	]);
+ return Mig::cols([
+  'Column1' => 'NewColumn1',
+  'Column2' => 'NewColumn2',
+  'Column3' => 'NewColumn3'
+ ]);
 });
 ```
 
-### Rename columns (postgre)
-```
+## Rename columns (postgre)
+
+```php
 Mig::connect()->rename_cols('example', function() {
-	return Mig::cols([
-		'Column1' => 'NewColumn1',
-		'Column2' => 'NewColumn2',
-		'Column3' => 'NewColumn3'
-	]);
+ return Mig::cols([
+  'Column1' => 'NewColumn1',
+  'Column2' => 'NewColumn2',
+  'Column3' => 'NewColumn3'
+ ]);
 });
 ```
 
-### Rename columns (mssql)
-```
+## Rename columns (mssql)
+
+```php
 Mig::connect()->sp_rename_cols('example', function() {
-	return Mig::cols([
-		'Column1' => 'NewColumn1',
-		'Column2' => 'NewColumn2',
-		'Column3' => 'NewColumn3'
-	]);
+ return Mig::cols([
+  'Column1' => 'NewColumn1',
+  'Column2' => 'NewColumn2',
+  'Column3' => 'NewColumn3'
+ ]);
 });
 ```
 
-### Modify columns datatype (mysql/mariadb)
-```
+## Modify columns datatype (mysql/mariadb)
+
+```php
 Mig::connect()->modify_cols('example', function() {
-	return Mig::cols([
-		'Column1' => 'bigint(12) not null',
-		'Column2' => 'bigint(12) not null',
-		'Column3' => 'bigint(12) not null'
-	]);
+ return Mig::cols([
+    Mig::tinyblob('tinyblob_field')->not_null(),
+    Mig::blob('blob_field')->null(),
+    Mig::mediumblob('mediumblob_field')->default(0)
+ ]);
 });
 ```
 
-### Modify columns primary and unique key (mysql/mariadb)
-```
+## Modify columns primary and unique key (mysql/mariadb)
+
+```php
 Mig::connect()->modify_cols('example', function() {
-	return Mig::cols([
-		Mig::primary([
-			'Column1',
-			'Column2'
-		]),
-		Mig::unique([
-			'Column3',
-			'Column4'
-		])
-	]);
+ return Mig::cols([
+  Mig::primary([
+   'Column1',
+   'Column2'
+  ]),
+  Mig::unique([
+   'Column3',
+   'Column4'
+  ])
+ ]);
 });
 ```
 
-### Modify columns datatype (mssql/postgre)
-```
+## Modify columns datatype (mssql/postgre)
+
+```php
 Mig::connect()->alter_cols('example', function() {
-	return Mig::cols([
-		'Column1' => 'char(12) not null',
-		'Column2' => 'varchar(12) not null',
-		'Column3' => 'datetime not null'
-	]);
+ return Mig::cols([
+    Mig::tinyblob('tinyblob_field')->not_null(),
+    Mig::blob('blob_field')->null(),
+    Mig::mediumblob('mediumblob_field')->default(0)
+ ]);
 });
 ```
 
-### Modify columns primary and unique key (mssql/postgre)
-```
+## Modify columns primary and unique key (mssql/postgre)
+
+```php
 Mig::connect()->alter_cols('example', function() {
-	return Mig::cols([
-		Mig::primary([
-			'Column1',
-			'Column2'
-		]),
-		Mig::unique([
-			'Column3',
-			'Column4'
-		])
-	]);
+ return Mig::cols([
+  Mig::primary([
+   'Column1',
+   'Column2'
+  ]),
+  Mig::unique([
+   'Column3',
+   'Column4'
+  ])
+ ]);
 });
 ```
 
-### Create indexes in tables (mysql/mariadb/postgre)
+## Create indexes in tables (mysql/mariadb/postgre)
+
 The statement below is used to create indexes in tables.
 
 Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
-```
+
+```php
  Mig::connect()->index('table_name', 'index_type', 'table_field_name');
  ```
 
  **Example :**
- ```
+
+ ```php
 Mig::connect()->index('table_mahasiswa', 'BTREE', 'no_npm');
 ```
 
 Index statement is also available for `PostgreSQL`, just a little modification in its functionality to :
-```
+
+```php
 Mig::connect()->index_pg('table_mahasiswa', 'BTREE', 'no_npm');
 ```
