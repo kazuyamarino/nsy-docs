@@ -1,78 +1,80 @@
-## NSY Models
+# NSY Models
 
-### <ins>Primary & Secondary Database Connections</ins>
+## Primary & Secondary Database Connections
+
 NSY has supported 2 database connections in one running application.
 
 You can see the env in root. There seems to be a configuration like this :
 
-```
+```php
 // Primary connection
 'primary' => [
-	'CONNECTION_NAME' => 'primary',
-	'DB_CONNECTION' => '',
-	'DB_HOST' => '',
-	'DB_PORT' => '',
-	'DB_NAME' => '',
-	'DB_USER' => '',
-	'DB_PASS' => '',
-	'DB_CHARSET' => '',
-	'DB_PREFIX' => '',
-	'DB_ATTR' => [
-		\PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING
-	]
+ 'CONNECTION_NAME' => 'primary',
+ 'DB_CONNECTION' => '',
+ 'DB_HOST' => '',
+ 'DB_PORT' => '',
+ 'DB_NAME' => '',
+ 'DB_USER' => '',
+ 'DB_PASS' => '',
+ 'DB_CHARSET' => '',
+ 'DB_PREFIX' => '',
+ 'DB_ATTR' => [
+  \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING
+ ]
 ],
 
 // Secondary connection
 'secondary' => [
-	'CONNECTION_NAME' => 'secondary',
-	'DB_CONNECTION' => '',
-	'DB_HOST' => '',
-	'DB_PORT' => '',
-	'DB_NAME' => '',
-	'DB_USER' => '',
-	'DB_PASS' => '',
-	'DB_CHARSET' => '',
-	'DB_PREFIX' => '',
-	'DB_ATTR' => [
-		\PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING
-	]
+ 'CONNECTION_NAME' => 'secondary',
+ 'DB_CONNECTION' => '',
+ 'DB_HOST' => '',
+ 'DB_PORT' => '',
+ 'DB_NAME' => '',
+ 'DB_USER' => '',
+ 'DB_PASS' => '',
+ 'DB_CHARSET' => '',
+ 'DB_PREFIX' => '',
+ 'DB_ATTR' => [
+  \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING
+ ]
 ],
 ```
 
 Example for define Connection :
 
-```
+```php
 'primary' => [
-	'CONNECTION_NAME' => 'primary',
-	'DB_CONNECTION' => 'mysql',
-	'DB_HOST' => 'localhost',
-	'DB_PORT' => '3306',
-	'DB_NAME' => 'dev_example',
-	'DB_USER' => 'root',
-	'DB_PASS' => 'password',
-	'DB_CHARSET' => 'UTF8',
-	'DB_PREFIX' => '',
-	'DB_ATTR' => [
-		\PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING
-	]
+ 'CONNECTION_NAME' => 'primary',
+ 'DB_CONNECTION' => 'mysql',
+ 'DB_HOST' => 'localhost',
+ 'DB_PORT' => '3306',
+ 'DB_NAME' => 'dev_example',
+ 'DB_USER' => 'root',
+ 'DB_PASS' => 'password',
+ 'DB_CHARSET' => 'UTF8',
+ 'DB_PREFIX' => '',
+ 'DB_ATTR' => [
+  \PDO::ATTR_ERRMODE => \PDO::ERRMODE_WARNING
+ ]
 ],
 ```
 
 For example, in the model you want to run an sql query on the `primary` database connection :
 
-```
+```php
 $q = 'SELECT * FROM blabla';
 DB::connect()->query($q)->vars()->bind()->style()->fetch_all();;
 ```
 
 Then, if you want to run an sql query on the `secondary` database connection :
 
-```
+```php
 $q = 'SELECT * FROM blabla';
 DB::connect('secondary')->query($q)->vars()->bind()->style()->fetch_all();;
 ```
 
-### <ins>Getting data out of statement in dozens different formats. fetch_all()</ins>
+### Getting data out of statement in dozens different formats. fetch_all()
+
 That's most interesting function, with most astonishing features. Mostly thanks to its existence one can call PDO a wrapper, as this function can automate many operations otherwise performed manually.
 
 `fetch_all()` returns an array that consists of all the rows returned by the query. From this fact we can make two conclusions:
@@ -82,10 +84,11 @@ This function should not be used, if many rows has been selected. In such a case
 This function is mostly useful in a modern web application that never outputs data right away during fetching, but rather passes it to template.
 You'd be amazed, in how many different formats this function can return data in (and how little an average PHP user knows of them), all controlled by `FETCH...` variables. Some of them are: `FETCH_NUM, FETCH_ASSOC, FETCH_BOTH, FETCH_CLASS, FETCH_KEY_PAIR, FETCH_UNIQUE, FETCH_GROUP, and FETCH_FUNC`.
 
-#### Getting a plain array.
+#### Getting a plain array
+
 By default, this function will return just simple enumerated array consists of all the returned rows. Row formatting constants, such as `FETCH_NUM, FETCH_ASSOC, FETCH_COLUMN` etc can change the row format.
 
-```
+```php
 $q = 'SELECT id, name, username FROM users';
 $d = DB::connect()->query($q)->vars()->style(FETCH_ASSOC)->fetch_all();
 
@@ -93,7 +96,8 @@ print_r($d);
 ```
 
 it will return this,
-```
+
+```php
 Array
 (
     [0] => Array
@@ -105,10 +109,11 @@ Array
 )
 ```
 
-#### Getting a column number.
+#### Getting a column number
+
 It is often very handy to get plain one-dimensional array right out of the query, if only one column out of many rows being fetched. Here you go:
 
-```
+```php
 $q = 'SELECT name FROM users';
 $d = DB::connect()->query($q)->vars()->style(FETCH_COLUMN)->fetch_all();
 
@@ -116,17 +121,19 @@ print_r($d);
 ```
 
 it will return this,
-```
+
+```php
 Array
 (
     [0] => Vikry Yuansah
 )
 ```
 
-#### Getting key-value pairs.
+#### Getting key-value pairs
+
 Also extremely useful format, when we need to get the same column, but indexed not by numbers in order but by another field. Here goes `FETCH_KEY_PAIR` constant:
 
-```
+```php
 $q = 'SELECT name FROM users';
 $d = DB::connect()->query($q)->vars()->style(FETCH_KEY_PAIR)->fetch_all();
 
@@ -134,7 +141,8 @@ print_r($d);
 ```
 
 it will return this,
-```
+
+```php
 Array
 (
     [1] => Vikry Yuansah
@@ -144,10 +152,11 @@ Array
 
 and many other modes in fetch_all.
 
-### <ins>Getting data out of statement. fetch()</ins>
+### Getting data out of statement. fetch()
+
 It fetches a single row from database, and moves the internal pointer in the result set, so consequent calls to this function will return all the resulting rows one by one.
 
-```
+```php
 $q = 'SELECT id, name FROM users';
 $d = DB::connect()->query($q)->vars()->style(FETCH_NUM)->fetch();
 
@@ -155,7 +164,8 @@ print_r($d);
 ```
 
 it will return this,
-```
+
+```php
 Array
 (
     [0] => 1
@@ -169,7 +179,7 @@ Binds a PHP variable to a corresponding named or question mark placeholder in th
 
 BindValue with PARAM_INT (Defines variable type as integer/number) :
 
-```
+```php
 $id = [ ':id' => [3, PAR_INT] ];
 
 $q = "SELECT id, name, user_name FROM tbl_users WHERE id = :id";
@@ -179,7 +189,8 @@ print_r($d);
 ```
 
 it will return this,
-```
+
+```php
 Array
 (
     [id] => 3
@@ -193,7 +204,7 @@ Array
 
 BindParam with PARAM_STR (Defines the variable type as a text string) :
 
-```
+```php
 $string = [ ':name' => ['%yuan%', PAR_STR] ];
 
 $q = "SELECT id, name, user_name FROM tbl_users WHERE name LIKE :name";
@@ -203,7 +214,8 @@ print_r($d);
 ```
 
 it will return this,
-```
+
+```php
 Array
 (
     [id] => 1
@@ -219,10 +231,11 @@ Unlike `BINDVAL`, the variable is bound as a reference and will only be evaluate
 
 `BINDPAR` to bind PHP variables to the parameter markers: bound variables pass their value as input and receive the output value, if any, of their associated parameter markers
 
-### <ins>Getting data out of statement. fetch_column()</ins>
+### Getting data out of statement. fetch_column()
+
 A neat helper function that returns value of the single field of returned row. Very handy when we are selecting only one field:
 
-```
+```php
 // Getting the name based on id
 $id = [ ':id' => 2 ];
 
@@ -233,11 +246,12 @@ return $d;
 ```
 
 it will return this,
-```
+
+```text
 Nayla Syifa
 ```
 
-```
+```php
 // getting number of rows in the table utilizing method chaining
 $q = "SELECT count(*) FROM tbl_users";
 $d = DB::connect()->query($q)->vars()->style(FETCH_ASSOC)->fetch_column();
@@ -246,14 +260,16 @@ return $d;
 ```
 
 will return this,
-```
+
+```php
 3 => number of row data
 ```
 
-### <ins>Getting row count</ins>
+### Getting row count
+
 NSY uses PDO. PDO offers a function for returning the number of rows found by the query, `row_count()`, for example:
 
-```
+```php
 $q = "SELECT * FROM tbl_users";
 $d = DB::connect()->query($q)->vars()->row_count();
 
@@ -261,13 +277,14 @@ return $d->result;
 ```
 
 it will return,
-```
+
+```php
 3 => number of row data
 ```
 
 However, if you want to get the number of affected rows, here is an example:
 
-```
+```php
 $id = [ ':id' => 2 ];
 
 $q = "DELETE FROM tbl_users WHERE id = :id";
@@ -277,15 +294,16 @@ return deleted_data->result;
 ```
 
 Result,
-```
+
+```php
 1 => number of row data that was deleted
 ```
 
-### <ins>Executes a prepared statement. exec()</ins>
+### Executes a prepared statement. exec()
 
-#### Update data :
+#### Update data
 
-```
+```php
 $id = [ ':id' => 2 ];
 
 $q = "UPDATE tbl_users SET name = :name WHERE id = :id";
@@ -294,9 +312,9 @@ DB::connect()->query($q)->vars($id)->bind()->exec();
 // Update field name from tbl_users where id is 2
 ```
 
-#### Multi Update data :
+#### Multi Update data
 
-```
+```php
 $id = [ 11025, 11026 ];
 foreach ( $id as $key => $ids ) {
   $params = [
@@ -310,9 +328,9 @@ foreach ( $id as $key => $ids ) {
 // Update field user_name to 'nsy_for_kids' from tbl_users where id is 11025 & 11026
 ```
 
-#### Delete data :
+#### Delete data
 
-```
+```php
 $id = [ ':id' => 2 ];
 
 $q = "DELETE FROM tbl_users WHERE id = :id";
@@ -321,9 +339,9 @@ DB::connect()->query($q)->vars($id)->bind()->exec();
 // Delete data from tbl_users where id is 2
 ```
 
-#### Multi Delete data :
+#### Multi Delete data
 
-```
+```php
 $id = [ 11025, 11026 ];
 foreach ( $id as $key => $ids ) {
   $params = [
@@ -336,9 +354,9 @@ foreach ( $id as $key => $ids ) {
 // Delete data from tbl_users where id is 11025 & 11026
 ```
 
-#### Insert data :
+#### Insert data
 
-```
+```php
 $param = [ ':user_name' => 'Harmoni' ];
 
 $q = "INSERT INTO tbl_users (user_name) VALUES (:user_name)";
@@ -347,10 +365,11 @@ DB::connect()->query($q)->vars($param)->bind()->exec();
 // Insert data to field user_name from tbl_users where user_name is 'Harmoni'
 ```
 
-### <ins>Multi Insert. multi_insert()</ins>
+### Multi Insert. multi_insert()
+
 To input multiple data into the database at once in one command.
 
-```
+```php
 $arr = [
     [0] => [
         [0] => 11043 // for column id on tbl_users
@@ -367,32 +386,33 @@ $q = "INSERT INTO tbl_users (id, name, user_name)";
 DB::connect()->query($q)->vars($arr)->multi_insert();
 ```
 
-### <ins>NSY Transaction</ins>
+### NSY Transaction
+
 Database transactions ensure that a set of data changes will only be made permanent if every statement is successful. Any query or code failure during a transaction can be caught and you then have the option to roll back the attempted changes.
 
 NSY provides simple methods for beginning, committing, and rollbacking back transactions.
 
-#### Begin transaction :
+#### Begin transaction
 
-```
+```php
 DB::begin_trans();
 ```
 
-#### Commit transaction :
+#### Commit transaction
 
-```
+```php
 DB::commit_trans();
 ```
 
-#### Rollback transaction :
+#### Rollback transaction
 
-```
+```php
 DB::rollback_trans();
 ```
 
-#### First example of transaction in `multi_insert()`.
+#### First example of transaction in `multi_insert()`
 
-```
+```php
 $arr = [
     [0] => [
         [0] => 11043 // for column id on tbl_users
@@ -409,9 +429,9 @@ $q = "INSERT INTO tbl_users (id, name, user_name)";
 DB::connect()->begin_trans()->query($q)->vars($arr)->multi_insert()->commit_trans();
 ```
 
-#### Second example of transaction in `multi_insert()`.
+#### Second example of transaction in `multi_insert()`
 
-```
+```php
 $arr = [
     [0] => [
         [0] => 11043 // for column id on tbl_users
@@ -437,16 +457,18 @@ $conn->commit_trans();
 
 And before using a transaction, you must turn on the transaction mode in `Config/App.php` => `transaction` to `on` (default is `off`), to turn on the rollback function (The rollback function is enabled by default when `transaction = on`, so there's no need to call the `rollback_trans()`).
 
-### <ins>Sets an attribute on the database handle</ins>
+### Sets an attribute on the database handle
 
 Sets an attribute on the database handle. Some available generic attributes are listed below; some drivers may make use of additional driver specific attributes.
 [See complete documentation](https://www.php.net/manual/en/pdo.setattribute.php).
-```
+
+```php
 pdo_set_attr(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION)
 ```
 
 **How to retrieve a statement attribute?**
 [See complete documentation](https://www.php.net/manual/en/pdo.getattribute.php)
-```
+
+```php
 pdo_get_attr(PDO::ATTR_ERRMODE)
 ```

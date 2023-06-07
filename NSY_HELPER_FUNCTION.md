@@ -1138,8 +1138,6 @@ loadtime_active();
 
 **# Return** (boolean)
 
-### Example of use for this library
-
 ```php
 loadtime_start();
 
@@ -1171,7 +1169,8 @@ Go to the Json Library documentation page, [HERE](https://github.com/josantonius
 ## Curl Library
 
 Use this namespace in the controller :
-```
+
+```php
 use System\Vendor\Curl;
 ```
 
@@ -1190,85 +1189,85 @@ use System\Libraries\File;
 
 ### Example of use for this library
 
-#### Check if a local file exists :
+#### Check if a local file exists
 
 ```php
 check_file('path/to/file.php');
 ```
 
-#### Check if a external file exists :
+#### Check if a external file exists
 
 ```php
 check_file('https://raw.githubusercontent.com/Josantonius/PHP-File/master/composer.json');
 ```
 
-#### Delete a local file :
+#### Delete a local file
 
 ```php
 delete_file(public_path('file.txt'));
 ```
 
-#### Create directory :
+#### Create directory
 
 ```php
 create_dir(public_path('/test/'));
 ```
 
-#### Delete empty directory :
+#### Delete empty directory
 
 ```php
 delete_dir(public_path('/test/'));
 ```
 
-#### Delete directory recursively :
+#### Delete directory recursively
 
 ```php
 delete_dir_recur(public_path('/test/'));
 ```
 
-#### Copy directory recursively :
+#### Copy directory recursively
 
 ```php
 copy_dir_recur(public_path('/test/'), public_path('/copy/'));
 ```
 
-#### Get file paths from directory :
+#### Get file paths from directory
 
 ```php
 get_files_from_dir(__DIR__);
 ```
 
-#### Writes data to the file specified in the path :
+#### Writes data to the file specified in the path
 
 ```php
 create_file($path, $data, $mode = 'wb');
 ```
 
-#### Get Filenames :
+#### Get Filenames
 
 ```php
 get_filenames($source_dir, $include_path = false, $_recursion = false);
 ```
 
-#### Get Directory File Information :
+#### Get Directory File Information
 
 ```php
 get_dir_file_info($source_dir, $top_level_only = true, $_recursion = false);
 ```
 
-#### Get File Info :
+#### Get File Info
 
 ```php
 get_file_info($file, $returned_values = array('name', 'server_path', 'size', 'date'));
 ```
 
-#### Get Mime by Extension :
+#### Get Mime by Extension
 
 ```php
 get_mime_by_extension($filename);
 ```
 
-#### Returns the MIME types array from Config/Mimes.php :
+#### Returns the MIME types array from Config/Mimes.php
 
 ```php
 get_mimes();
