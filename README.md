@@ -48,19 +48,19 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 
 ### From Composer
 
-**1. Install NSY by creating a new directory called `blog`**
+**1. Install NSY by creating a new directory called blog.**
 
 ```sh
 composer create-project --prefer-dist vikry/nsy blog
 ```
 
-**2. Restart Bash**
+**2. Restart Bash.**
 
 ```sh
 source ~/reloader.sh
 ```
 
-**3. NSY Setup**
+**3. NSY Setup.**
 
 ```sh
 cd blog && nsy --setup
@@ -76,22 +76,22 @@ blog
 ## CRUD Example?
 
 Here it is [Vylma CRUD Example](https://vylma.nsyframework.com/)
-And [Shyffon CRUD Example](https://shyffon.nsyframework.com/)
+And [Shyffon CRUD Example](https://shyffon.nsyframework.com/).
 
 ---
 
 ## Overview
 
-See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md).
+See [OVERVIEW](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md).
 
-* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer)
-* Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#framework-configuration)
-* Helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#helpers)
-* Routes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#routes)
-* MVC & HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#mvc--hmvc)
-* Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#introducting-to-nsy-assets-manager)
-* PSR4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#psr-4-autoloading)
-* NSY CLI (Command Line Interface), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#nsy-cli-command-line-interface)
+* Composer, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#composer).
+* Framework Configuration, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#framework-configuration).
+* Helpers, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#helpers).
+* Routes, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#routes).
+* MVC & HMVC, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#mvc--hmvc).
+* Introducting to NSY Assets Manager, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#introducting-to-nsy-assets-manager).
+* PSR4 Autoloading, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#psr-4-autoloading).
+* NSY CLI (Command Line Interface), [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.md#nsy-cli-command-line-interface).
 
 ---
 
