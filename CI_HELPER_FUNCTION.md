@@ -62,30 +62,30 @@ Each folder name will be an array index, while its contained files will be numer
 
 ```php
 Array (
-        [libraries] => Array
-                (
-                        [0] => benchmark.html
-                        [1] => config.html
-                        ["database/"] => Array
-                                (
-                                        [0] => query_builder.html
-                                        [1] => binds.html
-                                        [2] => configuration.html
-                                        [3] => connecting.html
-                                        [4] => examples.html
-                                        [5] => fields.html
-                                        [6] => index.html
-                                        [7] => queries.html
-                                )
-                        [2] => email.html
-                        [3] => file_uploading.html
-                        [4] => image_lib.html
-                        [5] => input.html
-                        [6] => language.html
-                        [7] => loader.html
-                        [8] => pagination.html
-                        [9] => uri.html
-                )
+ [libraries] => Array
+   (
+     [0] => benchmark.html
+     [1] => config.html
+     ["database/"] => Array
+       (
+         [0] => query_builder.html
+         [1] => binds.html
+         [2] => configuration.html
+         [3] => connecting.html
+         [4] => examples.html
+         [5] => fields.html
+         [6] => index.html
+         [7] => queries.html
+       )
+     [2] => email.html
+     [3] => file_uploading.html
+     [4] => image_lib.html
+     [5] => input.html
+     [6] => language.html
+     [7] => loader.html
+     [8] => pagination.html
+     [9] => uri.html
+   )
 ```
 
 ## Encode PHP Tags
