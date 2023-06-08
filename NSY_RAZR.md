@@ -12,7 +12,7 @@ The Razr syntax uses `@` as special character. It is used to indicate a dynamic 
 
 Use the `@()` notation to echo any PHP data with escaping enabled by default.
 
-Example :
+**Example :**
 
 ```html
 <h1>@( $title )</h1>
@@ -20,7 +20,7 @@ Example :
 @( "<Data> is escaped by default." )
 ```
 
-Output :
+**Output :**
 
 ```html
 <h1>Some title</h1>
@@ -32,13 +32,13 @@ Output :
 
 Use the `@raw()` directive to output any PHP data without escaping.
 
-Example :
+**Example :**
 
 ```html
 @raw("This will <strong>not</strong> be escaped.")
 ```
 
-Output :
+**Output :**
 
 ```html
 This will <strong>not</strong> be escaped.
@@ -58,14 +58,14 @@ array(
 )
 ```
 
-Example :
+**Example :**
 
 ```html
 <h1>@( $title )</h1>
 <p>by @( $artist.name ), @( $artist.homepage )</p>
 ```
 
-Output :
+**Output :**
 
 ```html
 <h1>I am the walrus</h1>
@@ -74,14 +74,14 @@ Output :
 
 ### Set variable values
 
-Example :
+**Example :**
 
 ```html
 @set($msg = "Hello World!")
 @( $msg )
 ```
 
-Output :
+**Output :**
 
 ```html
 Hello World!
@@ -91,7 +91,7 @@ Hello World!
 
 Use `@if`, `@elseif`, `@else` for conditional control structures. Use any boolean PHP expression.
 
-Example :
+**Example :**
 
 ```html
 @set($expression = false)
@@ -104,7 +104,7 @@ Example :
 @endif
 ```
 
-Output :
+**Output :**
 
 ```html
 Two.
@@ -132,7 +132,7 @@ You can use loop statements like `foreach` and `while`.
 
 Extract reusable pieces of markup to an external file using partials and the `@include` directive. You can pass an array of arguments as a second parameter.
 
-Example :
+**Example :**
 
 ```html
 <section>@include('partial.razr', ['param' => 'parameter'])</section>
@@ -144,7 +144,7 @@ Example :
 <p>Partial with @( $param )<p>
 ```
 
-Output :
+**Output :**
 
 ```html
 <section><p>Partial with parameter<p><section>
@@ -154,7 +154,7 @@ Output :
 
 Use the `@block` directive to define blocks inside a template. Other template files can extend those files and define their own content for the defined blocks without changing the rest of the markup.
 
-Example :
+**Example :**
 
 ```html
 @include('child.razr', ['param' => 'parameter'])
@@ -183,7 +183,7 @@ Example :
 
 ```
 
-Output :
+**Output :**
 
 ```html
 <h1>Parent template</h1>

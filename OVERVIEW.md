@@ -65,15 +65,15 @@ The NSY_Framework Configuration is very simple. There are 3 config file in `Syst
     │   └── Mimes.php
 ```
 
-* `system.js` file
+* `system.js` file.
 
 ```text
 system.js is located in `public/js/config/system.js` folder.
 ```
 
-In system.js there is a `base_url` configuration for javascript *(see line 13 - 15)*. This `base_url` is used for the purpose of initializing the function of the **Datatable Ajax URL** in the `public/js/datatables/init.js`*
+In system.js there is a `base_url` configuration for javascript *(see line 13 - 15)*. This `base_url` is used for the purpose of initializing the function of the **Datatable Ajax URL** in the `public/js/datatables/init.js`.
 
-For Example see Shyffon repository [Here!](https://github.com/kazuyamarino/shyffon/blob/master/public/assets/js/config/system.js)
+For Example see Shyffon repository, [See Example](https://github.com/kazuyamarino/shyffon/blob/master/public/assets/js/config/system.js).
 
 ---
 
@@ -115,7 +115,7 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
 > });
 > ```
 
-Route also supports regex parameters (Uri params), such as:
+Route also supports regex parameters (Uri params), such as :
 
 ```php
 ':all'   => '.*',
@@ -137,7 +137,7 @@ Route::get('/(:any)', function($slug) {
 Route::any('/', function() {};)
 ```
 
-You can also make requests for HTTP methods in NSY_Router, so you could also do:
+You can also make requests for HTTP methods in NSY_Router, so you could also do :
 
 ```PHP
 Route::get('/', function() {
@@ -155,9 +155,9 @@ Route::any('/', function() {
 
 ### Example passing to a controller instead of a closure
 
-It's possible to pass the namespace path to a controller instead of the closure:
+It's possible to pass the namespace path to a controller instead of the closure.
 
-For this demo lets say I have a folder called controllers with a demo.php
+For this demo lets say I have a folder called controllers with a demo.php.
 
 ```php
 // Demo.php :
@@ -206,7 +206,7 @@ Route::get('/variable/(:num)', function($id) {
 });
 ```
 
-#### Example passing to a controller inside hmvc module
+### Example passing to a controller inside hmvc module
 
 For this demo lets say I have a module folder called `Homepage` and folder controllers inside with a login.php name.
 
@@ -248,13 +248,13 @@ Route::get('/variable/(:num)/(:alpha)', function($id, $user) {
 });
 ```
 
-#### Another way to call a controller with minimal code instead of Route::goto()
+### Another way to call a controller with minimal code instead of Route::goto()
 
 ```php
 Route::get('/homepage', [System\Modules\Homepage\Controllers\Login::class, 'index']);
 ```
 
-#### Route group with (base path)
+### Route group with (base path)
 
 ```php
 Route::group('/admin', function() {
@@ -270,7 +270,7 @@ Route::group('/admin', function() {
 });
 ```
 
-#### If there is no route defined for a certain location, you can make NSY_Router run a custom callback
+### If there is no route defined for a certain location, you can make NSY_Router run a custom callback
 
 ```php
 Route::error(function() {
@@ -292,7 +292,7 @@ If you don't specify an error callback, NSY_Router will just echo `404`.
 ## Introducting to NSY Assets Manager
 
 The easiest & best assets manager in history
-made with love by Vikry Yuansah
+made with love by Vikry Yuansah.
 
 How to use it? Simply follow this.
 
@@ -348,7 +348,7 @@ Complete information about PSR-4 can be read on the official [PHP-FIG](https://w
 
 ## NSY CLI (Command Line Interface)
 
-NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with:
+NSY CLI is a collection of commands to facilitate users in operating NSY. To start, open the `terminal` or `git bash` on your project directory, then install it with :
 
 **Note :**
 >
@@ -419,7 +419,7 @@ nsy show:controller hmvc <module-directory-name>
 nsy show:model hmvc <module-directory-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy show:model hmvc login
@@ -455,7 +455,7 @@ nsy --help
 nsy dump:mysql <database-name> <username> <password>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy dump:mysql db_production root blabla
@@ -467,7 +467,7 @@ nsy dump:mysql db_production root blabla
 nsy dump:mysql <database-name> <username> <password> <table-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy dump:mysql db_production root blabla customer_table
@@ -479,7 +479,7 @@ nsy dump:mysql db_production root blabla customer_table
 nsy make:module <module-directory-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:module login
@@ -491,7 +491,7 @@ nsy make:module login
 nsy make:controller hmvc <module-directory-name> <controller-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:controller hmvc login controller_login
@@ -503,7 +503,7 @@ nsy make:controller hmvc login controller_login
 nsy make:model hmvc <module-directory-name> <model-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:model hmvc login model_login
@@ -515,7 +515,7 @@ nsy make:model hmvc login model_login
 nsy make:controller mvc <controller-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:controller mvc controller_login
@@ -527,7 +527,7 @@ nsy make:controller mvc controller_login
 nsy make:model mvc <model-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:model mvc model_login
@@ -539,7 +539,7 @@ nsy make:model mvc model_login
 nsy make:migration <class-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:migration customer_table
@@ -569,7 +569,7 @@ nsy --install
 nsy make:before-middleware <class-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:before-middleware before_checkpoint
@@ -581,7 +581,7 @@ nsy make:before-middleware before_checkpoint
 nsy make:after-middleware <class-name>
 ```
 
-**Example:**
+**Example :**
 
 ```sh
 nsy make:after-middleware after_checkpoint
@@ -591,6 +591,6 @@ nsy make:after-middleware after_checkpoint
 
 ## License
 
-The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt)
+The code is available under the [MIT license](https://github.com/kazuyamarino/nsy/blob/master/LICENSE.txt).
 
-NSY Framework 2019 - 2023
+NSY Framework 2019 - 2023.

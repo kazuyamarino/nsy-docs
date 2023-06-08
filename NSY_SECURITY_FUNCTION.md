@@ -77,4 +77,4 @@ Note : Should only be used to deal with data upon submission. It's not something
 anti_xss('value');
 ```
 
-For more information, [https://github.com/voku/anti-xss]
+For more information, [https://github.com/voku/anti-xss].
