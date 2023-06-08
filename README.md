@@ -120,9 +120,9 @@ See [OVERVIEW.md](https://github.com/kazuyamarino/nsy-docs/blob/master/OVERVIEW.
 
 * The PHP superglobals post, deposer and get are used to collect form-data, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#the-php-superglobals-post-deposer-and-get-are-used-to-collect-form-data)
 * Returns your site full path public directory, as specified in your config file, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#public-directory-path)
-* Return img directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#images-directory-uri)
-* Return js directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#javascript-directory-uri)
-* Return css directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#css-directory-uri)
+* Return img directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#images-directory-url)
+* Return js directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#javascript-directory-url)
+* Return css directory location on the public directory, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#css-directory-url)
 * Get version parameter value from Config/Site.php, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#get-version)
 * Get codename parameter value from Config/Site.php, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#get-codename)
 * Get locale parameter value from Config/App.php, [See Documentation](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_HELPER_FUNCTION.md#get-language-code)
