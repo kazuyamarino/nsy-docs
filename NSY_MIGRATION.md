@@ -1,5 +1,7 @@
 # NSY Migrations
 
+---
+
 Migration is like version control for your database, allowing your team to easily modify and share application database schemes.
 
 Migration is usually paired with the NSY schema builder to easily build your application's database schema. If you have told teammates to manually add columns to their local database schema, you have experienced problems that were resolved by database migration.

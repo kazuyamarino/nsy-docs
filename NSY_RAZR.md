@@ -1,5 +1,7 @@
 # Razr - The powerful PHP template engine
 
+---
+
 Razr is a powerful PHP template engine for PHP, whose syntax was inspired by ASP.NET Razor.
 
 NSY has supported Razr in the View component. In addition NSY also still supports PHP code in the View component. Either using Razr or PHP, they can run together in one View component!

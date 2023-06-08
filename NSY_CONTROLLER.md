@@ -1,5 +1,7 @@
 # NSY Controllers
 
+---
+
 ## Passing Variable From Controller to View
 
 If you want to passing variable from Controller to View, you can use example below :
@@ -52,7 +54,7 @@ Load::view('Login', 'index');
 
 ## Sequence variable
 
-Create a sequence of the named placeholders, e.g. `:id0`, `:id1`, `:id2`. So the code would be:
+Create a sequence of the named placeholders, e.g. `:id0`, `:id1`, `:id2`. So the code would be :
 
 ```php
 sequence('placeholders', 'variable')
@@ -87,7 +89,7 @@ Array
 Instantiate the Model class in the controller is useful to make it easier for us to give variables to it.
 So there is no need to rewrite the instantiate class in another method.
 
-Just have to write it in the method, like this:
+Just have to write it in the method, like this
 
 The format of `Load::model()` method :
 
@@ -106,7 +108,7 @@ public function some_method() {
 }
 ```
 
-Alternatively, you can write this :
+Alternatively, you can write this
 
 ```php
 public function some_method() {
@@ -126,7 +128,7 @@ public function some_method() {
 }
 ```
 
-Or this :
+Or this
 
 ```php
 public function some_method() {
