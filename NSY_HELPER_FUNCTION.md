@@ -1,5 +1,7 @@
 # NSY Helper Function
 
+---
+
 ## Standard Helper Function
 
 ### The PHP superglobals `post`, `deposer` and `get` are used to collect form-data
@@ -256,27 +258,27 @@ echo base_url();
 // http://example.com/
 ```
 
-You can supply segments as a string. Here is a string example:
+You can supply segments as a string. Here is a string example :
 
 ```php
 echo base_url("hmvc/action");
 ```
 
-The above example would return something like: <http://example.com/hmvc/action>
+The above example would return something like : <http://example.com/hmvc/action>
 
-You can supply a string to a file, such as an image or stylesheet. For example:
+You can supply a string to a file, such as an image or stylesheet. For example :
 
 ```php
 echo base_url("images/edit.png");
 ```
 
-This would give you something like: <http://example.com/images/edit.png>
+This would give you something like : <http://example.com/images/edit.png>
 
 ---
 
 ## Redirect URL
 
-Redirect method is used to send a raw HTTP header. Here is the example:
+Redirect method is used to send a raw HTTP header. Here is the example :
 >
 >```php
 >redirect('hmvc/success');

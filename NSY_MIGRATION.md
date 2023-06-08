@@ -4,7 +4,7 @@ Migration is like version control for your database, allowing your team to easil
 
 Migration is usually paired with the NSY schema builder to easily build your application's database schema. If you have told teammates to manually add columns to their local database schema, you have experienced problems that were resolved by database migration.
 
-How to use migration on NSY, you only need to create the migration class by typing on the Terminal or CMD:
+How to use migration on NSY, you only need to create the migration class by typing on the Terminal or CMD :
 
 ```sh
 nsy make:migration <migration-name>
@@ -23,19 +23,19 @@ And the result will be a file created from the results of the command earlier in
        └── create_database_and_table_supplier.php
 ```
 
-There are 2 methods in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is, `migup=class_name`
+There are 2 methods in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is, `migup=class_name`.
 
 ```text
 Example : http://localhost/nsy/migup=create_database_and_table_supplier
 ```
 
-And for `down()`, `migdown=class_name`
+And for `down()`, `migdown=class_name`.
 
 ```text
 Example : http://localhost/nsy/migdown=drop_table_supplier
 ```
 
-Well, in that method, you can fill it with some help methods that have been defined by NSY to support migration like the method below:
+Well, in that method, you can fill it with some help methods that have been defined by NSY to support migration like the method below :
 
 ## Create database
 

@@ -13,7 +13,7 @@ NSY provides middleware support from the Routing side.
 
 **For example :**
 
-Contents of the `Web.php` route file
+Contents of the `Web.php` route file.
 
 ```php
  Route::get('/', function() {
@@ -40,7 +40,7 @@ public function peel($object, \Closure $next)
 }
 ```
 
-Contents of the `BeforeLayer.php` file
+Contents of the `BeforeLayer.php` file.
 
 ```php
 public function peel($object, \Closure $next)
