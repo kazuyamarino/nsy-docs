@@ -85,12 +85,12 @@ If you want to make your own helper, then just make the desired method in the ph
 
 ```php
 "autoload": {
- "psr-4": {
-  "System\\": "System/"
- },
- "files": [
-  "System/Helpers/Custom_Method.php" // your custom helpers file
- ]
+  "psr-4": {
+    "System\\": "System/"
+  },
+  "files": [
+    "System/Helpers/Custom_Method.php" // your custom helpers file
+  ]
 }
 ```
 
@@ -194,11 +194,11 @@ class Demo {
 // Web.php :
 
 Route::get('/', function() {
- Route::goto([System\Controllers\Demo::class, 'index']);
+  Route::goto([System\Controllers\Demo::class, 'index']);
 });
 
 Route::get('/page', function() {
- Route::goto([System\Controllers\Demo::class, 'page']);
+  Route::goto([System\Controllers\Demo::class, 'page']);
 });
 
 Route::get('/variable/(:num)', function($id) {
@@ -236,7 +236,7 @@ class Login {
 // Web.php :
 
 Route::get('/homepage', function() {
- Route::goto([System\Modules\Homepage\Controllers\Login::class, 'index']);
+  Route::goto([System\Modules\Homepage\Controllers\Login::class, 'index']);
 });
 
 Route::get('/variable/(:num)/(:alpha)', function($id, $user) {
@@ -244,7 +244,7 @@ Route::get('/variable/(:num)/(:alpha)', function($id, $user) {
     'id' => $id,
     'user' => $user
   ];
- Route::goto([System\Modules\Homepage\Controllers\Login::class, 'variable'], $params);
+  Route::goto([System\Modules\Homepage\Controllers\Login::class, 'variable'], $params);
 });
 ```
 
@@ -417,6 +417,12 @@ nsy show:controller hmvc <module-directory-name>
 
 ```sh
 nsy show:model hmvc <module-directory-name>
+```
+
+**Example:**
+
+```sh
+nsy show:model hmvc login
 ```
 
 #### Show list of MVC Controller files

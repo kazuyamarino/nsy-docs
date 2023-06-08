@@ -1,5 +1,7 @@
 # NSY PHP Framework
 
+---
+
 ## About
 
 NSY is a simple PHP Framework that works well on MVC or HMVC mode.
@@ -22,7 +24,7 @@ Lalove is a traditional musical instrument that is blown and comes from Central 
 * Download source from this link [https://github.com/kazuyamarino/nsy/releases](https://github.com/kazuyamarino/nsy/releases).
 * Simply rename the source folder that has been downloaded to `nsy` & copy it to your `html` or `htdocs` or anythings folder.
 
-```For apache, please go to the `docs/apache` folder and read the `Readme.txt`.```
+For apache, please go to the `docs/apache` folder and read the `Readme.txt`.
 
 ```text
 // docs/apache/Readme.txt
@@ -31,7 +33,7 @@ Lalove is a traditional musical instrument that is blown and comes from Central 
 2. Copy .htaccess inside 'for_root' folder to 'root(nsy)' folder
 ```
 
-```For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.```
+For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 
 ```text
 // docs/nginx/Readme.txt
@@ -42,23 +44,23 @@ Lalove is a traditional musical instrument that is blown and comes from Central 
 ```
 
 * Go to the `docs/env.example.php` folder and copy the `env.example.php` to root folder, and rename it to `env.php`.
-* And save the date..
+* And save the date.
 
-## From Composer
+### From Composer
 
-### 1. Install NSY by creating a new directory called `blog`
+**1. Install NSY by creating a new directory called `blog`**
 
 ```sh
 composer create-project --prefer-dist vikry/nsy blog
 ```
 
-### 2. Restart Bash
+**2. Restart Bash**
 
 ```sh
 source ~/reloader.sh
 ```
 
-### 3. NSY Setup
+**3. NSY Setup**
 
 ```sh
 cd blog && nsy --setup
@@ -67,7 +69,7 @@ Enter directory name >
 blog
 ```
 
-### 4. NSY is ready to create project
+**4. NSY is ready to create project.**
 
 ---
 

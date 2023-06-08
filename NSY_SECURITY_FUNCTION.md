@@ -1,30 +1,71 @@
 # Security Helper
 
-## Sanitize element data retrieved from a database or from an HTML form
+---
+
+## Secure Input
+
+Sanitize element data retrieved from a database or from an HTML form.
 
 ```php
-secure_input('attr_name')
+secure_input('attr_name');
 ```
 
-## Sanitize multiple element data retrieved from a database or from an HTML form
+**Example :**
+
+```php
+<form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname">
+</form>
+
+---
+
+secure_input('fname');
+secure_input('lname');
+
+```
+
+## Secure Form
+
+Sanitize multiple element data retrieved from a database or from an HTML form.
 
 ```php
 secure_form(array('attr_name'))
 ```
 
-## Return CSRF Input form with Token
+**Example :**
+
+```php
+<form>
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname">
+</form>
+
+---
+
+secure_form(['fname', 'lname']);
+
+```
+
+## CSRF Token Form
+
+Return a CSRF Input form with a randomly generated token.
 
 ```php
 echo csrf_token_form();
 ```
 
-## Return only CSRF Token
+## CSRF Token
+
+Return randomly generated token only.
 
 ```php
 echo csrf_token();
 ```
-
----
 
 ## XSS Clean
 
