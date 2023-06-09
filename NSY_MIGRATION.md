@@ -56,7 +56,7 @@ Mig::connect()->drop_db('example_db');
 ```php
 Mig::connect()->create_table('example', function() {
   return Mig::cols([
-    Mig::bigint('bigint_field', 20)->auto_increment(),
+    Mig::bigint('bigint_field')->null(),
     Mig::bit('bit_field')->null(),
     Mig::tinyint('tinyint_field')->null(),
     Mig::smallint('smallint_field')->null(),
@@ -148,7 +148,7 @@ Mig::connect()->add_cols('example', function() {
     Mig::longtext('longtext_field')->not_null(),
     Mig::binary('binary_field')->not_null(),
     Mig::varbinary('varbinary_field')->default(0)
- ]);
+ ], array(), 'disabled');
 });
 ```
 
@@ -169,7 +169,7 @@ Mig::connect()->add('example', function() {
     Mig::timestamp('timestamp_field', 6)->null(),
     Mig::time('time_field')->null(),
     Mig::year('year_field', 4)->default(0)
- ]);
+ ], array(), 'disabled');
 });
 ```
 
@@ -177,34 +177,34 @@ Mig::connect()->add('example', function() {
 
 ```php
 Mig::connect()->drop_cols('example', function() {
- return Mig::cols([
-  'Column1',
-  'Column2'
- ]);
+  return Mig::cols([
+    'Column1',
+    'Column2'
+  ]);
 });
 ```
 
-## Rename columns (mysql/mariadb)
+## Rename columns (optional)
 
 ```php
 Mig::connect()->change_cols('example', function() {
- return Mig::cols([
-  'Column1' => 'NewColumn1',
-  'Column2' => 'NewColumn2',
-  'Column3' => 'NewColumn3'
- ]);
+  return Mig::cols([
+    'Column1' => 'NewColumn1',
+    'Column2' => 'NewColumn2',
+    'Column3' => 'NewColumn3'
+  ]);
 });
 ```
 
-## Rename columns (postgre)
+## Rename columns (mysql/mariadb/postgre)
 
 ```php
 Mig::connect()->rename_cols('example', function() {
- return Mig::cols([
-  'Column1' => 'NewColumn1',
-  'Column2' => 'NewColumn2',
-  'Column3' => 'NewColumn3'
- ]);
+  return Mig::cols([
+    'Column1' => 'NewColumn1',
+    'Column2' => 'NewColumn2',
+    'Column3' => 'NewColumn3'
+  ]);
 });
 ```
 
@@ -212,11 +212,11 @@ Mig::connect()->rename_cols('example', function() {
 
 ```php
 Mig::connect()->sp_rename_cols('example', function() {
- return Mig::cols([
-  'Column1' => 'NewColumn1',
-  'Column2' => 'NewColumn2',
-  'Column3' => 'NewColumn3'
- ]);
+  return Mig::cols([
+    'Column1' => 'NewColumn1',
+    'Column2' => 'NewColumn2',
+    'Column3' => 'NewColumn3'
+  ]);
 });
 ```
 
@@ -224,11 +224,11 @@ Mig::connect()->sp_rename_cols('example', function() {
 
 ```php
 Mig::connect()->modify_cols('example', function() {
- return Mig::cols([
+  return Mig::cols([
     Mig::tinyblob('tinyblob_field')->not_null(),
     Mig::blob('blob_field')->null(),
     Mig::mediumblob('mediumblob_field')->default(0)
- ]);
+  ]);
 });
 ```
 
@@ -236,16 +236,16 @@ Mig::connect()->modify_cols('example', function() {
 
 ```php
 Mig::connect()->modify_cols('example', function() {
- return Mig::cols([
-  Mig::primary([
-   'Column1',
-   'Column2'
-  ]),
-  Mig::unique([
-   'Column3',
-   'Column4'
-  ])
- ]);
+  return Mig::cols([
+    Mig::primary([
+      'Column1',
+      'Column2'
+    ]),
+    Mig::unique([
+      'Column3',
+      'Column4'
+    ])
+  ]);
 });
 ```
 
@@ -253,11 +253,11 @@ Mig::connect()->modify_cols('example', function() {
 
 ```php
 Mig::connect()->alter_cols('example', function() {
- return Mig::cols([
+  return Mig::cols([
     Mig::tinyblob('tinyblob_field')->not_null(),
     Mig::blob('blob_field')->null(),
     Mig::mediumblob('mediumblob_field')->default(0)
- ]);
+  ]);
 });
 ```
 
@@ -265,16 +265,16 @@ Mig::connect()->alter_cols('example', function() {
 
 ```php
 Mig::connect()->alter_cols('example', function() {
- return Mig::cols([
-  Mig::primary([
-   'Column1',
-   'Column2'
-  ]),
-  Mig::unique([
-   'Column3',
-   'Column4'
-  ])
- ]);
+  return Mig::cols([
+    Mig::primary([
+      'Column1',
+      'Column2'
+    ]),
+    Mig::unique([
+      'Column3',
+      'Column4'
+    ])
+  ]);
 });
 ```
 
