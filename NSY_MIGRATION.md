@@ -148,7 +148,7 @@ Mig::connect()->add_cols('example', function() {
     Mig::longtext('longtext_field')->not_null(),
     Mig::binary('binary_field')->not_null(),
     Mig::varbinary('varbinary_field')->default(0)
- ], array(), 'disabled');
+ ], 'disabled');
 });
 ```
 
@@ -169,7 +169,7 @@ Mig::connect()->add('example', function() {
     Mig::timestamp('timestamp_field', 6)->null(),
     Mig::time('time_field')->null(),
     Mig::year('year_field', 4)->default(0)
- ], array(), 'disabled');
+ ], 'disabled');
 });
 ```
 
@@ -180,7 +180,7 @@ Mig::connect()->drop_cols('example', function() {
   return Mig::cols([
     'Column1',
     'Column2'
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -192,7 +192,7 @@ Mig::connect()->change_cols('example', function() {
     'Column1' => 'NewColumn1',
     'Column2' => 'NewColumn2',
     'Column3' => 'NewColumn3'
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -204,7 +204,7 @@ Mig::connect()->rename_cols('example', function() {
     'Column1' => 'NewColumn1',
     'Column2' => 'NewColumn2',
     'Column3' => 'NewColumn3'
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -216,7 +216,7 @@ Mig::connect()->sp_rename_cols('example', function() {
     'Column1' => 'NewColumn1',
     'Column2' => 'NewColumn2',
     'Column3' => 'NewColumn3'
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -228,7 +228,7 @@ Mig::connect()->modify_cols('example', function() {
     Mig::tinyblob('tinyblob_field')->not_null(),
     Mig::blob('blob_field')->null(),
     Mig::mediumblob('mediumblob_field')->default(0)
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -245,7 +245,7 @@ Mig::connect()->modify_cols('example', function() {
       'Column3',
       'Column4'
     ])
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -257,7 +257,7 @@ Mig::connect()->alter_cols('example', function() {
     Mig::tinyblob('tinyblob_field')->not_null(),
     Mig::blob('blob_field')->null(),
     Mig::mediumblob('mediumblob_field')->default(0)
-  ]);
+  ], 'disabled');
 });
 ```
 
@@ -274,7 +274,7 @@ Mig::connect()->alter_cols('example', function() {
       'Column3',
       'Column4'
     ])
-  ]);
+  ], 'disabled');
 });
 ```
 
