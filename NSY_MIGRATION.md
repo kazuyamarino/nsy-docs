@@ -51,7 +51,7 @@ Mig::connect()->create_db('example_db');
 Mig::connect()->drop_db('example_db');
 ```
 
-## Create table with several columns (mysql/mariadb/mssql)
+## Create table with several columns (mysql/mariadb)
 
 ```php
 Mig::connect()->create_table('example', function() {
@@ -77,7 +77,7 @@ Mig::connect()->create_table('example', function() {
 });
 ```
 
-## Create table with primary key & unique key (mysql/mariadb/mssql)
+## Create table with primary key & unique key (mysql/mariadb)
 
 ```php
 Mig::connect()->create_table('example', function() {
@@ -111,18 +111,6 @@ Mig::connect()->create_table('example', function() {
 Mig::connect()->rename_table('example', 'newExample');
 ```
 
-## Rename table (postgre)
-
-```php
-Mig::connect()->alter_rename_table('example', 'newExample');
-```
-
-## Rename table (mssql)
-
-```php
-Mig::connect()->sp_rename_table('example', 'newExample');
-```
-
 ## Delete table if exist (mysql/mariadb)
 
 ```php
@@ -135,7 +123,7 @@ Mig::connect()->drop_exist_table('example');
 Mig::connect()->drop_table('example');
 ```
 
-## Add columns (mysql/mariadb/postgre)
+## Add columns (mysql/mariadb)
 
 ```php
 Mig::connect()->add_cols('example', function() {
@@ -152,28 +140,7 @@ Mig::connect()->add_cols('example', function() {
 });
 ```
 
-## Add columns (mssql)
-
-```php
-Mig::connect()->add('example', function() {
- return Mig::cols([
-    Mig::varchar('varchar_field')->null(),
-    Mig::tinytext('tinytext_field')->null(),
-    Mig::text('text_field')->null(),
-    Mig::mediumtext('mediumtext_field')->null(),
-    Mig::longtext('longtext_field')->not_null(),
-    Mig::binary('binary_field')->not_null(),
-    Mig::varbinary('varbinary_field')->default(0),
-    Mig::date('date_field')->not_null(),
-    Mig::datetime('datetime_field')->null(),
-    Mig::timestamp('timestamp_field', 6)->null(),
-    Mig::time('time_field')->null(),
-    Mig::year('year_field', 4)->default(0)
- ], 'disabled');
-});
-```
-
-## Delete column (mysql/mariadb/postgre/mssql)
+## Delete column (mysql/mariadb)
 
 ```php
 Mig::connect()->drop_cols('example', function() {
@@ -196,22 +163,10 @@ Mig::connect()->change_cols('example', function() {
 });
 ```
 
-## Rename columns (mysql/mariadb/postgre)
+## Rename columns (mysql/mariadb)
 
 ```php
 Mig::connect()->rename_cols('example', function() {
-  return Mig::cols([
-    'Column1' => 'NewColumn1',
-    'Column2' => 'NewColumn2',
-    'Column3' => 'NewColumn3'
-  ], 'disabled');
-});
-```
-
-## Rename columns (mssql)
-
-```php
-Mig::connect()->sp_rename_cols('example', function() {
   return Mig::cols([
     'Column1' => 'NewColumn1',
     'Column2' => 'NewColumn2',
@@ -249,36 +204,7 @@ Mig::connect()->modify_cols('example', function() {
 });
 ```
 
-## Modify columns datatype (mssql/postgre)
-
-```php
-Mig::connect()->alter_cols('example', function() {
-  return Mig::cols([
-    Mig::tinyblob('tinyblob_field')->not_null(),
-    Mig::blob('blob_field')->null(),
-    Mig::mediumblob('mediumblob_field')->default(0)
-  ], 'disabled');
-});
-```
-
-## Modify columns primary and unique key (mssql/postgre)
-
-```php
-Mig::connect()->alter_cols('example', function() {
-  return Mig::cols([
-    Mig::primary([
-      'Column1',
-      'Column2'
-    ]),
-    Mig::unique([
-      'Column3',
-      'Column4'
-    ])
-  ], 'disabled');
-});
-```
-
-## Create indexes in tables (mysql/mariadb/postgre)
+## Create indexes in tables (mysql/mariadb)
 
 The statement below is used to create indexes in tables.
 
@@ -292,10 +218,4 @@ Indexes are used to retrieve data from the database more quickly than otherwise.
 
  ```php
 Mig::connect()->index('table_mahasiswa', 'BTREE', 'no_npm');
-```
-
-Index statement is also available for `PostgreSQL`, just a little modification in its functionality to :
-
-```php
-Mig::connect()->index_pg('table_mahasiswa', 'BTREE', 'no_npm');
 ```
