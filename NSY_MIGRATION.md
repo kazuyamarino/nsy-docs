@@ -9,13 +9,13 @@ Migration is usually paired with the NSY schema builder to easily build your app
 How to use migration on NSY, you only need to create the migration class by typing on the Terminal or CMD :
 
 ```sh
-nsy make:migration <migration-name>
+nsy make:migrate <migration-name>
 ```
 
 **For example :**
 
 ```sh
-nsy make:migration create_database_and_table_supplier
+nsy make:migrate create_database_and_table_supplier
 ```
 
 And the result will be a file created from the results of the command earlier in the `System/Migrations`.
@@ -54,25 +54,13 @@ Mig::connect()->drop_db('example_db');
 ## Create table with several columns (mysql/mariadb)
 
 ```php
-Mig::connect()->create_table('example', function() {
+Mig::connect()->create_table('example', function () {
   return Mig::cols([
-    Mig::bigint('bigint_field')->null(),
-    Mig::bit('bit_field')->null(),
-    Mig::tinyint('tinyint_field')->null(),
-    Mig::smallint('smallint_field')->null(),
-    Mig::mediumint('mediumint_field')->null(),
-    Mig::int('int_field')->not_null(),
-    Mig::integer('integer_field')->not_null(),
-    Mig::decimal('decimal_field')->default(0),
-    Mig::dec('dec_field')->default(0),
-    Mig::numeric('numeric_field')->not_null(),
-    Mig::fixed('fixed_field')->not_null(),
-    Mig::float('float_field')->not_null(),
-    Mig::double('double_field')->default(0),
-    Mig::double_precision('double_precision_field')->not_null(),
-    Mig::real('real_field')->not_null(),
-    Mig::bool('bool_field')->not_null(),
-    Mig::boolean('boolean_field')->not_null()
+    Mig::date('date_field')->not_null(),
+    Mig::datetime('datetime_field')->null(),
+    Mig::timestamp('timestamp_field', 6)->null(),
+    Mig::time('time_field')->null(),
+    Mig::year('year_field', 4)->default(0)
   ]);
 });
 ```
@@ -211,7 +199,7 @@ The statement below is used to create indexes in tables.
 Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
 
 ```php
- Mig::connect()->index('table_name', 'index_type', 'table_field_name');
+Mig::connect()->index('table_name', 'index_type', 'table_field_name');
  ```
 
  **Example :**

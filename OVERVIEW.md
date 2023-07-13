@@ -353,11 +353,12 @@ NSY CLI is a collection of commands to facilitate users in operating NSY. To sta
 **Note :**
 >
 >```text
->If you install the NSY Framework through >the >`composer create-project`, it >automatically >includes the NSY CLI.
+>If you install the NSY Framework through the `composer create-project`, it automatically includes the NSY CLI.
 >```
 
 ### NSY CLI Manual Install
 
+* `Install wget` (for windows users you have to copy & paste `wget.exe` to System32 directory).
 * Open Linux Terminal or Git Bash Terminal inside your project directory.
 * `sudo chmod +x INSTALL.sh` (use this if you want to install on a linux operating system that requires permission, or if you are a Windows user, then skip this command).
 
@@ -398,7 +399,7 @@ NSY CLI installed successfully
 #### Show list of Migration Class file
 
 ```sh
-nsy show:migration
+nsy show:migrate
 ```
 
 #### Show list of HMVC Modules directory
@@ -536,13 +537,13 @@ nsy make:model mvc model_login
 #### Make Migration Class
 
 ```sh
-nsy make:migration <class-name>
+nsy make:migrate <class-name>
 ```
 
 **Example :**
 
 ```sh
-nsy make:migration customer_table
+nsy make:migrate customer_table
 ```
 
 #### First time setting up NSY
