@@ -15,7 +15,7 @@ NSY provides middleware support from the Routing side.
 
 **For example :**
 
-Contents of the `Web.php` route file.
+Contents of the `General.php` route file.
 
 ```php
  Route::get('/', function() {

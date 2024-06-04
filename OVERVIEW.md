@@ -102,9 +102,8 @@ NSY Routing system using classes from [Macaw route by Noah Buscher](https://gith
 
 ```text
 ├── Routes
-    │   ├── Api.php
-    │   └── Web.php
-    │   └── Migration.php
+    │   └── General.php
+    │   └── Modules.php
 ```
 
 **Examples :**
@@ -191,7 +190,7 @@ class Demo {
 ```
 
 ```php
-// Web.php :
+// General.php :
 
 Route::get('/', function() {
   Route::goto([System\Controllers\Demo::class, 'index']);
@@ -233,7 +232,7 @@ class Login {
 ```
 
 ```php
-// Web.php :
+// General.php :
 
 Route::get('/homepage', function() {
   Route::goto([System\Modules\Homepage\Controllers\Login::class, 'index']);

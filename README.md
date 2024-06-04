@@ -11,9 +11,9 @@ Site example :
 
 ## Codename
 
-Lalove is a traditional musical instrument that is blown and comes from Central Sulawesi. The function of this musical instrument is to accompany dances from the Central Sulawesi region or certain customs. The shape is shaped like a long flute musical instrument.
+*Talindo*. The traditional West Sulawesi musical instrument Talindo is made from basic materials such as wood, coconut shells and strings. The way to play the Talindo musical instrument is by plucking the strings, then the function of the coconut shell is as a resonance hole. This traditional musical instrument is very popular in the community because it is always present or appears when the harvest season arrives. Not only in West Sulawesi, Talindo is also in Central Sulawesi but has a different name, namely Popondi.
 
-*Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi, <https://ayoguruberbagi.kemdikbud.go.id/artikel/melestarikan-alat-musik-tradisional/#:~:text=Lalove%20termasuk%20alat%20musik%20tradisional,alat%20musik%20Suling%20yang%20panjang>*.
+*Wadaya, <http://www.wadaya.rey1024.com/budaya/detail/talindo-tolindo>*.
 
 ---
 
