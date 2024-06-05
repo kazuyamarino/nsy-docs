@@ -27,15 +27,15 @@ Find packages on [Packagist](https://packagist.org).
 
 **For example :**
 >
-> * There is an example folder in the module folder that was created named `Homepage`, along with the namespaces.
+> * There is an example folder in the module folder that was created named `HMVC`, along with the namespaces.
 >
-> * In the `Homepage` folder there must be a `Models` folder, `Views` folder, and `Controllers` folder.
+> * In the `HMVC` folder there must be a `Models` folder, `Views` folder, and `Controllers` folder.
 >
 > The folder structure should be like this
 >
 >```text
 >Modules
->    │   └── Homepage
+>    │   └── HMVC
 >    │       ├── Controllers
 >    │       │  
 >    │       ├── Models
@@ -44,7 +44,7 @@ Find packages on [Packagist](https://packagist.org).
 >    │           
 >```
 >
-> * Now, you can generate autoload class in the `Models` folder & `Controllers` folder for the `Homepage` with `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` on the command line terminal.
+> * Now, you can generate autoload class in the `Models` folder & `Controllers` folder for the `HMVC` with `composer dump-autoload -o` or [NSY CLI](https://github.com/kazuyamarino/nsy-docs/blob/master/USERGUIDE.md#nsy-cli-command-line) command `nsy dump:autoload` on the command line terminal.
 
 ---
 
@@ -207,12 +207,12 @@ Route::get('/variable/(:num)', function($id) {
 
 ### Example passing to a controller inside hmvc module
 
-For this demo lets say I have a module folder called `Homepage` and folder controllers inside with a login.php name.
+For this demo lets say I have a module folder called `HMVC` and folder controllers inside with a login.php name.
 
 ```php
 // login.php :
 
-namespace System\Modules\Homepage\Controllers;
+namespace System\Modules\HMVC\Controllers;
 
 class Login {
 
