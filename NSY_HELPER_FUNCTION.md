@@ -75,7 +75,7 @@ Get `version` parameter value from `Config/Site.php`.
 ```php
 echo get_version();
 
-// 3.0.0
+// 6.0.0
 ```
 
 ### Get Codename
@@ -85,7 +85,7 @@ Get `codename` parameter value from `Config/Site.php`.
 ```php
 echo get_codename();
 
-// Tifa
+// Talindo
 ```
 
 ### Get Language Code
