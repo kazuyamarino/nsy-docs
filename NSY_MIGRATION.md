@@ -2,7 +2,7 @@
 
 ---
 
-**Note:** 
+**Attention :**
 
 * To be able to use the database migration feature on NSY, you must install several supporting applications, [see information here](https://github.com/kazuyamarino/nsy-docs/blob/master/README.md#the-requirement).
 * And don't forget to set `env.php` for the connection that will be used for database migration, [see information here](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#primary--secondary-database-connections)
