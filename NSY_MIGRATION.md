@@ -2,6 +2,13 @@
 
 ---
 
+**Note:** 
+
+* To be able to use the database migration feature on NSY, you must install several supporting applications, [see information here](https://github.com/kazuyamarino/nsy-docs/blob/master/README.md#the-requirement).
+* And don't forget to set `env.php` for the connection that will be used for database migration, [see information here](https://github.com/kazuyamarino/nsy-docs/blob/master/NSY_MODEL.md#primary--secondary-database-connections)
+
+---
+
 Migration is like version control for your database, allowing your team to easily modify and share application database schemes.
 
 Migration is usually paired with the NSY schema builder to easily build your application's database schema. If you have told teammates to manually add columns to their local database schema, you have experienced problems that were resolved by database migration.
