@@ -151,7 +151,7 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 * Go to the `docs/env.example.php` folder and copy the `env.example.php` to root folder, and rename it to `env.php`.
 * And save the date.
 
-### Download From Composer
+### Download from Composer
 
 **1. Install NSY by creating a new directory called blog.**
 
