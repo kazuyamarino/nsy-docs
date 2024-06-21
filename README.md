@@ -57,13 +57,13 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 **Linux Installation (Debian based) :**
 
-* Download the installer and composer setup: 
+* Download the installer and composer setup:
 
 ```bash
 sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');".
 ```
 
-* Run the installer: 
+* Run the installer:
 
 ```bash
 sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
@@ -73,7 +73,7 @@ sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
 
 **MacOS Installation :**
 
-* Download and install Composer using the following commands: 
+* Download and install Composer using the following commands:
 
 ```bash
 curl -sS https://getcomposer.org/installer -o composer-setup.php
@@ -87,7 +87,7 @@ HASH="$(curl -sS https://composer.github.io/installer.sig)"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 ```
 
-* If the installer is verified, proceed with the installation: 
+* If the installer is verified, proceed with the installation:
 
 ```bash
 sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer.
