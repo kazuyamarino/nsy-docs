@@ -19,6 +19,111 @@ Site example :
 
 ## How to dating with NSY?
 
+## The Requirement
+
+Before installing NSY, there are several applications that must be installed to support NSY operation.
+
+### 1. Install Wget
+
+**Windows Installation :**
+
+* Download Wget from this site [https://eternallybored.org/misc/wget/](https://eternallybored.org/misc/wget/).
+* Copy the `wget.exe` file into your `C:\Windows\System32` folder. Simply copy it from one location to the other.
+* Verify the Installation on Windows, open the command prompt (cmd.exe) and run `wget -V` to see if it is installed.
+
+**Linux Installation (Debian based) :**
+
+* To install Wget on Linux Ubuntu/Debian use the apt-get command `apt-get install wget`.
+* And verify installation with the wget command with the `wget --version` flag.
+
+**MacOS Installation :**
+
+* Install Homebrew, In Terminal type the following command:
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+* Install Wget, In Terminal Type the following command: `brew install wget`.
+* Check if Wget is installed open Terminal and type `wget -V`.
+
+### 2. Install Composer
+
+**Windows Installation :**
+
+* Download Composer here, [https://getcomposer.org/doc/00-intro.md#installation-windows](https://getcomposer.org/doc/00-intro.md#installation-windows).
+* Run the installer and follow the instructions to install Composer.
+* Verify the Installation on Windows, open the command prompt (cmd.exe) and run `composer -V` to see if it is installed.
+
+**Linux Installation (Debian based) :**
+
+* Download the installer and composer setup: 
+
+```bash
+sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');".
+```
+
+* Run the installer: 
+
+```bash
+sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
+```
+
+* Verify the Installation, open Terminal and run `composer -V` to see if it is installed.
+
+**MacOS Installation :**
+
+* Download and install Composer using the following commands: 
+
+```bash
+curl -sS https://getcomposer.org/installer -o composer-setup.php
+```
+
+```bash
+HASH="$(curl -sS https://composer.github.io/installer.sig)"
+```
+
+```bash
+php -r "if (hash_file('sha384', 'composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+```
+
+* If the installer is verified, proceed with the installation: 
+
+```bash
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer.
+```
+
+* Remove the installer script: `rm composer-setup.php`.
+* Check that Composer is installed and accessible: `composer`.
+
+### 3. Install Git
+
+**Windows Installation :**
+
+* Go to the official Git website at [https://git-scm.com/](https://git-scm.com/).
+* Click on the `Download` button to get the latest version of Git for Windows.
+
+**Linux Installation (Debian based) :**
+
+* Install Git using the package manager: `sudo apt install git`
+* Check the installed Git version: `git --version`
+
+**MacOS Installation :**
+
+* Install Homebrew, In Terminal type the following command:
+
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+* Once Homebrew is installed, use it to install Git: `brew install git`
+
+* Check the installed Git version: `git --version`
+
+---
+
+## NSY Installation
+
 ### Download from Github
 
 * Download source from this link, [https://github.com/kazuyamarino/nsy/releases](https://github.com/kazuyamarino/nsy/releases).
@@ -46,7 +151,7 @@ For nginx, please go to the `docs/nginx` folder and read the `Readme.txt` too.
 * Go to the `docs/env.example.php` folder and copy the `env.example.php` to root folder, and rename it to `env.php`.
 * And save the date.
 
-### From Composer
+### Download From Composer
 
 **1. Install NSY by creating a new directory called blog.**
 
