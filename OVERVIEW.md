@@ -401,6 +401,32 @@ NSY CLI installed successfully
 nsy show:migrate
 ```
 
+#### Executes All Migration Class file
+
+```sh
+nsy run:migrate all
+```
+
+#### Executes the Selected Migration Class file
+
+```sh
+nsy run:migrate list
+
+result :
+1) crud_table_05062024_163642.php
+2) Migration_Test.php
+Select a migration class from the above list: 
+```
+
+Just type in the number of the migration file you want to run, then press enter key.
+
+```text
+result :
+1) crud_table_05062024_163642.php
+2) Migration_Test.php
+Select a migration class from the above list: 1
+```
+
 #### Show list of HMVC Modules directory
 
 ```sh

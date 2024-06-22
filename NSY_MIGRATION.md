@@ -32,7 +32,15 @@ And the result will be a file created from the results of the command earlier in
        └── create_database_and_table_supplier.php
 ```
 
-There are 2 methods in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is, `migup=class_name`.
+---
+
+## Run The Migration
+
+There are several ways to carry out database migration such as:
+
+### Manual Method (Via URL/Browser)
+
+There are 2 function in the file, namely `up()` and `down()` methods. If you want to run the method `up()` then the command is, `migup=class_name`.
 
 ```text
 Example : http://localhost/nsy/migup=create_database_and_table_supplier
@@ -44,7 +52,43 @@ And for `down()`, `migdown=class_name`.
 Example : http://localhost/nsy/migdown=drop_table_supplier
 ```
 
-Well, in that method, you can fill it with some help methods that have been defined by NSY to support migration like the method below :
+### Command Line Method (Via NSY CLI)
+
+#### Show list of Migration Class file
+
+```sh
+nsy show:migrate
+```
+
+#### Executes All Migration Class file
+
+```sh
+nsy run:migrate all
+```
+
+#### Executes the Selected Migration Class file
+
+```text
+nsy run:migrate list
+
+result :
+1) crud_table_05062024_163642.php
+2) Migration_Test.php
+Select a migration class from the above list: 
+```
+
+Just type in the number of the migration file you want to run, then press enter key.
+
+```text
+result :
+1) crud_table_05062024_163642.php
+2) Migration_Test.php
+Select a migration class from the above list: 1
+```
+
+---
+
+Well, in that function, you can fill it with some help methods that have been defined by NSY to support migration like the method below :
 
 ## Create database
 
