@@ -4,7 +4,7 @@
 
 ## Primary & Secondary Database Connections
 
-NSY has supported 2 database connections in one running application.
+NSY supports multiple database connections in one running application.
 
 You can see the `env` in root directory. There seems to be a configuration like this :
 
