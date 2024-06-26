@@ -278,11 +278,15 @@ The statement below is used to create indexes in tables.
 Indexes are used to retrieve data from the database more quickly than otherwise. The users cannot see the indexes, they are just used to speed up searches/queries.
 
 ```php
-Mig::connect()->index('table_name', 'index_type', 'table_field_name');
+->index('index_type', 'table_field_name');
  ```
 
  **Example :**
 
  ```php
-Mig::connect()->index('table_mahasiswa', 'BTREE', 'no_npm');
+->index('BTREE', 'no_npm');
+
+or 
+
+->index('BTREE', ['salescode', 'customercode']);
 ```
