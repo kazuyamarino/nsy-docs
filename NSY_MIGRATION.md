@@ -226,7 +226,7 @@ Mig::connect()->drop_cols('example_mysql', [
 ]);
 ```
 
-**Rename columns with data type (mysql/mariadb) :**
+**Rename columns with datatype (mysql/mariadb) :**
 
 ```php
 Mig::connect()->change_cols('example_mysql', [
