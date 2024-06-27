@@ -284,9 +284,23 @@ Indexes are used to retrieve data from the database more quickly than otherwise.
  **Example :**
 
  ```php
-->index('BTREE', 'no_npm');
+ Mig::connect()->create_table('example_mysql', [
+  Mig::bigint('id', 20)->auto_increment(),
+  Mig::text('address')->null(),
+  Mig::varchar('name')->null(),
+  Mig::varchar('sales_code')->null(),
+  Mig::varchar('customer_code')->null(),
+  Mig::primary('id')
+])->index('BTREE', 'sales_code');
 
 or 
 
-->index('BTREE', ['salescode', 'customercode']);
+Mig::connect()->create_table('example_mysql', [
+  Mig::bigint('id', 20)->auto_increment(),
+  Mig::text('address')->null(),
+  Mig::varchar('name')->null(),
+  Mig::varchar('sales_code')->null(),
+  Mig::varchar('customer_code')->null(),
+  Mig::primary('id')
+])->index('BTREE', ['sales_code', 'customer_code']);
 ```
